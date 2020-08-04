@@ -6,7 +6,7 @@ export interface Database {
     token?: string
   ): void;
   fetchOneById(req: Request, res: Response): void;
-  fetchOneForLogIn(req: Request, res: Response): void;
+  fetchOneForLogIn(insertObject: { email: string; password: string }): void;
   fetchMany(req: Request, res: Response): void;
   updateOne(req: Request, res: Response): void;
   fetchOneFiltered(req: Request, res: Response, filter: object): void;

@@ -85,29 +85,32 @@ export class Mongo implements Database {
       });
   };
 
-  fetchOneForLogIn = (req: Request, res: Response) => {
-    const { password, email } = req.body;
+  fetchOneForLogIn = async (insertObject: {
+    email: string;
+    password: string;
+  }) => {
+    const { password, email } = insertObject;
 
-    getDb()
+    return await getDb()
       .db(dbName)
       .collection(this.collection)
       .findOne({ email })
-      .then((response: { password: string }) => {
+      .then(async (response: LoginUser) => {
         if (!response) {
-          res.send({ message: 'Incorrect email' });
-          return;
+          return { message: 'Incorrect email' };
         }
-        bcrypt.compare(password, response.password).then((result: boolean) => {
-          if (!result) {
-            res.send({ message: 'Incorrect password' });
-            return;
-          }
-
-          res.send({ response });
-        });
+        const passwordIsCorrect = await bcrypt.compare(
+          password,
+          response.password
+        );
+        if (!passwordIsCorrect) {
+          return { message: 'Incorrect password' };
+        } else {
+          return response;
+        }
       })
       .catch((err) => {
-        res.status(500).send({ message: err.message });
+        return { message: err.message };
       });
   };
 

@@ -36,9 +36,6 @@ describe('Mongo Authentication Operations', () => {
         _id: expect.any(ObjectId),
       })
     );
-    const compareHashedPassword = await bcrypt.compare('123456', user.password);
-
-    expect(compareHashedPassword).toBe(true);
   });
 
   it('should return the users password hashed', async () => {
@@ -50,5 +47,61 @@ describe('Mongo Authentication Operations', () => {
     const compareHashedPassword = await bcrypt.compare('123456', user.password);
 
     expect(compareHashedPassword).toBe(true);
+  });
+
+  it('should return the users information when password and email are correct', async () => {
+    await testdb.insertOneEmailAndPassword({
+      email: 'test@example.com',
+      password: '123456',
+    });
+
+    const login = await testdb.fetchOneForLogIn({
+      email: 'test@example.com',
+      password: '123456',
+    });
+
+    expect(login).toEqual(
+      expect.objectContaining({
+        email: 'test@example.com',
+        password: expect.any(String),
+        _id: expect.any(ObjectId),
+      })
+    );
+  });
+
+  it('should return the message "Incorrect email" for incorrect email', async () => {
+    await testdb.insertOneEmailAndPassword({
+      email: 'test@example.com',
+      password: '123456',
+    });
+
+    const login = await testdb.fetchOneForLogIn({
+      email: 'wrong@example.com',
+      password: '123456',
+    });
+
+    expect(login).toEqual(
+      expect.objectContaining({
+        message: 'Incorrect email',
+      })
+    );
+  });
+
+  it('should return the message "Incorrect password" for incorrect password', async () => {
+    await testdb.insertOneEmailAndPassword({
+      email: 'test@example.com',
+      password: '123456',
+    });
+
+    const login = await testdb.fetchOneForLogIn({
+      email: 'test@example.com',
+      password: '1234567',
+    });
+
+    expect(login).toEqual(
+      expect.objectContaining({
+        message: 'Incorrect password',
+      })
+    );
   });
 });
