@@ -8,11 +8,17 @@
     "npm": "6.14.4"
   },
   "scripts": {
-    "test": "jest",
-    "dev:run": "ts-node-dev --transpile-only --respawn --ignore-watch node_modules src/index.ts",
+    "test": "jest --detectOpenHandles ",
+    "dev:run": "ts-node-dev --transpile-only --respawn --ignore-watch node_modules src/server.ts",
     "dev:web": "npm run start --prefix ../web",
     "dev": "concurrently  npm:dev:*",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/server.ts"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "author": "Baxhen",
   "license": "ISC",
@@ -21,6 +27,7 @@
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.0",
+    "passport": "^0.4.1",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
   },
@@ -37,9 +44,12 @@
     "@types/jest": "^26.0.8",
     "@types/mongodb": "^3.5.25",
     "@types/node": "^14.0.27",
+    "@types/passport": "^1.0.4",
+    "@types/supertest": "^2.0.10",
     "concurrently": "^5.2.0",
     "dotenv": "^8.2.0",
     "jest": "^26.2.2",
+    "supertest": "^4.0.2",
     "ts-jest": "^26.1.4",
     "ts-node-dev": "^1.0.0-pre.56",
     "tsconfig-paths": "^3.9.0"

@@ -1,8 +1,10 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import bcrypt from 'bcrypt';
+import supertest from 'supertest';
 
 import { passDB, getDb, Mongo } from '../../src/database/Mongo';
 import { keys } from '../../src/config/config';
+import { app } from '../../src/';
 
 describe('Mongo Authentication Operations', () => {
   let testdb: Mongo;
@@ -101,6 +103,38 @@ describe('Mongo Authentication Operations', () => {
     expect(login).toEqual(
       expect.objectContaining({
         message: 'Incorrect password',
+      })
+    );
+  });
+
+  it('should create a user successfully returning 201 status and Message "User created successfully"', async () => {
+    const response = await supertest(app)
+      .post('/api/create/user')
+      .send({ email: 'test@example.com', password: '123456' });
+
+    const status = await response.status;
+
+    expect(status).toBe(201);
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        message: 'User created successfully',
+      })
+    );
+  });
+
+  it('should log in a user successfully returning 200 status and user model', async () => {
+    const response = await supertest(app)
+      .get('/api/fetch/user')
+      .send({ email: 'test@example.com', password: '123456' });
+    const status = await response.status;
+    const userModel = response.body;
+
+    expect(status).toBe(200);
+    expect(userModel).toEqual(
+      expect.objectContaining({
+        email: 'test@example.com',
+        password: expect.any(String),
+        _id: expect.any(String),
       })
     );
   });

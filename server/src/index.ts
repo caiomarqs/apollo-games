@@ -1,15 +1,14 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
+import passport from 'passport';
 
 import { keys } from './config/config';
 import { authRoutes } from './routes';
 import { serveReactAppIfInProduction } from './utils/express/serveReactAppIfInProduction';
-import { initDb } from './database/Mongo';
-import { MyError } from './utils/interfaces';
 
-const app = express();
-const { PORT, COOKIE_KEY } = keys;
+export const app = express();
+const { COOKIE_KEY } = keys;
 
 app.use(bodyParser.json());
 app.use(
@@ -22,10 +21,3 @@ app.use(
 app.use(authRoutes);
 
 serveReactAppIfInProduction(app);
-initDb((error: MyError) => {
-  if (error) {
-    console.log(error);
-  } else {
-    app.listen(PORT);
-  }
-});

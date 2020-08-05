@@ -1,15 +1,14 @@
-import { Request, Response } from 'express';
+import { UserState } from 'models/User';
+
 export interface Database {
-  insertOneEmailAndPassword(
-    insertObject: object,
-    res: Response,
-    token?: string
-  ): void;
-  fetchOneById(req: Request, res: Response): void;
-  fetchOneForLogIn(insertObject: { email: string; password: string }): void;
-  fetchMany(req: Request, res: Response): void;
-  updateOne(req: Request, res: Response): void;
-  fetchOneFiltered(req: Request, res: Response, filter: object): void;
+  insertOneEmailAndPassword<T extends UserState>(
+    insertObject: object
+  ): Promise<T>;
+
+  fetchOneForLogIn<T extends UserState>(insertObject: {
+    email: string;
+    password: string;
+  }): Promise<T | { message: string }>;
 }
 
 export interface MyCallback<T> {
