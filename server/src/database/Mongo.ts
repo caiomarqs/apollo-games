@@ -1,4 +1,4 @@
-import { InsertOneWriteOpResult, MongoError } from 'mongodb';
+import { InsertOneWriteOpResult, MongoError, ObjectId } from 'mongodb';
 import { MongoClient } from 'mongodb';
 import bcrypt from 'bcrypt';
 
@@ -71,23 +71,19 @@ export class Mongo implements Database {
     return await getDb()
       .db(dbName)
       .collection(this.collection)
-      .findOne({ email })
-      .then(async (response: T) => {
-        if (!response) {
-          return { message: 'Incorrect email' };
-        }
-        const passwordIsCorrect = await bcrypt.compare(
-          password,
-          response.password
-        );
-        if (!passwordIsCorrect) {
-          return { message: 'Incorrect password' };
-        } else {
-          return response;
-        }
+      .findOne({ email });
+  };
+
+  fetchOneById = async <T>(_id: ObjectId) => {
+    return await getDb()
+      .db(dbName)
+      .collection(this.collection)
+      .findOne({ _id })
+      .then((response: T) => {
+        return response;
       })
       .catch((err: MongoError) => {
-        return { message: err.message };
+        throw Error(err.message);
       });
   };
 }

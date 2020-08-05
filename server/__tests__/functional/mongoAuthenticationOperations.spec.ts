@@ -71,7 +71,7 @@ describe('Mongo Authentication Operations', () => {
     );
   });
 
-  it('should return the message "Incorrect email" for incorrect email', async () => {
+  it('should return the message null for incorrect email', async () => {
     await testdb.insertOneEmailAndPassword({
       email: 'test@example.com',
       password: '123456',
@@ -82,29 +82,7 @@ describe('Mongo Authentication Operations', () => {
       password: '123456',
     });
 
-    expect(login).toEqual(
-      expect.objectContaining({
-        message: 'Incorrect email',
-      })
-    );
-  });
-
-  it('should return the message "Incorrect password" for incorrect password', async () => {
-    await testdb.insertOneEmailAndPassword({
-      email: 'test@example.com',
-      password: '123456',
-    });
-
-    const login = await testdb.fetchOneForLogIn({
-      email: 'test@example.com',
-      password: '1234567',
-    });
-
-    expect(login).toEqual(
-      expect.objectContaining({
-        message: 'Incorrect password',
-      })
-    );
+    expect(login).toBe(null);
   });
 
   it('should create a user successfully returning 201 status and Message "User created successfully"', async () => {
@@ -127,8 +105,8 @@ describe('Mongo Authentication Operations', () => {
       .get('/api/fetch/user')
       .send({ email: 'test@example.com', password: '123456' });
     const status = await response.status;
-    const userModel = response.body;
-
+    const userModel = await response.body;
+    // console.log(response);
     expect(status).toBe(200);
     expect(userModel).toEqual(
       expect.objectContaining({
@@ -137,5 +115,23 @@ describe('Mongo Authentication Operations', () => {
         _id: expect.any(String),
       })
     );
+  });
+
+  it('should not log in a user when email are wrong and return 401 status', async () => {
+    const response = await supertest(app)
+      .get('/api/fetch/user')
+      .send({ email: 'est@example.com', password: '123456' });
+    const status = await response.status;
+
+    expect(status).toBe(401);
+  });
+
+  it('should not log in a user when password are wrong and return 401 status', async () => {
+    const response = await supertest(app)
+      .get('/api/fetch/user')
+      .send({ email: 'test@example.com', password: '1234567' });
+    const status = await response.status;
+
+    expect(status).toBe(401);
   });
 });

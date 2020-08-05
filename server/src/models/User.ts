@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { ObjectId } from 'mongodb';
+import bcrypt from 'bcrypt';
 
 import { Mongo } from '../database/Mongo';
 import { Database } from '../utils/interfaces';
@@ -38,12 +39,21 @@ export class User {
     }
   };
 
-  logUserIn = async (req: Request, res: Response) => {
-    const { email, password } = req.body as UserState;
+  logUserIn = async (email: string, password: string) => {
     const user = await this.database.fetchOneForLogIn<UserState>({
       email,
       password,
     });
-    res.status(200).send(user);
+    return user;
+  };
+
+  verifyPassword = async (password: string, hashedPassword: string) => {
+    const passwordIsCorrect = await bcrypt.compare(password, hashedPassword);
+    return passwordIsCorrect;
+  };
+
+  fetchUserById = async (_id: ObjectId) => {
+    const user = await this.database.fetchOneById<UserState>(_id);
+    return user;
   };
 }

@@ -1,4 +1,5 @@
 import { UserState } from 'models/User';
+import { ObjectId } from 'mongodb';
 
 export interface Database {
   insertOneEmailAndPassword<T extends UserState>(
@@ -8,7 +9,9 @@ export interface Database {
   fetchOneForLogIn<T extends UserState>(insertObject: {
     email: string;
     password: string;
-  }): Promise<T | { message: string }>;
+  }): Promise<T>;
+
+  fetchOneById<T>(_id: ObjectId): Promise<T>;
 }
 
 export interface MyCallback<T> {
