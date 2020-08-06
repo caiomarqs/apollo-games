@@ -102,7 +102,7 @@ describe('Mongo Authentication Operations', () => {
 
   it('should log in a user successfully returning 200 status and user model', async () => {
     const response = await supertest(app)
-      .get('/api/fetch/user')
+      .post('/api/fetch/user')
       .send({ email: 'test@example.com', password: '123456' });
     const status = await response.status;
     const userModel = await response.body;
@@ -117,21 +117,21 @@ describe('Mongo Authentication Operations', () => {
     );
   });
 
-  it('should not log in a user when email are wrong and return 401 status', async () => {
+  it('should not log in a user when email are wrong and return 302 status', async () => {
     const response = await supertest(app)
-      .get('/api/fetch/user')
+      .post('/api/fetch/user')
       .send({ email: 'est@example.com', password: '123456' });
     const status = await response.status;
 
-    expect(status).toBe(401);
+    expect(status).toBe(302);
   });
 
-  it('should not log in a user when password are wrong and return 401 status', async () => {
+  it('should not log in a user when password are wrong and return 302 status', async () => {
     const response = await supertest(app)
-      .get('/api/fetch/user')
+      .post('/api/fetch/user')
       .send({ email: 'test@example.com', password: '1234567' });
     const status = await response.status;
 
-    expect(status).toBe(401);
+    expect(status).toBe(302);
   });
 });

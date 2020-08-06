@@ -1,7 +1,7 @@
-import { SetTestOkayAction } from './test';
+import { LogUserInAction } from './auth';
 
 export enum ActionTypes {
-  setTestOkay,
+  logUserInAction,
 }
 
-export type Action = SetTestOkayAction;
+export type Action = LogUserInAction;

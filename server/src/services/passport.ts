@@ -38,7 +38,8 @@ passport.use(
         .logUserIn(email, password)
         .then(async (response: UserState) => {
           if (!response) {
-            return done(null, undefined);
+            req.flash('error');
+            return done(null, undefined, { message: 'Email inválido' });
           }
           const passwordIsCorrect = await user.verifyPassword(
             password,
@@ -46,7 +47,8 @@ passport.use(
           );
 
           if (!passwordIsCorrect) {
-            return done(null, undefined);
+            req.flash('error');
+            return done(null, undefined, { message: 'Senha inválida' });
           }
           return done(null, response);
         });

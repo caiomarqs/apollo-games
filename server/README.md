@@ -24,3 +24,8 @@
 ### Normal
 
 - Usuário normal pode apenas atualizar e adicionar membros
+
+### Não esquecer
+
+- [] Criar índice email único
+- [] Não criar usuários com email ja cadastrados
