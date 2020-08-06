@@ -1,11 +1,12 @@
 import React from 'react';
-import { Test } from './Test';
+
+import { Dashboard } from '../pages/Dashboard';
 
 export class App extends React.Component {
   render() {
     return (
       <div>
-        <Test />
+        <Dashboard />
       </div>
     );
   }

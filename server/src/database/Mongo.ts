@@ -1,5 +1,5 @@
 import { InsertOneWriteOpResult, MongoError, ObjectId } from 'mongodb';
-import { MongoClient } from 'mongodb';
+import { MongoClient, WithId } from 'mongodb';
 import bcrypt from 'bcrypt';
 
 import { keys } from '../config/config';
@@ -13,6 +13,10 @@ let db: MongoClient;
 export const passDB = (testdb: MongoClient) => {
   db = testdb;
 };
+
+interface HasId {
+  _id: string;
+}
 
 export const initDb = (callback: MyCallback<MongoClient>) => {
   if (db) {
@@ -84,6 +88,40 @@ export class Mongo implements Database {
       })
       .catch((err: MongoError) => {
         throw Error(err.message);
+      });
+  };
+
+  insertOne = async <T>(insertObject: T) => {
+    return await getDb()
+      .db(dbName)
+      .collection(this.collection)
+      .insertOne(insertObject)
+      .then((response: InsertOneWriteOpResult<WithId<T>>) => {
+        return response.ops[0];
+      });
+  };
+
+  findManyByFilter = async <T>(field: { [key: string]: string }) => {
+    return await getDb()
+      .db(dbName)
+      .collection(this.collection)
+      .find<T>(field)
+      .toArray();
+  };
+
+  deleteOne = async (_id: ObjectId) => {
+    return await (
+      await getDb().db(dbName).collection(this.collection).deleteOne({ _id })
+    ).result;
+  };
+
+  updateOne = async <T>(_id: ObjectId, updatedObject: T) => {
+    return await await getDb()
+      .db(dbName)
+      .collection(this.collection)
+      .updateOne({ _id }, { $set: updatedObject })
+      .then((result) => {
+        return result;
       });
   };
 }
