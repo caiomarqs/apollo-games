@@ -1,0 +1,93 @@
+#principal {
+    width: 100%;
+    height: calc(100vh - 4.5rem);
+    @include linear-gradient-image(
+        "../../assets/img/principal_bg.jpeg",
+        to bottom,
+        rgba(27, 27, 27, 1) 0%,
+        rgba(32, 32, 32, 0.836) 48%,
+        rgba(34, 36, 37, 1) 98%
+    );
+    filter: grayscale(20%);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+    }
+
+    .brand-principal {
+        width: 22.5rem;
+    }
+
+    h4,
+    p {
+        color: $branco-000;
+    }
+
+    h4 {
+        margin-top: 2rem;
+        // width: 46.5rem;
+        text-align: center;
+    }
+
+    p {
+        width: 46.5rem;
+        height: 2.5rem;
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    @media (max-width: $max-md) {
+        @media (orientation: portrait) {
+            height: 150%;
+        }
+
+        @media (orientation: landscape) {
+            height: fit-content;
+
+            .brand-principal {
+                margin-top: 2rem;
+                margin-bottom: 0rem;
+            }
+        }
+
+        .container {
+            justify-content: left;
+            padding-bottom: 6em;
+        }
+
+        .brand-principal {
+            width: 264px;
+        }
+
+        h4,
+        p {
+            width: 100%;
+            margin-top: 0;
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .brand-principal {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    @media (max-width: $max-xs) {
+        .brand-principal {
+            width: 168px;
+        }
+
+        h4 {
+            font-size: $h5-font-size;
+            line-height: $h5-line-height;
+        }
+    }
+}

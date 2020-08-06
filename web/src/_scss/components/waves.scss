@@ -1,0 +1,37 @@
+.wave-container{
+    width: 100%;
+    margin: -0.25rem 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: inset 0 0.125rem 0 $preto-900;
+}
+
+.bg-black-200{
+    background-color: $preto-200;
+}
+
+.wave-inverted{
+    -webkit-transform: matrix(1,0,0,-1,0,0);
+    transform: matrix(1,0,0,-1,0,0);
+    
+}
+
+#wave-down {
+    vertical-align: top !important;
+    path{
+        fill: $preto-900;
+        @include animation(wave-down-animation 5s linear infinite alternate);
+    }
+}
+
+@include keyframes(wave-down-animation) {
+    0% {
+        d: path("M-0.00012207 0H1536.5V56C1536.5 56 1483 72 1328 72C1173 72 1133 32 1008 32C883 32 861 64 654 64C447 64 400.5 32 278 32C155.5 32 52.9999 72 26.4999 72C-0.00012207 72 -0.00012207 66.0034 -0.00012207 66.0034C-0.00012207 44.0023 -0.00012207 22.0011 -0.00012207 0Z");
+    }
+    50% {
+        d: path("M-0.00012207 0H1536.5V56C1536.5 56 1515 72 1360 72C1205 72 1165 32 1040 32C915 32 893 64 686 64C479 64 432.5 32 310 32C187.5 32 110.5 72 58.4999 72C6.5 72 -0.00012207 66.0034 -0.00012207 66.0034C-0.00012207 44.0023 -0.00012207 22.0011 -0.00012207 0Z");
+    }
+    100% {
+        d: path("M-0.00012207 0H1536.5V56C1536.5 56 1563 72 1408 72C1253 72 1213 32 1088 32C963 32 941 64 734 64C527 64 480.5 32 358 32C235.5 32 173 72 106.5 72C40 72 -0.00012207 59.5 -0.00012207 59.5C-0.00012207 37.4989 -0.00012207 22.0011 -0.00012207 0Z");
+    }
+}

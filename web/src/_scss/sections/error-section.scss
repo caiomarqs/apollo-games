@@ -1,0 +1,28 @@
+#error-section{
+    min-height: calc(100vh - (4.5rem + 23rem));
+    background-color: $preto-600;
+    
+    .container{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1, h4, p{
+        width: 46.5rem;
+        text-align: right;
+    }
+
+    @media (max-width: $max-sm){
+        h1, h4, p{
+            width: 100%;
+            text-align: center;
+        } 
+    }
+
+    color: $branco-000;
+
+}
+

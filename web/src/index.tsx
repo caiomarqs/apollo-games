@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { App } from './components/App';
 import { reducers } from './reducers';
+import './_scss/styles.scss'
 
 declare global {
   interface Window {

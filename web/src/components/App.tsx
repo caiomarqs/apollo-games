@@ -1,12 +1,19 @@
 import React from 'react';
-import { Test } from './Test';
+import NavBar from './NavBar'
+import FooterBar from './FooterBar'
+import Sections from './sections';
+import OverMenu from './OverMenu'
 
 export class App extends React.Component {
+
   render() {
     return (
-      <div>
-        <Test />
-      </div>
+      <>
+        <NavBar />
+        <OverMenu />
+        <Sections />
+        <FooterBar />
+      </>
     );
   }
 }

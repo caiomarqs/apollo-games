@@ -1,0 +1,223 @@
+#about {
+    width: 100%;
+    min-height: fit-content;
+    background-image: url("../../assets/contents/about_bg.svg");
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .container {
+        min-height: 55rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-title {
+        margin-top: 4.5rem;
+        margin-bottom: 3.625rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            color: $branco-200;
+            @include text-shadow(0rem, 0.1875rem, 0.875rem, rgba(0, 0, 0, 0.36));
+        }
+
+        p {
+            color: $branco-200;
+            margin-top: 16px;
+            @include text-shadow(0rem, 0.1875rem, 0.4375rem, rgba(0, 0, 0, 0.36));
+        }
+    }
+
+    .device-container {
+        width: 58.5rem;
+        min-height: 33rem;
+        border-radius: 2rem;
+        background-color: $preto-900;
+        @include box-shadow(0rem, 0.1875rem, 0.875rem, rgba(0, 0, 0, 0.36));
+        display: flex;
+
+        .device-left,
+        .device-right {
+            width: 6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .analogic,
+            .four-btns {
+                position: relative;
+            }
+
+            .analogic {
+                width: 3.5rem;
+                height: 3.5rem;
+                display: block;
+                background-image: url("../../assets/contents/anologic.svg");
+
+                &:first-of-type {
+                    top: 20%;
+                    left: 0%;
+                    @include animation(anologic-animation-left 1.5s ease-out infinite alternate);
+                }
+
+                &:last-of-type {
+                    top: 40%;
+                    left: 0%;
+                    @include animation(anologic-animation-right 1.5s ease-out infinite alternate);
+                }
+            }
+
+            .four-btns {
+                width: 66px;
+                height: 66px;
+                display: block;
+                background-image: url("../../assets/contents/four-btns.svg");
+
+                &:first-of-type {
+                    top: 20%;
+                    left: 0%;
+                }
+
+                &:last-of-type {
+                    top: 40%;
+                    left: 0%;
+                }
+            }
+        }
+
+        .device-left {
+            border-radius: 2rem 0 0 2rem;
+            background-color: #ff4848;
+        }
+
+        .device-right {
+            border-radius: 0 2rem 2rem 0;
+            background-color: #12cdf8;
+        }
+
+        .device-screen {
+            margin: 0.5rem;
+            flex: 1;
+            background-color: #000;
+            border-radius: 0.5rem;
+            padding: 16px;
+
+            .asci {
+                margin: 2rem 0 3rem 0;
+                text-align: center;
+            }
+
+            p {
+                color: $branco-200;
+                text-align: center;
+                line-height: 1.5rem;
+            }
+        }
+
+        .device-painel {
+            display: none;
+        }
+    }
+
+    @media (max-width: $max-sm) {
+        margin: -0.0625rem 0;
+    }
+
+    @media (max-width: $max-md) {
+        padding-bottom: 72px;
+
+        .device-container {
+            width: 100%;
+            border-radius: 1rem 1rem 3rem 1rem;
+            flex-direction: column;
+            padding: 8px;
+
+            .device-left,
+            .device-right {
+                display: none !important;
+            }
+
+            .device-screen {
+                width: 100%;
+                margin: 0;
+
+                .asci {
+                    width: 100%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .device-painel {
+                display: flex;
+                height: 7.75rem;
+                justify-content: space-around;
+                align-items: center;
+
+                .game-arrow,
+                .game-btns {
+                    display: block;
+                    position: relative;
+                }
+
+                .game-arrow {
+                    width: 3.75rem;
+                    height: 3.75rem;
+                    background-image: url('../../assets/contents/game-arrow.svg');
+                }
+
+                .game-btns {
+                    width: 70px;
+                    height: 40px;
+                    background-image: url('../../assets/contents/game-btns.svg');
+                }
+            }
+        }
+    }
+}
+
+@include keyframes(anologic-animation-left) {
+    0% {
+        top: 20%;
+        left: 0%;
+    }
+    25% {
+        top: 20%;
+        left: 5%;
+    }
+    75% {
+        top: 20%;
+        left: 5%;
+    }
+    100% {
+        top: 20%;
+        left: 0%;
+    }
+}
+
+@include keyframes(anologic-animation-right) {
+    0% {
+        top: 40%;
+        left: 0%;
+    }
+    40% {
+        top: 42%;
+        left: 0%;
+    }
+    80% {
+        top: 42%;
+        left: 0%;
+    }
+    100% {
+        top: 40%;
+        left: 0%;
+    }
+}

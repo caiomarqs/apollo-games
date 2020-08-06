@@ -1,0 +1,98 @@
+#over-menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: $preto-900;
+    z-index: 10;
+    top: 0;
+    left: 100%;
+    transition: left 0.5s ease;
+    padding: 1rem;
+
+}
+
+#close-over {
+    width: 28px;
+    height: 28px;
+    color: $branco-000;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+
+    span {
+        width: 28px;
+        height: 2px;
+        background-color: $branco-000;
+        display: block;
+        border-radius: 1px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: rotate(0deg);
+        opacity: 0%;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+}
+
+.rotate-45{
+    transform: rotate(45deg) !important;
+    opacity: 100% !important;
+}
+
+.rotate-135{
+    transform: rotate(135deg) !important;
+    opacity: 100% !important;
+}
+
+@media (max-width: $max-md) {
+    .custom-nav {
+        justify-content: start;
+        padding-top: 1rem;
+    }
+
+    .items-container {
+        display: none;
+    }
+
+    .hambuger-menu {
+        display: block;
+    }
+}
+
+.items-over{
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-self: end;
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+
+
+    li{
+        width: fit-content;
+        text-align: center;
+    }
+}
+
+.items-over>li>a{
+    color: $branco-000;
+    border-bottom: 2px solid transparent;
+    padding: .5rem 1rem;
+    font-size: $h5-font-size !important;
+    
+    &:hover{
+        transition: ease-in 0.2s;
+        filter: brightness(0.5);
+        border-bottom: 0.125rem solid $branco-000;
+    }
+    
+    &:active{
+        color: $branco-000;
+        border-bottom: 0.125rem  solid $branco-000;
+    }
+
+}

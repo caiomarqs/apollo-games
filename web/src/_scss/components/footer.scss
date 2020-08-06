@@ -1,0 +1,130 @@
+.footer {
+    width: 100%;
+    min-height: 23rem;
+    background-color: $preto-900;
+
+    .container {
+        padding-top: 3.25rem;
+        padding-bottom: 1.25rem;
+    }
+}
+
+.footer-items {
+    box-sizing: border-box;
+    margin: 0 0 1.75rem 0;
+
+    ul > li {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: $max-sm) {
+        padding: 0 0.5rem;
+    }
+}
+
+.footer-title {
+    font-weight: 700;
+    color: $azul-000;
+    margin-bottom: 1.75rem !important;
+    font-size: 1.0625rem;
+    text-transform: uppercase;
+}
+
+.footer-link {
+    color: $branco-000;
+    border-bottom: 0.125rem solid transparent;
+
+    &:hover {
+        color: $branco-000;
+        text-decoration: none;
+        transition: ease-in-out 0.2s;
+        filter: brightness(0.5);
+        border-bottom: 0.125rem solid $branco-000;
+    }
+
+    &:active {
+        color: $branco-000;
+        border-bottom: 0.125rem solid $branco-000;
+    }
+}
+
+.footer-brand {
+    margin-top: 0.75rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+
+    img {
+        width: 7rem;
+        display: inline-block;
+    }
+    img path {
+        fill: $cinza-200;
+    }
+
+    .caption-font {
+        color: $cinza-200;
+    }
+
+    .rights {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+
+    .dev {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dev > a {
+        align-self: flex-end;
+        display: inline-block;
+    }
+    .dev > .dev-title {
+        font-weight: 700;
+        color: $cinza-200;
+        font-size: 1.0625rem;
+        text-transform: uppercase;
+    }
+
+    .col-md {
+        padding: 0;
+    }
+
+    @media (max-width: $max-sm) {
+        .rights {
+            position: relative;
+            text-align: center;
+            top: 0;
+            transform: translateY(0);
+        }
+      
+        .footer-logo{
+            margin-top: 0.75rem;
+            text-align:center;
+        }
+
+        .dev {
+            text-align: center;
+            margin-top: 0.75rem;
+        }
+    
+        .dev > a {
+            align-self: center;
+            display: inline-block;
+        }
+
+        .dev > .dev-title {
+            font-weight: 700;
+            color: $cinza-200;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+    }
+}

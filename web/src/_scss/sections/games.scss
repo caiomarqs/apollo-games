@@ -1,0 +1,133 @@
+#games {
+    width: 100%;
+    min-height: 51rem;
+    background-color: $preto-900;
+
+    .container {
+        width: 100%;
+        height: fit-content;
+        padding-top: 4.5rem;
+    }
+
+    .games-title {
+        margin-bottom: 3.625rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            color: $branco-200;
+            @include text-shadow(0rem, 0.1875rem, 0.875rem, rgba(0, 0, 0, 0.36));
+        }
+
+        p {
+            color: $branco-200;
+            margin-top: 16px;
+            @include text-shadow(0rem, 0.1875rem, 0.4375rem, rgba(0, 0, 0, 0.36));
+        }
+    }
+
+    .games-cards {
+        margin-top: 16px;
+        align-self: center;
+        display: flex;
+        width: 45rem;
+        margin: auto;
+
+        .card {
+            display: flex;
+            width: 22.5rem;
+            height: 32rem;
+            background-color: $preto-900;
+            border-radius: 1rem;
+            box-shadow: 0px 0.1875rem 0.875rem rgba(0, 0, 0, 0.36);
+            transition: 0.3s ease-out;
+            position: relative;
+            left: 0rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;    
+            border: 4px solid;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            @include filter('saturate(0.25)');
+
+            h6,
+            p {
+                @include text-shadow(0rem, 0.1875rem, 0.1875rem, rgba(0, 0, 0, 0.36));
+                color: $branco-200;
+            }
+
+
+            &:first-child{
+                background-image: url('../../assets/img/aurora_dawn.gif');
+            }
+        }
+
+        .card:not(:first-child) {
+            margin-left: -3rem;
+            z-index: 10;
+        }
+
+        .card:hover {
+            transform: translateY(-0.75rem);
+            transition: 0.3s ease-out;
+            @include filter('saturate(0.8)');
+            cursor: pointer;
+        }
+
+        .card:hover ~ .card {
+            position: relative;
+            left: 4.5rem;
+            transition: 0.3s ease-out;
+        }
+    }
+
+    @media (max-width: $max-md) {
+        .games-cards {
+            margin-top: 16px;
+            align-self: center;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            flex-direction: column;
+            align-items: center;
+
+            .card {
+                max-width: 22.5rem;
+                width: 100%;
+                height: 32rem;
+                transition: unset;
+                position: relative;
+                left: 0rem;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 2rem;
+                z-index: 1;
+                
+                h6,
+                p {
+                    color: $branco-200;
+                }
+            }
+
+            .card:not(:first-child) {
+                margin-left: 0rem;
+                z-index: 1;
+            }
+
+            .card:hover {
+                transform: translateY(0rem);
+                transition: unset;
+            }
+
+            .card:hover ~ .card {
+                position: relative;
+                left: 0rem;
+                transition: unset;
+            }
+        }
+    }
+}
