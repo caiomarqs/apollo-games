@@ -3,8 +3,8 @@ import { MongoClient, WithId } from 'mongodb';
 import bcrypt from 'bcrypt';
 
 import { keys } from '../config/config';
-import { Database, MyCallback } from '@utils/interfaces';
-import { UserState } from 'models/User';
+import { Database, MyCallback } from '../utils/interfaces';
+import { UserState } from '../models/User';
 
 const url = keys.MONGO_URL;
 const dbName = keys.MONGO_DB_NAME;
@@ -110,13 +110,14 @@ export class Mongo implements Database {
   };
 
   deleteOne = async (_id: ObjectId) => {
-    return await (
-      await getDb().db(dbName).collection(this.collection).deleteOne({ _id })
-    ).result;
+    return await await getDb()
+      .db(dbName)
+      .collection(this.collection)
+      .deleteOne({ _id });
   };
 
   updateOne = async <T>(_id: ObjectId, updatedObject: T) => {
-    return await await getDb()
+    return await getDb()
       .db(dbName)
       .collection(this.collection)
       .updateOne({ _id }, { $set: updatedObject })

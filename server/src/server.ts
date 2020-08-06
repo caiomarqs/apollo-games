@@ -1,4 +1,4 @@
-import { app } from './index';
+import { app } from './app';
 import { initDb } from './database/Mongo';
 import { MyError } from './utils/interfaces';
 import { keys } from './config/config';

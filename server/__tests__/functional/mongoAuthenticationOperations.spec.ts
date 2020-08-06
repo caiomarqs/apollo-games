@@ -4,7 +4,7 @@ import supertest from 'supertest';
 
 import { passDB, getDb, Mongo } from '../../src/database/Mongo';
 import { keys } from '../../src/config/config';
-import { app } from '../../src/';
+import { app } from '../../src/app';
 
 describe('Mongo Authentication Operations', () => {
   let testdb: Mongo;
@@ -87,7 +87,7 @@ describe('Mongo Authentication Operations', () => {
 
   it('should create a user successfully returning 201 status and Message "User created successfully"', async () => {
     const response = await supertest(app)
-      .post('/api/create/user')
+      .post('/api/add/user')
       .send({ email: 'test@example.com', password: '123456' });
 
     const status = await response.status;
@@ -106,7 +106,7 @@ describe('Mongo Authentication Operations', () => {
       .send({ email: 'test@example.com', password: '123456' });
     const status = await response.status;
     const userModel = await response.body;
-    // console.log(response);
+
     expect(status).toBe(200);
     expect(userModel).toEqual(
       expect.objectContaining({

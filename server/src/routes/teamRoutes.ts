@@ -1,9 +1,20 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 
-import { User } from '../models/User';
 import { requireLogin } from '../middlewares/requireLogin';
+import { Team } from '../models/Team';
 
 export const teamRoutes = express.Router();
-const user = User.fromMongoDB();
+const team = Team.fromMongoDB();
 
-teamRoutes.post('/api/create/user', requireLogin, user.createUser);
+teamRoutes.post('/api/team/add/member', requireLogin, team.insertOneTeamMember);
+teamRoutes.get('/api/team/fetch', requireLogin, team.fetchAllMembersOfOneTeam);
+teamRoutes.patch(
+  '/api/team/update/member/:_id',
+  requireLogin,
+  team.updateOneTeamMember
+);
+teamRoutes.delete(
+  '/api/team/delete/member/:_id',
+  requireLogin,
+  team.deleteOneTeamMember
+);

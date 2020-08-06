@@ -1,11 +1,16 @@
-import { WithId } from 'mongodb';
+import {
+  WithId,
+  UpdateWriteOpResult,
+  DeleteWriteOpResultObject,
+} from 'mongodb';
 import { UserState } from 'models/User';
 import { ObjectId } from 'mongodb';
 
 export interface Database {
-  insertOneEmailAndPassword<T extends UserState>(
-    insertObject: object
-  ): Promise<T>;
+  insertOneEmailAndPassword<T extends UserState>(insertObject: {
+    email: string;
+    password: string;
+  }): Promise<UserState>;
 
   fetchOneForLogIn<T extends UserState>(insertObject: {
     email: string;
@@ -14,6 +19,9 @@ export interface Database {
 
   fetchOneById<T>(_id: ObjectId): Promise<T>;
   insertOne<T>(insertObject: T): Promise<WithId<T>>;
+  updateOne<T>(_id: ObjectId, updatedObject: T): Promise<UpdateWriteOpResult>;
+  deleteOne: (_id: ObjectId) => Promise<DeleteWriteOpResultObject>;
+  findManyByFilter: <T>(field: { [key: string]: string }) => Promise<T[]>;
 }
 
 export interface MyCallback<T> {

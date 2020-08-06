@@ -9,15 +9,15 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "baseUrl": "./src",
-    "paths": {
-      "@services/*": ["./services/*"],
-      "@middlewares/*": ["./middlewares/*"],
-      "@utils/*": ["./utils/*"],
-      "@database/*": ["./database/*"],
-      "@config/*": ["./config/*"]
-    }
+    "noImplicitAny": true
+    // "baseUrl": "./src",
+    // "paths": {
+    //   "@services/*": ["./services/*"],
+    //   "@middlewares/*": ["./middlewares/*"],
+    //   "@utils/*": ["./utils/*"],
+    //   "@database/*": ["./database/*"],
+    //   "@config/*": ["./config/*"]
+    // }
   },
   "include": ["src", "__tests__"]
 }

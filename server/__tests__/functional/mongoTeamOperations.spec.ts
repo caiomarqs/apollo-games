@@ -4,9 +4,8 @@ import supertest from 'supertest';
 
 import { passDB, getDb, Mongo } from '../../src/database/Mongo';
 import { keys } from '../../src/config/config';
-import { app } from '../../src/';
-import { TeamState } from '@utils/interfaces';
-import console from 'console';
+import { app } from '../../src/app';
+import { TeamState } from '../../src/utils/interfaces';
 
 describe('Mongo Authentication Operations', () => {
   let testdb: Mongo;
@@ -95,7 +94,7 @@ describe('Mongo Authentication Operations', () => {
 
     const result = await testdb.deleteOne(teamMember._id);
 
-    expect(result).toEqual(
+    expect(result.result).toEqual(
       expect.objectContaining({
         ok: 1,
         n: 1,
@@ -103,7 +102,7 @@ describe('Mongo Authentication Operations', () => {
     );
   });
 
-  it('should return all member of one team', async () => {
+  it('should return all members of one team', async () => {
     await testdb.insertOne<TeamState>({
       team: 'dev',
       name: 'Pedro Belluomini',
@@ -151,6 +150,140 @@ describe('Mongo Authentication Operations', () => {
           team: 'dev',
           name: 'Antonio Martins',
           _id: expect.any(ObjectId),
+        }),
+      ])
+    );
+  });
+
+  it('should add a member successfully returning 201 status and member model', async () => {
+    const response = await supertest(app)
+      .post('/api/team/add/member')
+      .send({
+        team: 'dev',
+        name: 'Pedro Belluomini',
+        img: 'Pedro_belluomini.jpg',
+        desc: 'Code Lead',
+        contacts: {
+          git: 'https://github.com/PedroHBell',
+          linkedin: 'https://www.linkedin.com/in/pedro-belluomini-987277169/',
+        },
+      });
+
+    const status = await response.status;
+
+    expect(status).toBe(201);
+    expect(response.body).toEqual({
+      team: 'dev',
+      name: 'Pedro Belluomini',
+      img: 'Pedro_belluomini.jpg',
+      desc: 'Code Lead',
+      contacts: {
+        git: 'https://github.com/PedroHBell',
+        linkedin: 'https://www.linkedin.com/in/pedro-belluomini-987277169/',
+      },
+      _id: expect.any(String),
+    });
+  });
+
+  it('should update a member successfully returning 204 status', async () => {
+    const member = await supertest(app)
+      .post('/api/team/add/member')
+      .send({
+        team: 'dev',
+        name: 'Pedro Belluomini',
+        img: 'Pedro_belluomini.jpg',
+        desc: 'Code Lead',
+        contacts: {
+          git: 'https://github.com/PedroHBell',
+          linkedin: 'https://www.linkedin.com/in/pedro-belluomini-987277169/',
+        },
+      });
+    const { _id } = await member.body;
+
+    const response = await supertest(app)
+      .patch(`/api/team/update/member/${_id}`)
+      .send({
+        name: 'Antonio Martins',
+      });
+
+    const status = await response.status;
+
+    expect(status).toBe(204);
+  });
+
+  it('should delete a member successfully returning 204 status', async () => {
+    const member = await supertest(app)
+      .post('/api/team/add/member')
+      .send({
+        team: 'dev',
+        name: 'Pedro Belluomini',
+        img: 'Pedro_belluomini.jpg',
+        desc: 'Code Lead',
+        contacts: {
+          git: 'https://github.com/PedroHBell',
+          linkedin: 'https://www.linkedin.com/in/pedro-belluomini-987277169/',
+        },
+      });
+    const { _id } = await member.body;
+
+    const response = await supertest(app)
+      .delete(`/api/team/delete/member/${_id}`)
+      .send({
+        _id,
+      });
+
+    const status = await response.status;
+
+    expect(status).toBe(204);
+  });
+
+  it('should return all members of one team returning 200 status', async () => {
+    await supertest(app)
+      .post('/api/team/add/member')
+      .send({
+        team: 'dev',
+        name: 'Pedro Belluomini',
+        img: 'Pedro_belluomini.jpg',
+        desc: 'Code Lead',
+        contacts: {
+          git: 'https://github.com/PedroHBell',
+          linkedin: 'https://www.linkedin.com/in/pedro-belluomini-987277169/',
+        },
+      });
+
+    await supertest(app)
+      .post('/api/team/add/member')
+      .send({
+        team: 'dev',
+        name: 'Antonio Martins',
+        img: 'Antonio_Martins.jpg',
+        desc: 'Code Lead',
+        contacts: {
+          git: 'https://github.com/tony2055',
+          linkedin:
+            'https://www.linkedin.com/in/antonio-henrique-soares-martins-665a61162/',
+        },
+      });
+
+    const response = await supertest(app).get('/api/team/fetch').send({
+      team: 'dev',
+    });
+
+    const status = await response.status;
+
+    expect(status).toBe(200);
+
+    expect(response.body).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          team: 'dev',
+          name: 'Pedro Belluomini',
+          _id: expect.any(String),
+        }),
+        expect.objectContaining({
+          team: 'dev',
+          name: 'Antonio Martins',
+          _id: expect.any(String),
         }),
       ])
     );
