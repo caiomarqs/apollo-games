@@ -6,7 +6,7 @@ import flash from 'connect-flash';
 
 import './services/passport';
 import { keys } from './config/config';
-import { authRoutes } from './routes';
+import { authRoutes, teamRoutes } from './routes';
 import { serveReactAppIfInProduction } from './utils/express/serveReactAppIfInProduction';
 
 export const app = express();
@@ -25,5 +25,6 @@ app.use(passport.session());
 app.use(flash());
 
 app.use(authRoutes);
+app.use(teamRoutes);
 
 serveReactAppIfInProduction(app);
