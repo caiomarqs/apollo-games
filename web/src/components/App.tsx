@@ -1,25 +1,28 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
-
+import NavBar from './NavBar';
+import FooterBar from './FooterBar';
+import Sections from './sections';
+import OverMenu from './OverMenu';
+import { Route, Router } from 'react-router-dom';
 import { history } from '../history';
-import { Dashboard } from '../pages/Dashboard';
 import { Login } from '../pages/Login';
+import { Dashboard } from '../pages/Dashboard';
 
 export class App extends React.Component {
   render() {
     return (
-      <div>
+      <>
         <Router history={history}>
-          <div className="container">
-            <Route path="/backend" exact component={Login}></Route>
-            <Route
-              path="/backend/dashboard"
-              exact
-              component={Dashboard}
-            ></Route>
-          </div>
+          <Route path="/backend" exact component={Login}></Route>
+          <Route path="/backend/dashboard" exact component={Dashboard}></Route>
+          <Route path="/" exact>
+            <NavBar />
+            <OverMenu />
+            <Sections />
+            <FooterBar />
+          </Route>
         </Router>
-      </div>
+      </>
     );
   }
 }

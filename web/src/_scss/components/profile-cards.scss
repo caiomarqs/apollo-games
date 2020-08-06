@@ -1,0 +1,105 @@
+.profiles-container{
+    padding: 6rem 6rem;
+    min-height: 512px;
+
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        li.profile-card{
+            width: 33%;
+            height: 96px;
+            border-radius: 8px;
+            background-color: $branco-400;
+            transition: box-shadow ease 0.2s;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+                            
+            .img-container {
+                min-width: 4.5rem;
+                min-height: 4.5rem;
+                border-radius: 50%;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                img{
+                    width: 100%;
+                }
+            }
+
+            .profile-info{
+                width: 100%;
+                height: 100%;
+                padding-left: 0.5rem;
+                
+                h6, .profile-desc{
+                    width: 100%;
+                    text-align: left;
+                    margin: 0;
+                }
+
+                .profile-desc{
+                    font-size: 0.875rem;
+                    margin-top: -0.25rem;
+                }
+
+                .badges-container{
+                    width: 100%;
+                    margin: 0;
+                    margin-top: .25rem;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .badge{
+                        min-width: 2rem;
+                        width: fit-content;
+                        height: 1.25rem;
+                        background-color: $cinza-200;
+                        display: block;
+                        color: $branco-200;
+                        font-size: 0.75rem;
+                        font-weight: 400;
+                        margin-right: 0.25rem;
+                        margin-top: 0.25rem;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+
+    @media (max-width: $max-md) {
+
+        padding: 6rem 0rem;
+
+
+        ul>li.profile-card{
+            width: 50%;
+        }
+
+
+    }
+
+    
+    @media (max-width: $max-sm) {
+        padding: 1rem 0rem;
+
+        ul>li.profile-card{
+            width: 100%;
+        }
+
+        
+    }
+
+    @media (max-width: 264px) {
+
+    }
+}

@@ -1,0 +1,72 @@
+#team {
+    width: 100%;
+    min-height: 54rem;
+    background-color: $branco-400;
+
+    .nav-tabs {
+        margin-top: 4rem;
+        min-height: 4.625rem;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        border-bottom: 0.0625rem solid $cinza-200;
+
+        h2 {
+            height: fit-content;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+
+        li > a {
+            color: $cinza-200;
+            background-color: transparent;
+            border: transparent 0px solid;
+        }
+
+        li > a:hover {
+            background-color: transparent;
+            border: transparent 0px solid;
+        }
+
+        li > a.active {
+            color: $preto-200;
+            background-color: transparent;
+            border: transparent 0px solid;
+        }
+    }
+
+
+    @media (max-width: $max-md) {
+        .nav-tabs {
+            display: flex;
+            flex-direction: unset;
+            flex-flow: row wrap;
+            margin-bottom: 1rem;
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            li {
+                flex: 1;
+                margin-bottom: 1rem;
+                a {
+                    padding: .5rem 0.125rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 264px) {
+        li {
+            width: 100% !important;
+            flex: unset !important;
+            margin-bottom: 1rem;
+        }
+    }
+}

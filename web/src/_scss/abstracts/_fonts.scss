@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+$font-family: 'Fira Code', monospace;
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, a {
+    font-family: $font-family !important;
+}
+
+$h1-font-size: 6rem;
+$h2-font-size: 3.75rem;
+$h3-font-size: 3rem;
+$h4-font-size: 2.125rem;
+$h5-font-size: 1.5rem;
+$h6-font-size: 1.25rem;
+
+$h1-line-height: 7.375rem;
+$h2-line-height: 4.625rem;
+$h3-line-height: 3.6875rem;
+$h4-line-height: 2.625rem;
+$h5-line-height: 1.875rem;
+$h6-line-height: 1.5625rem;
+
+//Titles
+h1{
+    font-style: normal;
+    font-weight: 600;
+    font-size: $h1-font-size;
+    line-height: $h1-line-height;
+}
+
+h2{
+    font-style: normal;
+    font-weight: 600;
+    font-size: $h2-font-size;
+    line-height: $h2-line-height;
+}
+
+h3{
+    font-family: Fira Code;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $h3-font-size;
+    line-height: $h3-line-height;
+}
+
+h4{
+    font-style: normal;
+    font-weight: 600;
+    font-size: $h4-font-size;
+    line-height: $h4-line-height;
+}
+
+h5{
+    font-style: normal;
+    font-weight: 600;
+    font-size: $h5-font-size;
+    line-height: $h5-line-height;
+}
+
+h6{
+    font-style: normal;
+    font-weight: 600;
+    font-size: $h6-font-size;
+    line-height: $h6-line-height;
+}
+
+p, .body-regular{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.body-semi-bold{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.sub-regular{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.sub-bold{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.btn-font{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+}
+
+.caption-font{
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 15px;   
+    letter-spacing: 0.004em;
+}
+
+.overline-font{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.015em;
+}
