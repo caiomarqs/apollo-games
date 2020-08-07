@@ -8,11 +8,6 @@ export class Dashboard extends React.Component {
       <div>
         <a href="/api/logout">Log Out</a>
         <TeamsTab />
-        {/* <Team team="dev" />
-        <Team team="sound" />
-        <Team team="prod" />
-        <Team team="art" />
-        <Team team="game" /> */}
       </div>
     );
   }
