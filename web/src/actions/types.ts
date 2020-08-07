@@ -1,7 +1,9 @@
 import { LogUserInAction } from './auth';
+import { FetchTeamAction } from './team';
 
 export enum ActionTypes {
-  logUserInAction,
+  logUserIn,
+  fetchTeam,
 }
 
-export type Action = LogUserInAction;
+export type Action = LogUserInAction | FetchTeamAction;

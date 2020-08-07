@@ -12,7 +12,7 @@ export interface User {
 }
 
 export interface LogUserInAction {
-  type: ActionTypes.logUserInAction;
+  type: ActionTypes.logUserIn;
   payload: User;
 }
 
@@ -21,7 +21,7 @@ export const logUserIn = (userData: User) => async (dispatch: Dispatch) => {
     const response = await axios.post<User>('/api/fetch/user', userData);
 
     dispatch<LogUserInAction>({
-      type: ActionTypes.logUserInAction,
+      type: ActionTypes.logUserIn,
       payload: response.data,
     });
 

@@ -1,12 +1,10 @@
 import React from 'react';
-import NavBar from './NavBar';
-import FooterBar from './FooterBar';
-import Sections from './sections';
-import OverMenu from './OverMenu';
 import { Route, Router } from 'react-router-dom';
+
 import { history } from '../history';
 import { Login } from '../pages/Login';
 import { Dashboard } from '../pages/Dashboard';
+import { Landing } from '../pages/Landing';
 
 export class App extends React.Component {
   render() {
@@ -15,12 +13,7 @@ export class App extends React.Component {
         <Router history={history}>
           <Route path="/backend" exact component={Login}></Route>
           <Route path="/backend/dashboard" exact component={Dashboard}></Route>
-          <Route path="/" exact>
-            <NavBar />
-            <OverMenu />
-            <Sections />
-            <FooterBar />
-          </Route>
+          <Route path="/" component={Landing} exact></Route>
         </Router>
       </>
     );

@@ -264,10 +264,8 @@ describe('Mongo Authentication Operations', () => {
             'https://www.linkedin.com/in/antonio-henrique-soares-martins-665a61162/',
         },
       });
-
-    const response = await supertest(app).get('/api/team/fetch').send({
-      team: 'dev',
-    });
+    const team = 'dev';
+    const response = await supertest(app).get(`/api/team/fetch/${team}`);
 
     const status = await response.status;
 

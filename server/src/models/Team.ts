@@ -60,7 +60,7 @@ export class Team {
   };
 
   fetchAllMembersOfOneTeam = async (req: Request, res: Response) => {
-    const { team } = req.body;
+    const { team } = req.params;
 
     try {
       const response = await this.database.findManyByFilter<TeamState>({
