@@ -1,0 +1,23 @@
+.loginPage {
+    width: 100%;
+    height: 100vh;
+    background-color: $branco-400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p{
+        position: absolute;
+        bottom: 36px;
+    }
+
+
+    @media (max-width: $max-sm) {
+        padding: 0 2rem;
+    }
+
+    @media (max-width: $max-xs) {
+        padding: 0 1rem;
+    }
+}

@@ -164,10 +164,24 @@
 //     ::-o-scrollbar: #{$str};
 // }
 
-@mixin  filter($str) {
+@mixin filter($str) {
     -webkit-filter: #{$str};
     -moz-filter: #{$str};
     -o-filter: #{$str};
     -ms-filter: #{$str};
     filter: #{$str};
+}
+
+@mixin placeholeder-color($str) {
+    &::placeholder {
+        color: #{$str};
+    }
+
+    &:-ms-input-placeholder {
+        color: #{$str};
+    }
+
+    &::-ms-input-placeholder {
+        color: #{$str};
+    }
 }

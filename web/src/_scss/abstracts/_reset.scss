@@ -42,3 +42,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+#root{
+  padding: 0;
+  &:last-child{
+    padding-bottom: 0;
+  }
+}
+
