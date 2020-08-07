@@ -3,11 +3,11 @@ import { reducer as formReducer } from 'redux-form';
 
 import { authReducer } from './authReducer';
 import { teamReducer } from './teamReducer';
-import { User, Team } from '../actions';
+import { User, TeamState } from '../actions';
 
 export interface StoreState {
   auth: User;
-  teams: { [key: string]: Team[] };
+  teams: { [key: string]: TeamState[] };
 }
 
 export const reducers = combineReducers({

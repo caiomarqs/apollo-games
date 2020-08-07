@@ -39,6 +39,7 @@ export const fetchTeam = (team: string) => async (dispatch: Dispatch) => {
       type: ActionTypes.fetchTeam,
       payload: res,
     });
+    
   } catch (error) {
     console.log(error);
   }
