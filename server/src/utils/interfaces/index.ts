@@ -3,7 +3,7 @@ import {
   UpdateWriteOpResult,
   DeleteWriteOpResultObject,
 } from 'mongodb';
-import { UserState } from 'models/User';
+import { UserState } from '../../models/User';
 import { ObjectId } from 'mongodb';
 
 export interface Database {

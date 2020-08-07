@@ -2,7 +2,8 @@ import React from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import _ from 'lodash';
 
-import { Team } from './Team';
+import { Team } from './teams/Team';
+import { history } from '../../history';
 
 interface TeamsTabProps {}
 
@@ -18,9 +19,14 @@ export class TeamsTab extends React.Component<TeamsTabProps> {
   state = {
     key: 'dev',
   };
+
+  onAddButtonClicked = () => {
+    history.push('/backend/dashboard/team/add/member');
+  };
   render() {
     return (
       <div>
+        <button onClick={this.onAddButtonClicked}>Add</button>
         <Tabs
           activeKey={this.state.key}
           onSelect={(k) => this.setState({ key: k })}

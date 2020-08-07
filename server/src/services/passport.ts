@@ -15,7 +15,7 @@ passport.serializeUser<UserState, ObjectId>(
 
 passport.deserializeUser<UserState, ObjectId>(
   (_id: ObjectId, done: (err: any, user?: UserState) => void) => {
-    user.fetchUserById(_id).then((user: UserState) => {
+    user.fetchUserById(new ObjectId(_id)).then((user: UserState) => {
       done(undefined, user);
     });
   }
