@@ -15,7 +15,7 @@ const tabs = [
   { key: 'game', title: 'Game Design' },
 ];
 
-export default class TeamsTab extends React.Component<TeamsTabProps> {
+export class TeamsTab extends React.Component<TeamsTabProps> {
   state = {
     key: 'dev',
   };

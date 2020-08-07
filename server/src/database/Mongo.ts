@@ -109,6 +109,14 @@ export class Mongo implements Database {
       .toArray();
   };
 
+  findMany = async <T>() => {
+    return await getDb()
+      .db(dbName)
+      .collection(this.collection)
+      .find<T>()
+      .toArray();
+  };
+
   deleteOne = async (_id: ObjectId) => {
     return await await getDb()
       .db(dbName)

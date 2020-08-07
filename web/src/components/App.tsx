@@ -13,18 +13,18 @@ export class App extends React.Component {
     return (
       <>
         <Router history={history}>
-          <Route path="/backend" exact component={Login}></Route>
-          <Route path="/backend/dashboard" exact component={Dashboard}></Route>
+          <Route path="/backend" exact component={Login} />
+          <Route path="/backend/dashboard" exact component={Dashboard} />
           <Route
             path="/backend/dashboard/team/add/member"
             exact
             component={AddTeamForm}
-          ></Route>
+          />
           <Route
             path="/backend/dashboard/team/update/member/:id/:team"
             exact
             component={UpdateTeamForm}
-          ></Route>
+          />
           <Route path="/" component={Landing} exact></Route>
         </Router>
       </>
