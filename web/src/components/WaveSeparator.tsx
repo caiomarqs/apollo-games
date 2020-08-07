@@ -5,7 +5,7 @@ type WavesProps = {
     bg?: string
 }
 
-const Waves = (props: WavesProps) => {
+const WaveSeparator = (props: WavesProps) => {
     
     let defaultClass = "wave-container"
 
@@ -30,4 +30,4 @@ const Waves = (props: WavesProps) => {
     
 }
 
-export default Waves
+export default WaveSeparator

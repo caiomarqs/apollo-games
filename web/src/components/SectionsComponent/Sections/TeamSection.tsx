@@ -1,7 +1,7 @@
 import React from 'react';
-import TeamTabs from './TeamTabs';
+import TeamTabs from '../../TeamTabsComponent/TeamTabs';
 
-const Team = () => {
+const TeamSection = () => {
   return (
     <>
       <div id="team">
@@ -13,4 +13,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default TeamSection;

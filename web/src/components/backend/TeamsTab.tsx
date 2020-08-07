@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, Tab } from 'react-bootstrap';
+// import { Tabs, Tab } from 'react-bootstrap';
 import _ from 'lodash';
 
 import { Team } from './teams/Team';
@@ -27,7 +27,7 @@ export default class TeamsTab extends React.Component<TeamsTabProps> {
     return (
       <div>
         <button onClick={this.onAddButtonClicked}>Add</button>
-        <Tabs
+        {/* <Tabs
           activeKey={this.state.key}
           onSelect={(k) => this.setState({ key: k })}
           id="controlled-tab-example"
@@ -39,7 +39,7 @@ export default class TeamsTab extends React.Component<TeamsTabProps> {
               </Tab>
             );
           })}
-        </Tabs>
+        </Tabs> */}
       </div>
     );
   }

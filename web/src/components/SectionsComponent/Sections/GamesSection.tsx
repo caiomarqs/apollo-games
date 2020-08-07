@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Games = () => {
+const GamesSection = () => {
     return (
         <>
             <div id="games">
@@ -25,4 +25,4 @@ const Games = () => {
     )
 }
 
-export default Games
+export default GamesSection

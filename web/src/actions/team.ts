@@ -3,7 +3,6 @@ import { Dispatch } from 'redux';
 import _ from 'lodash';
 
 import { ActionTypes } from './types';
-import { StoreState } from '../reducers';
 import { history } from '../history';
 
 export interface TeamState {

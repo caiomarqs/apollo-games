@@ -2,7 +2,7 @@ import React from 'react';
 
 import NavBar from '../components/NavBar';
 import OverMenu from '../components/OverMenu';
-import Sections from '../components/sections';
+import Sections from '../components/SectionsComponent';
 import FooterBar from '../components/FooterBar';
 
 export class Landing extends React.Component {

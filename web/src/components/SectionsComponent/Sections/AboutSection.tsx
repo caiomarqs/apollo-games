@@ -1,6 +1,6 @@
 import React from 'react'
 
-const About = () => {
+const AboutSection = () => {
     return (
         <>
             <div id="about">
@@ -16,7 +16,7 @@ const About = () => {
                         </div>
                         <div className="device-screen">
                             <div className="asci noselect">
-                                <img src={require('../../assets/contents/anim_apollo.gif')} alt="Appolo Gif Anmation" />
+                                <img src={require('../../../assets/contents/anim_apollo.gif')} alt="Appolo Gif Anmation" />
                             </div>
                             <p>
                                 Olá ! Localizados em São Paulo, somos um time apaixonado e preparado para criar universos
@@ -43,4 +43,4 @@ const About = () => {
     )
 }
 
-export default About
+export default AboutSection

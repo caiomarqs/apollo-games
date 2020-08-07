@@ -34,12 +34,12 @@ const compileProfileImage = (img: string | undefined) => {
     let defaultImg =
         <div
             className="img-container"
-            style={{ backgroundImage: `url(${require('../../../assets/img/principal_bg.jpeg')})` }}
+            style={{ backgroundImage: `url(${require('../../assets/img/principal_bg.jpeg')})` }}
         />
 
     if (img) {
         
-        const imgLocal =  require(`../../../assets/profiles/${img}`)
+        const imgLocal =  require(`../../assets/profiles/${img}`)
 
         defaultImg =
             <div

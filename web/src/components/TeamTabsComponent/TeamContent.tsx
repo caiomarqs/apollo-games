@@ -1,9 +1,8 @@
 import React from 'react'
 import CardList from './CardsMember'
 import { connect } from 'react-redux';
-import _ from 'lodash';
-import { StoreState } from '../../../reducers';
-import { fetchTeam, TeamState } from '../../../actions';
+import { StoreState } from '../../reducers';
+import { fetchTeam, TeamState } from '../../actions';
 
 
 interface TeamProps {
@@ -29,7 +28,7 @@ class _Team extends React.Component<TeamProps> {
     renderTeams = () => {
         const { teams, team } = this.props
 
-        if(team == this.props.active){
+        if(team === this.props.active){
             this.activeTeam()
         }
         
