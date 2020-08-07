@@ -22,12 +22,23 @@ export interface Database {
   updateOne<T>(_id: ObjectId, updatedObject: T): Promise<UpdateWriteOpResult>;
   deleteOne: (_id: ObjectId) => Promise<DeleteWriteOpResultObject>;
   findManyByFilter: <T>(field: { [key: string]: string }) => Promise<T[]>;
+  findMany: <T>() => Promise<T[]>;
 }
 
 export interface MyCallback<T> {
   (error: MyError, result: T): void;
 }
 export type MyError = Error | null;
+
+export interface SlideState {
+  img: string;
+  title: string;
+  subtitle: string;
+  button: {
+    link: string;
+    text: string;
+  };
+}
 
 export interface TeamState {
   team: string;

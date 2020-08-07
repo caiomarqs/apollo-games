@@ -12,6 +12,13 @@
 - [x] Rota para atualizar membro de um time
 - [x] Rota para apagar membro de um time
 
+## Slides
+
+- [x] Rota para adicionar slide
+- [x] Rota para retornar todos os slides
+- [x] Rota para atualizar um slide
+- [x] Rota para apagar um slide
+
 ## Usuários
 
 ### Administrator

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TeamsTab from '../components/backend/TeamsTab';
+import { TeamsTab } from '../components/backend/TeamsTab';
 
 export class Dashboard extends React.Component {
   render() {
