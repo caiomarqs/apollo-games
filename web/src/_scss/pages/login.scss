@@ -9,7 +9,7 @@
 
     >p{
         position: absolute;
-        bottom: 36px;
+        bottom: 2.25rem;
     }
 
 
@@ -19,5 +19,14 @@
 
     @media (max-width: $max-xs) {
         padding: 0 1rem;
+    }
+
+    @media (orientation: landscape) {
+        height: 150vh;
+
+        >p{
+            position: relative;
+            top: 2.25rem;
+        }
     }
 }
