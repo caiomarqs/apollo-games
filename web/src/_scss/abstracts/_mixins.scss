@@ -180,8 +180,12 @@
     &:-ms-input-placeholder {
         color: #{$str};
     }
-
-    &::-ms-input-placeholder {
+    &:-moz-input-placeholder {
+        color: #{$str};
+    }
+    &:-o-scrollbar {
         color: #{$str};
     }
 }
+
+

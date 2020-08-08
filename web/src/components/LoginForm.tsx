@@ -13,16 +13,16 @@ interface LoginFormProps {
 
 const formFields = [
     {
-        label: 'Digite o seu email ',
+        label: 'Email',
         name: 'email',
         type: 'email',
-        noValueError: 'O  email é obrigatório',
+        noValueError: 'Digite seu email para fazer login',
     },
     {
-        label: 'Digite a sua senha',
+        label: 'Senha',
         name: 'password',
         type: 'password',
-        noValueError: 'A senha é obrigatória',
+        noValueError: 'Digite sua senha para fazer login',
     },
 ]
 
@@ -31,33 +31,24 @@ type fieldsType = { name: string; label: string; type: string }
 class _LoginForm extends React.Component<LoginFormProps & InjectedFormProps<{}, LoginFormProps>>{
     renderFields = () => {
         return _.map(formFields, ({ name, label, type }: fieldsType) => {
-                return (
-                    <Field
-                        key={name}
-                        component={InputField}
-                        type={type}
-                        label={label}
-                        name={name}
-                    />
-                )
-            }
-        )
+            return (
+                <Field key={name} component={InputField} type={type} label={label} name={name} />
+            )
+        })
     }
 
-
-
-
-
     render() {
+        
         const { handleSubmit, onLoginSubmit } = this.props
 
         return (
             <form
-                className="loginForm"
+                className="loginForm noselect"
                 onSubmit={handleSubmit((e) => onLoginSubmit(e as LoginFormValues))}
+                autoComplete="off"
             >
+                <img src={require('../assets/brand/apollo_logo_ext_white.svg')} alt="Logo Apollo"></img>
                 {this.renderFields()}
-
                 <button className='noselect' type="submit">Login</button>
             </form>
         )
@@ -65,14 +56,13 @@ class _LoginForm extends React.Component<LoginFormProps & InjectedFormProps<{}, 
 }
 
 const validate = (values: any) => {
+
     const errors = {} as any
     errors.recipients = validateEmail(values.recipients || '')
-    _.each(formFields, ({ name, noValueError }) => {
-        if (!values[name]) {
-            errors[name] = noValueError
-        }
+   
+    _.each(formFields, ({ name, noValueError }) => {     
+        if (!values[name]) errors[name] = noValueError
     })
-
     return errors
 }
 

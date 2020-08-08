@@ -1,5 +1,6 @@
 .loginForm {
-    width: 22.625rem;
+    position: relative;
+    width: 22.5rem;
     height: 27.5rem;
     border-radius: 1rem;
     background-color: $preto-900;
@@ -8,7 +9,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
+
+    img {
+        width: 9.9219rem;
+        height: 4.5rem;
+        margin: 2rem 0 0 0;
+    }
 
     button {
         border: none;
@@ -23,7 +30,19 @@
         line-height: 17px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        align-self: center;
+        position: absolute;
+        bottom: 2rem;
+        transition: ease-in-out 0.2s box-shadow;
+        transition: ease-in-out 0.2s filter;
+
+        &:hover{
+            @include box-shadow(0px, 0px, 7px, rgba(255, 255, 255, 0.192));
+        }
+
+        &:active{
+            filter: brightness(0.8);
+        }
+        
     }
 
     .loginInputField {
@@ -39,16 +58,54 @@
         font-style: normal;
         font-weight: normal;
         @include placeholeder-color($cinza-200);
+        margin-top: 3.5rem;
+        transition: ease-in-out 0.15s border;
+
+
+        &:first-of-type {
+            margin-top: 5rem;
+        }
+
+        &:focus{
+            border-bottom: 1px solid $branco-000;
+        }
     }
 
-    .inputError{
-        color: red;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+    .inputError {
+        position: absolute;
+        color: $error;
+        width: 100%;
+        text-align: left;
+        padding: 0 2rem;
+        
+        &:first-of-type{
+            top: 14.5rem
+        }
+
+        &:last-of-type{
+            top: 20.5rem;
+        }
     }
 
     @media (max-width: $max-sm) {
-        max-width: 22.625rem;
+        max-width: 22.5rem;
         width: 100%;
+
+    }
+
+    @media (max-width: 25rem) {
+        padding: 0 1.5rem;
+        
+        button{
+            width: calc(100% - 3rem);
+        }
+
+        .loginInputField{
+            width: 100%;
+        }
+
+        .inputError{
+            padding: 0 1.5rem;
+        }
     }
 }

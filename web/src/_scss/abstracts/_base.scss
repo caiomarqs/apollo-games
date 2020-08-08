@@ -18,3 +18,19 @@
     filter: blur(0.125rem);
     z-index:999;
 }
+
+textarea:focus, input:focus, button:focus{
+    outline: none;
+}
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active{
+//     -webkit-box-shadow: 0 0 0 30px $preto-900 inset !important;
+//     box-shadow: 0 0 0 30px $preto-900 inset !important;
+//     -webkit-text-fill-color: $branco-200 !important;
+//     border: 1px solid transparent;
+//     border-bottom: 1px solid #ABABAB;
+//     outline: transparent;
+// }
