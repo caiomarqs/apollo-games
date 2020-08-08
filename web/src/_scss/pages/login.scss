@@ -1,17 +1,26 @@
 .loginPage {
     width: 100%;
-    height: 100vh;
+    height: calc( 100vh - 4.5rem);
     background-color: $branco-400;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    >p{
+    > p {
         position: absolute;
         bottom: 2.25rem;
     }
 
+    .loginError {
+        margin: 1rem 0;
+        color: $error;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 0.875rem;
+        line-height: 1.0625rem;
+        height: 1.0625rem;
+    }
 
     @media (max-width: $max-sm) {
         padding: 0 2rem;
@@ -21,12 +30,15 @@
         padding: 0 1rem;
     }
 
-    @media (orientation: landscape) {
-        height: 150vh;
+    @media (max-width: $max-md) {
+        @media (orientation: landscape) {
+            height: fit-content;
 
-        >p{
-            position: relative;
-            top: 2.25rem;
+            > p {
+                position: relative;
+                top: 2.25rem;
+                bottom: 0;
+            }
         }
     }
 }

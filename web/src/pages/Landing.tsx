@@ -1,15 +1,22 @@
 import React from 'react';
 
-import NavBar from '../components/NavBar';
 import OverMenu from '../components/OverMenu';
 import Sections from '../components/SectionsComponent';
 import FooterBar from '../components/FooterBar';
 
-export class Landing extends React.Component {
+interface LandingProps{
+  navHandler?: Function
+}
+
+export class Landing extends React.Component<LandingProps> {
+
+  componentDidMount(){
+    if(this.props.navHandler) this.props.navHandler()
+  }
+
   render() {
     return (
       <div>
-        <NavBar />
         <OverMenu />
         <Sections />
         <FooterBar />

@@ -21,11 +21,13 @@ class _LoginPage extends React.Component<LoginPageProps> {
     this.props.logUserIn(formValues)
   }
 
-  render(){
+  render() {
     const { message } = this.props; // OQE - Mensagem de erro
     return (
       <div className='loginPage'>
-        {message}
+        <span className="loginError noselect">
+          {message}
+        </span>
         <LoginForm onLoginSubmit={this.onLoginSubmit} />
         <p className='caption-font noselect'>© 2020 Apollo Games Lab - All rights reserved</p>
       </div>

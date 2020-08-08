@@ -1,13 +1,21 @@
 .custom-nav{
-    background-color: $preto-600;
-    min-height: 4.5rem;
+    height: 4.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+.dark-nav{
+    background-color: $preto-600;    
+    color: $branco-000;
+}
 
-.custom-brand>img{
+.white-nav{
+    background-color: $branco-400;
+    color: $preto-000;
+}
+
+.custom-brand>.logo{
     width: 5.511875rem;
     height: 2.5rem;
 }
