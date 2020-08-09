@@ -2,3 +2,4 @@ node_modules
 build
 .env.test
 .env.development
+__tests__
