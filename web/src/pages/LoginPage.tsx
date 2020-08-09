@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { LoginForm } from '../components/LoginForm'
+import { LoginForm } from '../components/LoginForm';
 import { logUserIn, User } from '../actions';
-import { StoreState } from '../reducers';
 
 export interface LoginFormValues {
   email: string;
@@ -11,33 +10,25 @@ export interface LoginFormValues {
 }
 
 interface LoginPageProps {
-  logUserIn(formValues: User): void;
-  message: string;
+  logUserIn(formValues: User): Promise<string | undefined>;
 }
 
 class _LoginPage extends React.Component<LoginPageProps> {
-
   onLoginSubmit = (formValues: LoginFormValues) => {
-    this.props.logUserIn(formValues)
-  }
+    const { logUserIn } = this.props;
+    return logUserIn(formValues);
+  };
 
   render() {
-    const { message } = this.props; // OQE - Mensagem de erro
     return (
-      <div className='loginPage'>
-        <span className="loginError noselect">
-          {message}
-        </span>
+      <div className="loginPage">
         <LoginForm onLoginSubmit={this.onLoginSubmit} />
-        <p className='caption-font noselect'>© 2020 Apollo Games Lab - All rights reserved</p>
+        <p className="caption-font noselect">
+          © 2020 Apollo Games Lab - All rights reserved
+        </p>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state: StoreState) => {
-  const message = state.auth.message as string
-  return { message }
-}
-
-export const LoginPage = connect(mapStateToProps, { logUserIn })(_LoginPage)
+export const LoginPage = connect(null, { logUserIn })(_LoginPage);

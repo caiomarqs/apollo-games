@@ -25,9 +25,13 @@ export const logUserIn = (userData: User) => async (dispatch: Dispatch) => {
       payload: response.data,
     });
 
-    if (!response.data.message) {
+    const message = response.data.message;
+
+    if (!message) {
       history.push('/backend/dashboard');
     }
+
+    return message;
   } catch (error) {
     console.log(error);
   }

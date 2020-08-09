@@ -1,19 +1,19 @@
 import React from 'react';
 // import { Tabs, Tab } from 'react-bootstrap';
-import _ from 'lodash';
+// import _ from 'lodash';
 
-import { Team } from './teams/Team';
+// import { Team } from './teams/Team';
 import { history } from '../../history';
 
 interface TeamsTabProps {}
 
-const tabs = [
-  { key: 'dev', title: 'Desenvolvimento' },
-  { key: 'sound', title: 'Audio' },
-  { key: 'prod', title: 'Produção' },
-  { key: 'art', title: 'Arte' },
-  { key: 'game', title: 'Game Design' },
-];
+// const tabs = [
+//   { key: 'dev', title: 'Desenvolvimento' },
+//   { key: 'sound', title: 'Audio' },
+//   { key: 'prod', title: 'Produção' },
+//   { key: 'art', title: 'Arte' },
+//   { key: 'game', title: 'Game Design' },
+// ];
 
 export class TeamsTab extends React.Component<TeamsTabProps> {
   state = {
