@@ -59,6 +59,7 @@ const compileBadges = (contacts: contacts | any) => {
     template = Object.keys(contacts).map((key) => {
       return (
         <a
+          key={key + 'a'}
           href={`${contacts[key]}`}
           target="_blank"
           className="badge"
@@ -80,16 +81,14 @@ const CardList = (props: props) => {
   let list: JSX.Element[] | undefined;
 
   if (props.profiles) {
-    list = props.profiles.map((profile) => {
+    list = props.profiles.map(({ name, desc, contacts, img }) => {
       return (
-        <li className="profile-card">
-          {compileProfileImage(profile.img)}
+        <li key={desc + name} className="profile-card">
+          {compileProfileImage(img)}
           <div className="profile-info">
-            <h6>{profile.name}</h6>
-            <p className="profile-desc">{profile.desc.valueOf()}</p>
-            {profile.contacts === undefined
-              ? ''
-              : compileBadges(profile.contacts)}
+            <h6>{name}</h6>
+            <p className="profile-desc">{desc.valueOf()}</p>
+            {contacts === undefined ? '' : compileBadges(contacts)}
           </div>
         </li>
       );
