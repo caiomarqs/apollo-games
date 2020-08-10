@@ -11,33 +11,23 @@ import { UpdateTeamForm } from './components/backend/teams/UpdateTeamForm';
 
 interface AppProps {}
 
-interface AppState {
-  // navTheme: NavBarThemes;
-  // navMenus: boolean;
-}
+interface AppState {}
 
 export class App extends React.Component<AppProps, AppState> {
-  // state = {
-  //   navTheme: NavBarThemes.WHITE,
-  //   navMenus: false,
-  // };
-
-  // constructor(props: AppProps) {
-  //   super(props);
-  //   this.navHandler = this.navHandler.bind(this);
-  // }
-
-  // navHandler() {
-  //   this.setState({ navTheme: NavBarThemes.DARK, navMenus: true });
-  // }
 
   render() {
     return (
       <>
         <NavBar />
         <Router history={history}>
-          <Route path="/backend" exact component={LoginPage} />
-          <Route path="/backend/dashboard" exact component={Dashboard} />
+          <Route 
+            path="/backend" 
+            exact 
+            component={LoginPage} />
+          <Route 
+            path="/backend/dashboard" 
+            exact 
+            component={Dashboard} />
           <Route
             path="/backend/dashboard/team/add/member"
             exact
