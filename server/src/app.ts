@@ -6,8 +6,14 @@ import flash from 'connect-flash';
 
 import './services/passport';
 import { keys } from './config/config';
-import { authRoutes, teamRoutes } from './routes';
+import {
+  authRoutes,
+  teamRoutes,
+  slideRoutes,
+  imageUploadRoutes,
+} from './routes';
 import { serveReactAppIfInProduction } from './utils/express/serveReactAppIfInProduction';
+import { serveUploadedImages } from './utils/express/serveUploadedImages';
 
 export const app = express();
 const { COOKIE_KEY } = keys;
@@ -26,5 +32,8 @@ app.use(flash());
 
 app.use(authRoutes);
 app.use(teamRoutes);
+app.use(slideRoutes);
+app.use(imageUploadRoutes);
 
 serveReactAppIfInProduction(app);
+serveUploadedImages(app);
