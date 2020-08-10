@@ -9,12 +9,12 @@ const upload = multer(multerConfig);
 
 imageUploadRoutes.post(
   '/api/service/images',
-  upload.single('image'),
+  upload.single('img'),
   (req: Request, res: Response, next: NextFunction) => {
     const file = req.file;
     if (!file) {
       res.status(400).send({ message: 'arquivo é obrigatório' });
     }
-    res.status(200).send(file.filename);
+    res.status(200).send('/uploads/' + file.filename);
   }
 );

@@ -5,6 +5,7 @@ interface Key {
   COOKIE_KEY: string;
   MONGO_URL: string;
   MONGO_DB_NAME: string;
+  APP_DOMAIN: string;
 }
 
 dotenv.config();
@@ -26,4 +27,5 @@ export const keys = {
   COOKIE_KEY: process.env.COOKIE_KEY,
   MONGO_URL: process.env.MONGO_URL,
   MONGO_DB_NAME: process.env.MONGO_DB_NAME,
+  APP_DOMAIN: process.env.APP_DOMAIN,
 } as Key;
