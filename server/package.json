@@ -12,8 +12,7 @@
     "dev:run": "ts-node-dev --transpile-only --respawn --ignore-watch node_modules src/server.ts",
     "dev:web": "npm run start --prefix ../web",
     "dev": "concurrently  npm:dev:*",
-    "start": "ts-node src/server.ts",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../client && npm run build --prefix ../client"
+    "start": "ts-node src/server.ts"
   },
   "jest": {
     "testEnvironment": "node",

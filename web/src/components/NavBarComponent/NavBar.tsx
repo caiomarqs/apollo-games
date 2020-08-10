@@ -1,20 +1,23 @@
 import React from 'react';
-import { Logo } from './Logo';
+import { connect } from 'react-redux';
 
-export enum NavBarThemes {
-  DARK = 'DARK',
-  WHITE = 'WHITE',
+import { Logo } from './Logo';
+import { navThemeEnum, Theme } from '../../actions';
+import { StoreState } from '../../reducers';
+
+// export enum NavBarThemes {
+//   DARK = 'DARK',
+//   WHITE = 'WHITE',
+// }
+
+interface NavBarProps {
+  overEmit?: boolean;
+  theme: Theme;
 }
 
-type props = {
-  overEmit?: boolean;
-  menus: boolean;
-  theme?: NavBarThemes;
-};
-
-export class NavBar extends React.Component<props> {
-  navColor = (theme: NavBarThemes | undefined) => {
-    if (theme) return theme === NavBarThemes.DARK ? 'dark-nav' : 'white-nav';
+class _NavBar extends React.Component<NavBarProps> {
+  navColor = (theme: navThemeEnum | undefined) => {
+    if (theme) return theme === navThemeEnum.DARK ? 'dark-nav' : 'white-nav';
   };
 
   renderItems = (render: boolean) => {
@@ -50,23 +53,33 @@ export class NavBar extends React.Component<props> {
   };
 
   render() {
-    const { theme } = this.props;
+    const {
+      theme: { navMenus, navTheme },
+    } = this.props;
 
     return (
       <>
         <div
           className={`noselect navbar navbar-dark custom-nav ${this.navColor(
-            theme
+            navTheme
           )}`}
         >
           <div className="container">
             <a className="custom-brand" href="/">
-              <Logo color={theme === NavBarThemes.DARK ? 'white' : 'black'} />
+              <Logo
+                color={navTheme === navThemeEnum.DARK ? 'white' : 'black'}
+              />
             </a>
-            {this.renderItems(this.props.menus)}
+            {this.renderItems(navMenus)}
           </div>
         </div>
       </>
     );
   }
 }
+
+const mapStateToProps = (state: StoreState) => {
+  return { theme: state.theme };
+};
+
+export const NavBar = connect(mapStateToProps)(_NavBar);
