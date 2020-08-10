@@ -35,7 +35,7 @@ const compileProfileImage = (img: string | undefined) => {
     <div
       className="img-container"
       style={{
-        backgroundImage: "url('https://i.ibb.co/0B5hKV0/principal-bg.jpg')",
+        backgroundImage: "url('/uploads/fb91a1e8a763-principal_bg.jpeg')",
       }}
     />
   );
