@@ -1,0 +1,29 @@
+.locales-buttons {
+    margin: 0 0 0 1rem;
+
+    .btn {
+        color: $branco-000;
+        background-color: $cinza-200;
+        border-color: $cinza-200;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        text-transform: lowercase;
+        transition: ease-in-out 0.1s filter;
+        filter: brightness(0.8);
+
+        &:hover {
+            cursor: pointer;
+            filter: brightness(1) !important;
+        }
+    }
+
+    .active {
+        filter: brightness(1) !important;
+    }
+
+    .focus {
+        box-shadow: none !important;
+    }
+}

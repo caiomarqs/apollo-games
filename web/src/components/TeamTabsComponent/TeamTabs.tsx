@@ -38,9 +38,9 @@ export default class TeamTabs extends React.Component<TeamsTabProps> {
           {/* Lodash map tabsKeys object to tabs whith title and keys */}
           {_.map(tabsKeys, ({ key, title }) => {
             return (
-              <li key={key + title} className="nav-item" role="presentation">
+              <li key={key} className="nav-item" role="presentation">
                 <a
-                  key={'a' + key}
+                  key={key}
                   className={`nav-link btn-font ${this.isFirst()}`}
                   id={`${key}-tab`}
                   data-toggle="tab"
@@ -60,7 +60,7 @@ export default class TeamTabs extends React.Component<TeamsTabProps> {
         <div className="tab-content" id="myTabContent">
           {_.map(tabsKeys, ({ key }) => {
             return (
-              <TeamContent key={key + 'team-content'} team={key} active="dev" />
+              <TeamContent key={key} team={key} active="dev" />
             );
           })}
         </div>

@@ -2,13 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { Logo } from './Logo';
+import { LocalesButtons } from './LocalesButtons'
 import { navThemeEnum, Theme } from '../../actions';
 import { StoreState } from '../../reducers';
-
-// export enum NavBarThemes {
-//   DARK = 'DARK',
-//   WHITE = 'WHITE',
-// }
 
 interface NavBarProps {
   overEmit?: boolean;
@@ -16,7 +12,8 @@ interface NavBarProps {
 }
 
 class _NavBar extends React.Component<NavBarProps> {
-  navColor = (theme: navThemeEnum | undefined) => {
+
+  navColor = (theme: navThemeEnum) => {
     if (theme) return theme === navThemeEnum.DARK ? 'dark-nav' : 'white-nav';
   };
 
@@ -44,6 +41,9 @@ class _NavBar extends React.Component<NavBarProps> {
               <a className="nav-link" href="#team">
                 time
               </a>
+            </li>
+            <li className="nav-item">
+              <LocalesButtons />
             </li>
           </ul>
         </>

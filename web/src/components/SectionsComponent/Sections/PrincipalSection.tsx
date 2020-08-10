@@ -1,17 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
 
-const PrincipalSection = () => {
-    return (
-        <>
+
+export class PrincipalSection extends React.Component {
+    render() {
+        return (
             <div id="principal">
                 <div className="container noselect">
                     <img src={require('../../../assets/brand/apollo_logo_white.svg')} className="brand-principal" alt="Apollo Logo" />
-                    <h4>O studio de games mais intrépido do mundo!</h4>
-                    <p>Há duas coisas infinitas: o Universo e a nossa vontade de fazer jogos.</p>
+                    <h4><FormattedMessage id="principal.titulo" /></h4>
+                    <p><FormattedMessage id="principal.p"/></p>
                 </div>
             </div>
-        </>
-    )
+        )
+    }
 }
 
-export default PrincipalSection

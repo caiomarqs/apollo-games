@@ -8,6 +8,7 @@ export interface ChangeThemeAction {
   type: ActionTypes.changeTheme;
   payload: Theme;
 }
+
 export enum navThemeEnum {
   DARK = 'DARK',
   WHITE = 'WHITE',

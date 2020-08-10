@@ -1,5 +1,5 @@
 import React from 'react'
-import PrincipalSection from './Sections/PrincipalSection'
+import { PrincipalSection } from './Sections/PrincipalSection'
 import WaveSeparator from '../WaveSeparator'
 import AboutSection from './Sections/AboutSection'
 import GamesSection from './Sections/GamesSection'

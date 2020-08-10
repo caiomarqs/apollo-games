@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { LocalesButtons } from './LocalesButtons'
 
 const OverMenu = () => {
     return (
@@ -17,6 +17,9 @@ const OverMenu = () => {
                 </li>
                 <li className="nav-item btn-font li-over">
                     <a className="nav-link" href="#team">time</a>
+                </li>
+                <li className="nav-item">
+                    <LocalesButtons />
                 </li>
             </ul>
         </div>

@@ -77,6 +77,7 @@ enum Desc {
   D_MODELER = '3D Modeler',
   GAMER_DESIGNER = 'Game Designer',
 }
+
 enum TeamNames {
   dev = 'dev',
   sound = 'sound',
