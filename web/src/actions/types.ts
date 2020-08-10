@@ -1,11 +1,11 @@
 import { LogUserInAction } from './auth';
 import { FetchTeamAction } from './team';
-import { SetInitialTheme } from './theme'
+import { ChangeThemeAction } from './theme';
 
 export enum ActionTypes {
   logUserIn,
   fetchTeam,
-  setIntialTheme
+  changeTheme,
 }
 
-export type Action = LogUserInAction | FetchTeamAction | SetInitialTheme;
+export type Action = LogUserInAction | FetchTeamAction | ChangeThemeAction;
