@@ -6,15 +6,11 @@ import { Slide } from '../models/Slide';
 export const slideRoutes = express.Router();
 const slide = Slide.fromMongoDB();
 
-slideRoutes.post('/api/slide/add/member', requireLogin, slide.insertOneSlide);
-slideRoutes.get('/api/slide/fetch/:slide', slide.fetchAllSlides);
-slideRoutes.patch(
-  '/api/slide/update/member/:_id',
-  requireLogin,
-  slide.updateOneSlide
-);
+slideRoutes.post('/api/slide/add', requireLogin, slide.insertOneSlide);
+slideRoutes.get('/api/slide/fetch', slide.fetchAllSlides);
+slideRoutes.patch('/api/slide/update/:_id', requireLogin, slide.updateOneSlide);
 slideRoutes.delete(
-  '/api/slide/delete/member/:_id',
+  '/api/slide/delete/:_id',
   requireLogin,
   slide.deleteOneSlide
 );

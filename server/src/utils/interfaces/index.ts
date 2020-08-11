@@ -30,6 +30,14 @@ export interface MyCallback<T> {
 }
 export type MyError = Error | null;
 
+export interface FlashAdState {
+  active: boolean;
+  img: string;
+  title: string;
+  description: string;
+  link: string;
+}
+
 export interface SlideState {
   img: string;
   title: string;

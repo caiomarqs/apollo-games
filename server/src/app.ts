@@ -11,6 +11,7 @@ import {
   teamRoutes,
   slideRoutes,
   imageUploadRoutes,
+  flashAdRoutes,
 } from './routes';
 import { serveReactAppIfInProduction } from './utils/express/serveReactAppIfInProduction';
 import { serveUploadedImages } from './utils/express/serveUploadedImages';
@@ -34,6 +35,7 @@ app.use(authRoutes);
 app.use(teamRoutes);
 app.use(slideRoutes);
 app.use(imageUploadRoutes);
+app.use(flashAdRoutes);
 
 serveReactAppIfInProduction(app);
 serveUploadedImages(app);
