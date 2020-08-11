@@ -1,5 +1,12 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faTwitter as TwitterLogo,
+    faSteamSymbol as SteamLogo,
+    faInstagram as InstaLogo,
+    faYoutube as YTLogo
+} from '@fortawesome/free-brands-svg-icons'
 
 import { LocalesButtons } from './LocalesButtons'
 
@@ -28,6 +35,14 @@ export class MenuItems extends React.Component<MenuItemsProps>{
                     </li>
                     <li className={`nav-item btn-font ${this.isOverHandler(this.props.isOver)}`}>
                         <a className="nav-link" href="#team"><FormattedMessage id='navItems.time' /></a>
+                    </li>
+                    <li className={`nav-item btn-font ${this.isOverHandler(this.props.isOver)}`}>
+                        <div className="brands-container">
+                            <a href="https://twitter.com/ApolloGamesLab"><FontAwesomeIcon icon={TwitterLogo} /></a>
+                            <a href="https://steamcommunity.com/groups/forcaintrepida"><FontAwesomeIcon icon={SteamLogo} /></a>
+                            <a href="https://www.instagram.com/apollogameslab/"><FontAwesomeIcon icon={InstaLogo} /></a>
+                            {/* <a href="/"><FontAwesomeIcon icon={YTLogo} /></a> */}
+                        </div>
                     </li>
                     <li className={`nav-item ${this.isOverHandler(this.props.isOver)}`}>
                         <LocalesButtons />

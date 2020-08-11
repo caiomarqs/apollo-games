@@ -65,6 +65,23 @@
     margin-top: 4px;
 }
 
+.nav-item > .brands-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+
+    a{
+        margin: 0 0.25rem;
+        color: $branco-000;
+
+        svg{
+            width: 1.125rem;
+            height: 1.125rem;
+        }
+    }
+}
+
 .hambuger-menu span:nth-of-type(1){
     margin-top: 0;
 }

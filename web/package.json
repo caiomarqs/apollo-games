@@ -3,18 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/lodash": "^4.14.159",
-    "@types/node": "^12.12.53",
-    "@types/react": "^16.9.44",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-redux": "^7.1.9",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/redux-form": "^8.2.7",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "http-proxy-middleware": "^1.0.5",
@@ -54,6 +49,14 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "^24.9.1",
+    "@types/lodash": "^4.14.159",
+    "@types/node": "^12.12.53",
+    "@types/react": "^16.9.44",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/redux-form": "^8.2.7",
     "@types/react-intl": "^3.0.0"
   }
 }
