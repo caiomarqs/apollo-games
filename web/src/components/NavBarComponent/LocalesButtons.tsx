@@ -19,9 +19,6 @@ export class _LocalesButtons extends React.Component<LocalesButtonsProps, Locale
     }
 
     render() {
-        const { isOver } = this.props
-
-
         return (
             <div className="btn-group btn-group-toggle locales-buttons" data-toggle="buttons">
                 <label className={`btn active`} onClick={() => this.themeHandler(LOCALES.pt_BR)}>

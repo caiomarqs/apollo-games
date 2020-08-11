@@ -12,6 +12,7 @@
         text-transform: lowercase;
         transition: ease-in-out 0.1s filter;
         filter: brightness(0.8);
+        margin-left: 0px !important;
 
         &:hover {
             cursor: pointer;
@@ -27,7 +28,4 @@
         box-shadow: none !important;
     }
 
-    .btn-group>.btn-group:not(:first-child), .btn-group>.btn:not(:first-child) {
-         margin-left: 0px;
-    }
 }

@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl'
 
 import { Logo } from './Logo';
-import { LocalesButtons } from './LocalesButtons'
 import { navThemeEnum, Theme } from '../../actions';
 import { StoreState } from '../../reducers';
 import { MenuItems } from './MenuItems';

@@ -5,7 +5,6 @@ import {
     faTwitter as TwitterLogo,
     faSteamSymbol as SteamLogo,
     faInstagram as InstaLogo,
-    faYoutube as YTLogo
 } from '@fortawesome/free-brands-svg-icons'
 
 import { LocalesButtons } from './LocalesButtons'
@@ -38,10 +37,15 @@ export class MenuItems extends React.Component<MenuItemsProps>{
                     </li>
                     <li className={`nav-item btn-font ${this.isOverHandler(this.props.isOver)}`}>
                         <div className="brands-container">
-                            <a href="https://twitter.com/ApolloGamesLab"><FontAwesomeIcon icon={TwitterLogo} /></a>
-                            <a href="https://steamcommunity.com/groups/forcaintrepida"><FontAwesomeIcon icon={SteamLogo} /></a>
-                            <a href="https://www.instagram.com/apollogameslab/"><FontAwesomeIcon icon={InstaLogo} /></a>
-                            {/* <a href="/"><FontAwesomeIcon icon={YTLogo} /></a> */}
+                            <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/ApolloGamesLab">
+                                <FontAwesomeIcon icon={TwitterLogo} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://steamcommunity.com/groups/forcaintrepida">
+                                <FontAwesomeIcon icon={SteamLogo} />
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/apollogameslab/">
+                                <FontAwesomeIcon icon={InstaLogo} />
+                            </a>
                         </div>
                     </li>
                     <li className={`nav-item ${this.isOverHandler(this.props.isOver)}`}>
