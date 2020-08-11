@@ -63,7 +63,7 @@ export class FlashAd {
     try {
       const response = await this.database.findMany<FlashAdState>();
 
-      res.status(200).send(response);
+      res.status(200).send(response[0]);
     } catch (error) {
       res.status(500).send(error.message);
     }

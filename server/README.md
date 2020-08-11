@@ -48,3 +48,4 @@
 
 - [] Criar índice email único
 - [] Não criar usuários com email ja cadastrados
+- [] Capturar preferência de idioma pelo request
