@@ -12,7 +12,7 @@ import { AddTeamForm } from './components/backend/teams/AddTeamForm';
 import { UpdateTeamForm } from './components/backend/teams/UpdateTeamForm';
 import { I18nProvider, LOCALES } from './i18n'
 import { StoreState } from './reducers'
-  
+
 interface AppProps {
   language: LOCALES
 }
@@ -20,7 +20,7 @@ interface AppProps {
 interface AppState { }
 
 export class _App extends React.Component<AppProps, AppState> {
-
+  
   render() {
     return (
       <>
@@ -45,7 +45,10 @@ export class _App extends React.Component<AppProps, AppState> {
               exact
               component={UpdateTeamForm}
             />
-            <Route path="/" exact component={Landing} />
+            <Route
+              path="/"
+              exact
+              component={Landing} />
           </Router>
         </I18nProvider>
       </>

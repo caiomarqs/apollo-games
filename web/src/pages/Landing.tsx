@@ -20,11 +20,11 @@ export class _Landing extends React.Component<LandingProps> {
 
   render() {
     return (
-      <div>
+      <>
         <OverMenu />
         <Sections />
         <FooterBar />
-      </div>
+      </>
     );
   }
 }

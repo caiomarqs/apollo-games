@@ -5,7 +5,8 @@ import { changeLanguage } from '../../actions'
 import { LOCALES } from '../../i18n'
 
 type LocalesButtonsProps = {
-    changeLanguage: typeof changeLanguage;
+    changeLanguage: typeof changeLanguage,
+    isOver?: boolean
 }
 type LocalesButtonsState = {
     selectedOption: string
@@ -18,13 +19,16 @@ export class _LocalesButtons extends React.Component<LocalesButtonsProps, Locale
     }
 
     render() {
+        const { isOver } = this.props
+
+
         return (
             <div className="btn-group btn-group-toggle locales-buttons" data-toggle="buttons">
-                <label className="btn active" onClick={() => this.themeHandler(LOCALES.pt_BR)}>
-                    <input type="radio" name="options" id="pt-br" checked={true}/> BR
+                <label className={`btn active`} onClick={() => this.themeHandler(LOCALES.pt_BR)}>
+                    <input type="radio" name="options" id="pt-br"/> BR
                 </label>
-                <label className="btn" onClick={() => this.themeHandler(LOCALES.en_US)}>
-                    <input type="radio" name="options" id="en-us" checked={false} /> US
+                <label className={`btn`} onClick={() => this.themeHandler(LOCALES.en_US)}>
+                    <input type="radio" name="options" id="en-us" /> US
                 </label>
             </div>
         )

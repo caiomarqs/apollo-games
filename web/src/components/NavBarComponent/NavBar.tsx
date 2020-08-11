@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl'
 
 import { Logo } from './Logo';
 import { LocalesButtons } from './LocalesButtons'
 import { navThemeEnum, Theme } from '../../actions';
 import { StoreState } from '../../reducers';
+import { MenuItems } from './MenuItems';
 
 interface NavBarProps {
   overEmit?: boolean;
@@ -26,26 +28,7 @@ class _NavBar extends React.Component<NavBarProps> {
             <span />
             <span />
           </div>
-          <ul id="items-container" className="items-container">
-            <li className="nav-item btn-font">
-              <a className="nav-link" href="#about">
-                sobre
-              </a>
-            </li>
-            <li className="nav-item btn-font">
-              <a className="nav-link" href="#games">
-                games
-              </a>
-            </li>
-            <li className="nav-item btn-font">
-              <a className="nav-link" href="#team">
-                time
-              </a>
-            </li>
-            <li className="nav-item">
-              <LocalesButtons />
-            </li>
-          </ul>
+          <MenuItems id='items-container' className='items-container' />
         </>
       );
     }
