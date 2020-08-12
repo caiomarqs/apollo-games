@@ -41,7 +41,6 @@ export const fetchTeam = (team: string) => async (dispatch: Dispatch) => {
       type: ActionTypes.fetchTeam,
       payload: res,
     });
-    
   } catch (error) {
     console.log(error);
   }
@@ -57,10 +56,14 @@ export const updateTeamMember = (member: TeamState) => async (
       _.omit(member, '_id')
     );
 
-    const index = _.findIndex(getState().teams[member.team], {
-      _id: member._id,
-    });
-    const updated = getState().teams[member.team].splice(index, 1, member);
+    const withoutUnUpdatedMember = _.filter(
+      getState().teams[member.team],
+      (m) => {
+        return m._id !== member._id;
+      }
+    );
+    const updated = [...withoutUnUpdatedMember, member];
+
     const res = {
       [member.team]: updated,
     } as { [key: string]: TeamState[] };
@@ -77,16 +80,22 @@ export const updateTeamMember = (member: TeamState) => async (
 };
 
 export const addTeamMember = (member: TeamState) => async (
-  dispatch: Dispatch
+  dispatch: Dispatch,
+  getState: Function
 ) => {
   try {
     const response = await axios.post<TeamState[]>(
       '/api/team/add/member',
       _.omit(member, '_id')
     );
+
+    const updated = [...getState().teams[member.team], response.data];
+
     const res = {
-      [member.team]: response.data,
+      [member.team]: updated,
     } as { [key: string]: TeamState[] };
+
+    console.log(res);
 
     dispatch<FetchTeamAction>({
       type: ActionTypes.fetchTeam,

@@ -1,4 +1,7 @@
 import React from 'react';
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import { Link } from 'react-router-dom';
+import { TeamState } from '../../actions';
 
 export interface contacts {
   linkedin?: string;
@@ -24,6 +27,8 @@ enum desc {
 }
 
 export interface profile {
+  team: string;
+  _id?: string;
   name: string;
   img?: string;
   desc: desc | string;
@@ -73,20 +78,44 @@ const compileBadges = (contacts: contacts | any) => {
 
   return <div className="badges-container noselect">{template}</div>;
 };
-type props = {
+interface CardListProps {
   profiles?: Array<profile> | undefined;
-};
+  isInDashboard?: boolean;
+  deleteTeamMember(member: TeamState): void;
+}
 
-const CardList = (props: props) => {
+const CardList = (props: CardListProps) => {
+  const { profiles, isInDashboard } = props;
   let list: JSX.Element[] | undefined;
 
-  if (props.profiles) {
-    list = props.profiles.map(({ name, desc, contacts, img }) => {
+  const onDeleteClicked = (member: TeamState) => {
+    props.deleteTeamMember(member);
+  };
+
+  if (profiles) {
+    // console.log(profiles);
+    list = profiles.map(({ name, desc, contacts, img, _id, team }) => {
       return (
         <li key={desc + name} className="profile-card">
           {compileProfileImage(img)}
           <div className="profile-info">
             <h6>{name}</h6>
+            {isInDashboard ? (
+              <>
+                <Link
+                  to={`/backend/dashboard/team/update/member/${_id}/${team}`}
+                  className="badge"
+                >
+                  Update
+                </Link>
+                <button
+                  onClick={() => onDeleteClicked({ _id, team, desc, name })}
+                  className="badge"
+                >
+                  Delete
+                </button>
+              </>
+            ) : null}
             <p className="profile-desc">{desc.valueOf()}</p>
             {contacts === undefined ? '' : compileBadges(contacts)}
           </div>

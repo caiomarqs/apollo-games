@@ -72,7 +72,14 @@ export class TeamTabs extends React.Component<TeamsTabProps> {
         {/* Lodash map tabKeys object to components whith member teams */}
         <div className="tab-content" id="myTabContent">
           {_.map(tabsKeys, ({ key }) => {
-            return <TeamContent key={key} team={key} active="dev" />;
+            return (
+              <TeamContent
+                isInDashboard={this.props.isInDashboard}
+                key={key}
+                team={key}
+                active="dev"
+              />
+            );
           })}
         </div>
       </>
