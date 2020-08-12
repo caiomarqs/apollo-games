@@ -1,8 +1,10 @@
-import express from 'express';
+import express, { Request, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
 import passport from 'passport';
 import flash from 'connect-flash';
+import cookieParser from 'cookie-parser';
+import acceptLanguage from 'accept-language';
 
 import './services/passport';
 import { keys } from './config/config';
@@ -37,5 +39,23 @@ app.use(slideRoutes);
 app.use(imageUploadRoutes);
 app.use(flashAdRoutes);
 
-serveReactAppIfInProduction(app);
+app.use(cookieParser());
+acceptLanguage.languages(['en-us', 'pt-br']);
+export const detectLocale = (req: Request) => {
+  const cookieLocale = req.cookies.locale;
+
+  return (
+    acceptLanguage.get(cookieLocale || req.headers['accept-language']) ||
+    'en-us'
+  );
+};
+app.use((req: Request, res: any, next: NextFunction) => {
+  const locale = detectLocale(req);
+  console.log('locale:', locale);
+  res.cookie('locale', locale, {
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+  });
+  next();
+});
 serveUploadedImages(app);
+serveReactAppIfInProduction(app);

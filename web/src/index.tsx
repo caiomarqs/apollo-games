@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { App } from './App';
 import { reducers } from './reducers';
-import './_scss/styles.scss'
+import './_scss/styles.scss';
 
 declare global {
   interface Window {
@@ -19,7 +19,7 @@ const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <App />
   </Provider>,
   document.getElementById('root')
 );

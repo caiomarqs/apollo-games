@@ -12,7 +12,6 @@ interface NavBarProps {
 }
 
 class _NavBar extends React.Component<NavBarProps> {
-
   navColor = (theme: navThemeEnum) => {
     if (theme) return theme === navThemeEnum.DARK ? 'dark-nav' : 'white-nav';
   };
@@ -26,7 +25,7 @@ class _NavBar extends React.Component<NavBarProps> {
             <span />
             <span />
           </div>
-          <MenuItems id='items-container' className='items-container' />
+          <MenuItems id="items-container" className="items-container" />
         </>
       );
     }
