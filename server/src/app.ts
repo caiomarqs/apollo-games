@@ -46,12 +46,11 @@ export const detectLocale = (req: Request) => {
 
   return (
     acceptLanguage.get(cookieLocale || req.headers['accept-language']) ||
-    'en-us'
+    'pt-br'
   );
 };
 app.use((req: Request, res: any, next: NextFunction) => {
   const locale = detectLocale(req);
-  console.log('locale:', locale);
   res.cookie('locale', locale, {
     maxAge: 30 * 24 * 60 * 60 * 1000,
   });

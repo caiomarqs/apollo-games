@@ -25,7 +25,6 @@ interface AppState {}
 export class _App extends React.Component<AppProps, AppState> {
   componentDidMount() {
     const locale = (Cookie.get('locale') as LOCALES) || ('pt-br' as LOCALES);
-    console.log('locale:', locale);
     this.props.changeLanguage(locale);
   }
   render() {
