@@ -87,21 +87,24 @@ export const updateTeamMember = (member: TeamState) => async (
   getState: Function
 ) => {
   try {
-    const older = _.filter(getState().teams[member.team], (m) => {
-      return m._id === member._id;
-    });
-    const older_img = older[0].img;
+    console.log(member);
+    if (typeof member.img !== 'string') {
+      const older = _.filter(getState().teams[member.team], (m) => {
+        return m._id === member._id;
+      });
+      const older_img = older[0].img;
 
-    await axios.delete(`/api/service/delete/image/${older_img}`);
+      await axios.delete(`/api/service/delete/image/${older_img}`);
 
-    const imgFile = new FormData();
-    const data = (member.img as any) as FileList;
-    imgFile.append('img', data[0] as string | Blob);
+      const imgFile = new FormData();
+      const data = (member.img as any) as FileList;
+      imgFile.append('img', data[0] as string | Blob);
 
-    const img = await (
-      await axios.post<string>('/api/service/add/image', imgFile)
-    ).data;
-    member.img = img;
+      const img = await (
+        await axios.post<string>('/api/service/add/image', imgFile)
+      ).data;
+      member.img = img;
+    }
 
     await axios.patch<TeamState[]>(
       `/api/team/update/member/${member._id}`,
