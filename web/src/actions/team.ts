@@ -87,7 +87,6 @@ export const updateTeamMember = (member: TeamState) => async (
   getState: Function
 ) => {
   try {
-    console.log(member);
     if (typeof member.img !== 'string') {
       const older = _.filter(getState().teams[member.team], (m) => {
         return m._id === member._id;
