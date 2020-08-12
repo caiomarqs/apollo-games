@@ -4,7 +4,6 @@ import _ from 'lodash';
 import { history } from '../../history';
 import { TeamContent } from './TeamContent';
 
-//Define keys and titles of tabs
 const tabsKeys = [
   { key: 'dev', title: 'dev' },
   { key: 'sound', title: 'Audio' },
@@ -24,16 +23,6 @@ export class TeamTabs extends React.Component<TeamsTabProps> {
     this.active += 'active show';
   };
 
-  //First active tab controller
-  first = true;
-
-  //Verify if is first tab
-  isFirst = () => {
-    let active = this.first === true ? 'active' : '';
-    this.first = false;
-    return active;
-  };
-
   onAddButtonClicked = () => {
     history.push('/backend/dashboard/team/add/member');
   };
@@ -50,11 +39,14 @@ export class TeamTabs extends React.Component<TeamsTabProps> {
           )}
           {/* Lodash map tabsKeys object to tabs whith title and keys */}
           {_.map(tabsKeys, ({ key, title }) => {
+
+            const firstTab = key === tabsKeys[0].key ? 'active' : '' 
+
             return (
               <li key={key} className="nav-item" role="presentation">
                 <a
                   key={key}
-                  className={`nav-link btn-font ${this.isFirst()}`}
+                  className={`nav-link btn-font ${firstTab}`}
                   id={`${key}-tab`}
                   data-toggle="tab"
                   href={`#${key}`}

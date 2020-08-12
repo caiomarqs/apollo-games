@@ -1,5 +1,4 @@
 import React from 'react';
-import { icon } from '@fortawesome/fontawesome-svg-core';
 import { Link } from 'react-router-dom';
 import { TeamState } from '../../actions';
 
