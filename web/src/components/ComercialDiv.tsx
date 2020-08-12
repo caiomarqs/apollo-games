@@ -25,6 +25,7 @@ export class ComercialDiv extends React.Component<ComercialDivProps, ComercialDi
     hideHandler() {
         this.setState({ hide: "comercialHiden" })
         setTimeout(() => this.setState({ hide: "comercialHide" }), 500) //Animation time in scss 
+        clearTimeout(timer);
     }
 
     componentDidMount() {
