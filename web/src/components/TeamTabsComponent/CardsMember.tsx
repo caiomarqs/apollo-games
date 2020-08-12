@@ -49,7 +49,7 @@ const compileProfileImage = (img: string | undefined) => {
     defaultImg = (
       <div
         className="img-container"
-        style={{ backgroundImage: `url(${img})` }}
+        style={{ backgroundImage: `url(/uploads/${img})` }}
       />
     );
   }
@@ -109,7 +109,9 @@ const CardList = (props: CardListProps) => {
                   Update
                 </Link>
                 <button
-                  onClick={() => onDeleteClicked({ _id, team, desc, name })}
+                  onClick={() =>
+                    onDeleteClicked({ _id, team, desc, name, img })
+                  }
                   className="badge"
                 >
                   Delete

@@ -1,5 +1,6 @@
-import { InputField } from '../InputField'
+import { InputField } from '../InputField';
 import { SelectField } from './SelectField';
+import { FileInputField } from './FileInputField';
 
 export const formFields = [
   {
@@ -33,8 +34,8 @@ export const formFields = [
   {
     label: 'Imagem para perfil',
     name: 'img',
-    type: 'text',
-    renderField: InputField,
+    type: 'file',
+    renderField: FileInputField,
   },
   {
     label: 'Contatos',
