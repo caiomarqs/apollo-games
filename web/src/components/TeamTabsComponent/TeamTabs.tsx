@@ -1,5 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
+
+import { history } from '../../history';
 import { TeamContent } from './TeamContent';
 
 //Define keys and titles of tabs
@@ -11,9 +13,11 @@ const tabsKeys = [
   { key: 'game', title: 'Game Design' },
 ];
 
-interface TeamsTabProps {}
+interface TeamsTabProps {
+  isInDashboard?: boolean;
+}
 
-export default class TeamTabs extends React.Component<TeamsTabProps> {
+export class TeamTabs extends React.Component<TeamsTabProps> {
   active = '';
 
   activeTeam = () => {
@@ -30,11 +34,20 @@ export default class TeamTabs extends React.Component<TeamsTabProps> {
     return active;
   };
 
+  onAddButtonClicked = () => {
+    history.push('/backend/dashboard/team/add/member');
+  };
+
   render() {
     return (
       <>
         <ul className="nav nav-tabs noselect" id="myTab" role="tablist">
           <h2>Time</h2>
+          {this.props.isInDashboard ? (
+            <button onClick={this.onAddButtonClicked}>Adicionar membro</button>
+          ) : (
+            ''
+          )}
           {/* Lodash map tabsKeys object to tabs whith title and keys */}
           {_.map(tabsKeys, ({ key, title }) => {
             return (
@@ -59,9 +72,7 @@ export default class TeamTabs extends React.Component<TeamsTabProps> {
         {/* Lodash map tabKeys object to components whith member teams */}
         <div className="tab-content" id="myTabContent">
           {_.map(tabsKeys, ({ key }) => {
-            return (
-              <TeamContent key={key} team={key} active="dev" />
-            );
+            return <TeamContent key={key} team={key} active="dev" />;
           })}
         </div>
       </>

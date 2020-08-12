@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { TeamsTab } from '../components/backend/TeamsTab';
+import { TeamTabs } from '../components/TeamTabsComponent/TeamTabs';
 
 export class Dashboard extends React.Component {
   render() {
     return (
       <div>
         <a href="/api/logout">Log Out</a>
-        <TeamsTab />
+        <TeamTabs isInDashboard={true} />
       </div>
     );
   }

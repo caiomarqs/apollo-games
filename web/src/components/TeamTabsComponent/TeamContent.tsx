@@ -19,8 +19,12 @@ class _Team extends React.Component<TeamProps> {
   };
 
   componentDidMount() {
-    const { fetchTeam, team } = this.props;
-    fetchTeam(team);
+    const { fetchTeam, team, teams } = this.props;
+    if (teams[team] === undefined) {
+      fetchTeam(team);
+    } else {
+      this.forceUpdate();
+    }
   }
 
   renderTeams = () => {
