@@ -2,16 +2,18 @@ import React from 'react';
 import CardList from './CardsMember';
 import { connect } from 'react-redux';
 import { StoreState } from '../../reducers';
-import { fetchTeam, TeamState } from '../../actions';
+import { fetchTeam, TeamState, deleteTeamMember } from '../../actions';
 
 interface TeamProps {
   team: string;
   fetchTeam(team: string): void;
+  deleteTeamMember(member: TeamState): void;
   teams: { [key: string]: TeamState[] };
   active: string;
+  isInDashboard?: boolean;
 }
 
-class _Team extends React.Component<TeamProps> {
+class _TeamContent extends React.Component<TeamProps> {
   active = '';
 
   activeTeam = () => {
@@ -19,19 +21,31 @@ class _Team extends React.Component<TeamProps> {
   };
 
   componentDidMount() {
-    const { fetchTeam, team } = this.props;
-    fetchTeam(team);
+    const { fetchTeam, team, teams } = this.props;
+    if (teams[team] === undefined) {
+      fetchTeam(team);
+    } else {
+      this.forceUpdate();
+    }
   }
 
   renderTeams = () => {
-    const { teams, team } = this.props;
+    const { teams, team, isInDashboard, deleteTeamMember } = this.props;
 
     if (team === this.props.active) {
       this.activeTeam();
     }
 
     if (teams) {
-      return <CardList profiles={teams[team]} />;
+      return (
+        <CardList
+          deleteTeamMember={(member: TeamState) => {
+            deleteTeamMember(member);
+          }}
+          isInDashboard={isInDashboard}
+          profiles={teams[team]}
+        />
+      );
     }
 
     return <></>;
@@ -55,4 +69,7 @@ const mapStateToProps = (state: StoreState) => {
   return { teams: state.teams };
 };
 
-export const TeamContent = connect(mapStateToProps, { fetchTeam })(_Team);
+export const TeamContent = connect(mapStateToProps, {
+  fetchTeam,
+  deleteTeamMember,
+})(_TeamContent);

@@ -41,26 +41,32 @@ export const fetchTeam = (team: string) => async (dispatch: Dispatch) => {
       type: ActionTypes.fetchTeam,
       payload: res,
     });
-    
   } catch (error) {
     console.log(error);
   }
 };
 
-export const updateTeamMember = (member: TeamState) => async (
+export const addTeamMember = (member: TeamState) => async (
   dispatch: Dispatch,
   getState: Function
 ) => {
   try {
-    await axios.patch<TeamState[]>(
-      `/api/team/update/member/${member._id}`,
+    const imgFile = new FormData();
+    const data = (member.img as any) as FileList;
+    imgFile.append('img', data[0] as string | Blob);
+
+    const img = await (
+      await axios.post<string>('/api/service/add/image', imgFile)
+    ).data;
+    member.img = img;
+
+    const response = await axios.post<TeamState[]>(
+      '/api/team/add/member',
       _.omit(member, '_id')
     );
 
-    const index = _.findIndex(getState().teams[member.team], {
-      _id: member._id,
-    });
-    const updated = getState().teams[member.team].splice(index, 1, member);
+    const updated = [...getState().teams[member.team], response.data];
+
     const res = {
       [member.team]: updated,
     } as { [key: string]: TeamState[] };
@@ -76,16 +82,44 @@ export const updateTeamMember = (member: TeamState) => async (
   }
 };
 
-export const addTeamMember = (member: TeamState) => async (
-  dispatch: Dispatch
+export const updateTeamMember = (member: TeamState) => async (
+  dispatch: Dispatch,
+  getState: Function
 ) => {
   try {
-    const response = await axios.post<TeamState[]>(
-      '/api/team/add/member',
+    if (typeof member.img !== 'string') {
+      const older = _.filter(getState().teams[member.team], (m) => {
+        return m._id === member._id;
+      });
+      const older_img = older[0].img;
+
+      await axios.delete(`/api/service/delete/image/${older_img}`);
+
+      const imgFile = new FormData();
+      const data = (member.img as any) as FileList;
+      imgFile.append('img', data[0] as string | Blob);
+
+      const img = await (
+        await axios.post<string>('/api/service/add/image', imgFile)
+      ).data;
+      member.img = img;
+    }
+
+    await axios.patch<TeamState[]>(
+      `/api/team/update/member/${member._id}`,
       _.omit(member, '_id')
     );
+
+    const withoutUnUpdatedMember = _.filter(
+      getState().teams[member.team],
+      (m) => {
+        return m._id !== member._id;
+      }
+    );
+    const updated = [...withoutUnUpdatedMember, member];
+
     const res = {
-      [member.team]: response.data,
+      [member.team]: updated,
     } as { [key: string]: TeamState[] };
 
     dispatch<FetchTeamAction>({
@@ -104,6 +138,8 @@ export const deleteTeamMember = (member: TeamState) => async (
   getState: Function
 ) => {
   try {
+    await axios.delete(`/api/service/delete/image/${member.img}`);
+
     await axios.delete<TeamState[]>(`/api/team/delete/member/${member._id}`);
 
     const res = {

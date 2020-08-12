@@ -19,6 +19,18 @@
 - [x] Rota para atualizar um slide
 - [x] Rota para apagar um slide
 
+## Anúncio
+
+- [] Rota para adicionar anúncio
+- [] Rota para retornar todos os anúncios
+- [] Rota para atualizar um anúncio
+- [] Rota para apagar um anúncio
+
+## Upload de imagens
+
+- [x] Rota para adicionar imagem
+- [] Rota para apagar imagem
+
 ## Usuários
 
 ### Administrator
@@ -36,3 +48,4 @@
 
 - [] Criar índice email único
 - [] Não criar usuários com email ja cadastrados
+- [] Capturar preferência de idioma pelo request

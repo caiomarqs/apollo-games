@@ -44,6 +44,18 @@ class _TeamForm extends React.Component<
         renderField: Function;
         items: SelectItem[];
       }) => {
+        if (type === 'file') {
+          return (
+            <Field
+              key={name}
+              component={renderField}
+              type={type}
+              label={label}
+              name={name}
+              value={[]}
+            />
+          );
+        }
         if (type === 'select') {
           return (
             <Field
@@ -79,13 +91,15 @@ class _TeamForm extends React.Component<
     );
   };
   render() {
-    const { handleSubmit, onSubmit } = this.props;
+    const { handleSubmit, onSubmit, pristine, submitting } = this.props;
     return (
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           {this.renderFields()}
 
-          <button type="submit">{this.props.buttonLabel}</button>
+          <button disabled={pristine || submitting} type="submit">
+            {this.props.buttonLabel}
+          </button>
         </form>
       </div>
     );

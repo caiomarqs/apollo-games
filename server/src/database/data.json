@@ -1,266 +1,290 @@
-[{
-  "_id": {
-    "$oid": "5f2c9decc34c6f14ac00c157"
+[
+  {
+    "_id": {
+      "$oid": "5f2c9decc34c6f14ac00c157"
+    },
+    "team": "dev",
+    "name": "Antonio Martins",
+    "img": "b6b6aab6e4ed-Antonio_Martins.jpg",
+    "desc": "Code Lead",
+    "contacts": {
+      "git": "https://github.com/tony2055",
+      "linkedin": "https://www.linkedin.com/in/antonio-henrique-soares-martins-665a61162/"
+    }
   },
-  "team": "dev",
-  "name": "Antonio Martins",
-  "img": "https://i.ibb.co/PTcxgZX/Antonio-Martins.jpg",
-  "desc": "Code Lead",
-  "contacts": {
-    "git": "https://github.com/tony2055",
-    "linkedin": "https://www.linkedin.com/in/antonio-henrique-soares-martins-665a61162/"
+  {
+    "_id": {
+      "$oid": "5f2c9e27c34c6f14ac00c158"
+    },
+    "team": "dev",
+    "name": "Pedro Belluomini",
+    "img": "60fa658df87c-Pedro_belluomini.jpg",
+    "desc": "Code Lead",
+    "contacts": {
+      "git": "https://github.com/PedroHBell",
+      "linkedin": "https://www.linkedin.com/in/pedro-belluomini-987277169/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb1fb66807a1f2c1cf3f1"
+    },
+    "team": "dev",
+    "name": "Caio Marques",
+    "img": "null",
+    "desc": "Desenvolvedor",
+    "contacts": {
+      "git": "https://github.com/caiomarqs",
+      "soundcloud": "https://soundcloud.com/cjrbeatz",
+      "linkedin": "https://www.linkedin.com/in/caiomarqs"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb20466807a1f2c1cf3f2"
+    },
+    "team": "dev",
+    "name": "Paulo Oliveira",
+    "img": "eee4b946324c-Paulo_Belluco.jpg",
+    "desc": "Desenvolvedor",
+    "contacts": {
+      "git": "https://github.com/PauloTadeu2k",
+      "linkedin": "https://www.linkedin.com/in/paulo-tadeu-belluco-de-oliveira-7171a0151/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb20c66807a1f2c1cf3f3"
+    },
+    "team": "dev",
+    "name": "Caique Eduardo",
+    "img": "7c126d0e738e-Caique_Eduardo.jpg",
+    "desc": "Desenvolvedor",
+    "contacts": {
+      "git": "https://github.com/Caique9955",
+      "instagram": "https://www.instagram.com/caique_eduu/?hl=pt-br",
+      "linkedin": "https://www.linkedin.com/in/caique-eduardo-534a44197/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb21466807a1f2c1cf3f4"
+    },
+    "team": "dev",
+    "name": "Lucas Lima",
+    "img": "dfab903f081b-Lucas_Lima.jpg",
+    "desc": "Desenvolvedor",
+    "contacts": {
+      "linkedin": "https://www.linkedin.com/in/lucas-lima-26642313b"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb21a66807a1f2c1cf3f5"
+    },
+    "team": "dev",
+    "name": "Pedro Miguel",
+    "img": "36c63ee4249a-Pedro_Miguel.jpg",
+    "desc": "Desenvolvedor",
+    "contacts": {
+      "linkedin": "https://www.linkedin.com/in/pedro-miguel-contreiras-siqueira-762287195/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb22266807a1f2c1cf3f6"
+    },
+    "team": "dev",
+    "name": "Raphael Batista",
+    "img": "1115be0dee22-Raphael_Batista.jpg",
+    "desc": "Desenvolvedor",
+    "contacts": {
+      "git": "https://github.com/RaphaelAbracos",
+      "twitter": "https://twitter.com/raphael_abracos"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb22966807a1f2c1cf3f7"
+    },
+    "team": "dev",
+    "name": "Willian Carvalho",
+    "img": "0300467300cc-Willian_Carvalho.jpg",
+    "desc": "Desenvolvedor",
+    "contacts": {
+      "git": "https://github.com/WilliCarvalho",
+      "linkedin": "https://www.linkedin.com/in/willian-carvalho/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb23266807a1f2c1cf3f8"
+    },
+    "team": "dev",
+    "name": "Yago França",
+    "img": "95dbf2503322-Yago_França.jpg",
+    "desc": "Desenvolvedor",
+    "contacts": {
+      "git": "https://github.com/YagoFranca",
+      "linkedin": "https://www.linkedin.com/in/yago-de-souza-frança-378ba8144"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb28e66807a1f2c1cf3f9"
+    },
+    "team": "sound",
+    "name": "Matheus Boeira",
+    "img": "094b48333289-Matheus_Boeira.jpg",
+    "desc": "Sound Lead",
+    "contacts": {
+      "soundcloud": "https://soundcloud.com/808bhz-910924459",
+      "instagram": "https://www.instagram.com/808bhz/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb29666807a1f2c1cf3fa"
+    },
+    "team": "sound",
+    "name": "Giulio Vinicius",
+    "img": "885fd78d76b6-Giulio_Vinicius.jpg",
+    "desc": "Sound Designer",
+    "contacts": {
+      "twitter": "https://twitter.com/Mone_Ultimate"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb29d66807a1f2c1cf3fb"
+    },
+    "team": "sound",
+    "name": "Gustavo Mizutani",
+    "img": "d518ef55ee8d-Gustavo_Mizutani.jpg",
+    "desc": "Sound Designer",
+    "contacts": {
+      "soundcloud": "https://soundcloud.com/moetrash",
+      "twitter": "https://twitter.com/moetorash",
+      "instagram": "https://www.instagram.com/moetrash_/?hl=pt-br",
+      "linkedin": "https://www.linkedin.com/in/gustavo-mizutani-4801521b4"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb2b466807a1f2c1cf3fc"
+    },
+    "team": "prod",
+    "name": "Guilherme Romano",
+    "img": "d47743de233b-guilherme_romano.jpg",
+    "desc": "Head Team",
+    "contacts": {
+      "linkedin": "https://www.linkedin.com/in/guilherme-romano-383260169/",
+      "twitter": "https://twitter.com/GuilhermeRomano",
+      "instagram": "https://www.instagram.com/romano_controller/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb2de66807a1f2c1cf3fd"
+    },
+    "team": "art",
+    "name": "Vinícius Machado",
+    "img": "15fb3b7f5249-Vinícius_Machado.jpg",
+    "desc": "Art Lead",
+    "contacts": {
+      "artstation": "https://www.artstation.com/vleon",
+      "linkedin": "https://www.linkedin.com/in/vin%C3%ADcius-machado-le%C3%B4nidas-411a47165/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb2e766807a1f2c1cf3fe"
+    },
+    "team": "art",
+    "name": "Mateus Maia",
+    "img": "2b81d72d723b-Mateus_Maia.jpg",
+    "desc": "Artista",
+    "contacts": {
+      "artstation": "https://www.artstation.com/mateusdoin",
+      "twitter": "https://twitter.com/mcvxs"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb2ee66807a1f2c1cf3ff"
+    },
+    "team": "art",
+    "name": "Wesley Andrade",
+    "img": "f36401970841-Wesley_Andrade.jpg",
+    "desc": "Artista",
+    "contacts": {
+      "twitter": "https://twitter.com/andrart7"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb2f566807a1f2c1cf400"
+    },
+    "team": "art",
+    "name": "Arthur Lucas",
+    "img": "82beaf39d821-Arthur_Lucas.jpg",
+    "desc": "Artista",
+    "contacts": {
+      "linkedin": "https://www.linkedin.com/in/arthur-lucas-4969981a0/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb2fd66807a1f2c1cf401"
+    },
+    "team": "art",
+    "name": "Pedro Caxa",
+    "img": "591530e6a39a-Pedro_Caxa.jpg",
+    "desc": "3D Lead",
+    "contacts": {
+      "twitter": "https://twitter.com/Pedrocaxa_",
+      "instagram": "https://www.instagram.com/pedrocaxa/",
+      "linkedin": "https://www.linkedin.com/in/pedro-henrique-m-08727b130/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb30466807a1f2c1cf402"
+    },
+    "team": "art",
+    "name": "David Henrique",
+    "img": "cace2da9b506-David_Henrique.jpg",
+    "desc": "3D Modeler",
+    "contacts": {
+      "instagram": "https://www.instagram.com/djdinoz_/",
+      "linkedin": "https://www.linkedin.com/in/david-henrique-andrade-gomes-92b214173/"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb30b66807a1f2c1cf403"
+    },
+    "team": "art",
+    "name": "Vitor Batista",
+    "img": "0262ef7c0067-vitor_batista.png",
+    "desc": "3D Modeler"
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb32466807a1f2c1cf404"
+    },
+    "team": "game",
+    "name": "Felipe Reis",
+    "img": "d219faea5bf9-Felipe_Reis.jpg",
+    "desc": "Game Designer"
+  },
+  {
+    "_id": {
+      "$oid": "5f2cb32b66807a1f2c1cf405"
+    },
+    "team": "game",
+    "name": "João Victor",
+    "img": "e02ac19c4a0f-João_Victor.jpg",
+    "desc": "Game Designer"
   }
-},{
-  "_id": {
-    "$oid": "5f2c9e27c34c6f14ac00c158"
-  },
-  "team": "dev",
-  "name": "Pedro Belluomini",
-  "img": "https://i.ibb.co/30fDJx0/Pedro-belluomini.jpg",
-  "desc": "Code Lead",
-  "contacts": {
-    "git": "https://github.com/PedroHBell",
-    "linkedin": "https://www.linkedin.com/in/pedro-belluomini-987277169/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb1fb66807a1f2c1cf3f1"
-  },
-  "team": "dev",
-  "name": "Caio Marques",
-  "img": "null",
-  "desc": "Desenvolvedor",
-  "contacts": {
-    "git": "https://github.com/caiomarqs",
-    "soundcloud": "https://soundcloud.com/cjrbeatz",
-    "linkedin": "https://www.linkedin.com/in/caiomarqs"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb20466807a1f2c1cf3f2"
-  },
-  "team": "dev",
-  "name": "Paulo Oliveira",
-  "img": "https://i.ibb.co/3YwpMDF/Paulo-Belluco.jpg",
-  "desc": "Desenvolvedor",
-  "contacts": {
-    "git": "https://github.com/PauloTadeu2k",
-    "linkedin": "https://www.linkedin.com/in/paulo-tadeu-belluco-de-oliveira-7171a0151/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb20c66807a1f2c1cf3f3"
-  },
-  "team": "dev",
-  "name": "Caique Eduardo",
-  "img": "https://i.ibb.co/8zHvnt7/Caique-Eduardo.jpg",
-  "desc": "Desenvolvedor",
-  "contacts": {
-    "git": "https://github.com/Caique9955",
-    "instagram": "https://www.instagram.com/caique_eduu/?hl=pt-br",
-    "linkedin": "https://www.linkedin.com/in/caique-eduardo-534a44197/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb21466807a1f2c1cf3f4"
-  },
-  "team": "dev",
-  "name": "Lucas Lima",
-  "img": "https://i.ibb.co/F6rzGSf/Lucas-Lima.jpg",
-  "desc": "Desenvolvedor",
-  "contacts": {
-    "linkedin": "https://www.linkedin.com/in/lucas-lima-26642313b"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb21a66807a1f2c1cf3f5"
-  },
-  "team": "dev",
-  "name": "Pedro Miguel",
-  "img": "https://i.ibb.co/MV4Pzvz/Pedro-Miguel.jpg",
-  "desc": "Desenvolvedor",
-  "contacts": {
-    "linkedin": "https://www.linkedin.com/in/pedro-miguel-contreiras-siqueira-762287195/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb22266807a1f2c1cf3f6"
-  },
-  "team": "dev",
-  "name": "Raphael Batista",
-  "img": "https://i.ibb.co/Zz6N2gC/Raphael-Batista.jpg",
-  "desc": "Desenvolvedor",
-  "contacts": {
-    "git": "https://github.com/RaphaelAbracos",
-    "twitter": "https://twitter.com/raphael_abracos"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb22966807a1f2c1cf3f7"
-  },
-  "team": "dev",
-  "name": "Willian Carvalho",
-  "img": "https://i.ibb.co/9h4zmHb/Willian-Carvalho.jpg",
-  "desc": "Desenvolvedor",
-  "contacts": {
-    "git": "https://github.com/WilliCarvalho",
-    "linkedin": "https://www.linkedin.com/in/willian-carvalho/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb23266807a1f2c1cf3f8"
-  },
-  "team": "dev",
-  "name": "Yago França",
-  "img": "https://i.ibb.co/2PgyTtv/Yago-Fran-a.jpg",
-  "desc": "Desenvolvedor",
-  "contacts": {
-    "git": "https://github.com/YagoFranca",
-    "linkedin": "https://www.linkedin.com/in/yago-de-souza-frança-378ba8144"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb28e66807a1f2c1cf3f9"
-  },
-  "team": "sound",
-  "name": "Matheus Boeira",
-  "img": "https://i.ibb.co/zbVRPDx/Matheus-Boeira.jpg",
-  "desc": "Sound Lead",
-  "contacts": {
-    "soundcloud": "https://soundcloud.com/808bhz-910924459",
-    "instagram": "https://www.instagram.com/808bhz/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb29666807a1f2c1cf3fa"
-  },
-  "team": "sound",
-  "name": "Giulio Vinicius",
-  "img": "https://i.ibb.co/686qR0z/Giulio-Vinicius.jpg",
-  "desc": "Sound Designer",
-  "contacts": {
-    "twitter": "https://twitter.com/Mone_Ultimate"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb29d66807a1f2c1cf3fb"
-  },
-  "team": "sound",
-  "name": "Gustavo Mizutani",
-  "img": "https://i.ibb.co/K968h6H/Gustavo-Mizutani.jpg",
-  "desc": "Sound Designer",
-  "contacts": {
-    "soundcloud": "https://soundcloud.com/moetrash",
-    "twitter": "https://twitter.com/moetorash",
-    "instagram": "https://www.instagram.com/moetrash_/?hl=pt-br",
-    "linkedin": "https://www.linkedin.com/in/gustavo-mizutani-4801521b4"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb2b466807a1f2c1cf3fc"
-  },
-  "team": "prod",
-  "name": "Guilherme Romano",
-  "img": "https://i.ibb.co/CWQqFrF/guilherme-romano.jpg",
-  "desc": "Head Team",
-  "contacts": {
-    "linkedin": "https://www.linkedin.com/in/guilherme-romano-383260169/",
-    "twitter": "https://twitter.com/GuilhermeRomano",
-    "instagram": "https://www.instagram.com/romano_controller/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb2de66807a1f2c1cf3fd"
-  },
-  "team": "art",
-  "name": "Vinícius Machado",
-  "img": "https://i.ibb.co/BC3m2vz/Vin-cius-Machado.jpg.jpg",
-  "desc": "Art Lead",
-  "contacts": {
-    "artstation": "https://www.artstation.com/vleon",
-    "linkedin": "https://www.linkedin.com/in/vin%C3%ADcius-machado-le%C3%B4nidas-411a47165/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb2e766807a1f2c1cf3fe"
-  },
-  "team": "art",
-  "name": "Mateus Maia",
-  "img": "https://i.ibb.co/XWPMzrt/Mateus-Maia.jpg",
-  "desc": "Artista",
-  "contacts": {
-    "artstation": "https://www.artstation.com/mateusdoin",
-    "twitter": "https://twitter.com/mcvxs"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb2ee66807a1f2c1cf3ff"
-  },
-  "team": "art",
-  "name": "Wesley Andrade",
-  "img": "https://i.ibb.co/PrJHyG7/Wesley-Andrade.jpg",
-  "desc": "Artista",
-  "contacts": {
-    "twitter": "https://twitter.com/andrart7"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb2f566807a1f2c1cf400"
-  },
-  "team": "art",
-  "name": "Arthur Lucas",
-  "img": "https://i.ibb.co/Kbdn8WR/Arthur-Lucas.jpg",
-  "desc": "Artista",
-  "contacts": {
-    "linkedin": "https://www.linkedin.com/in/arthur-lucas-4969981a0/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb2fd66807a1f2c1cf401"
-  },
-  "team": "art",
-  "name": "Pedro Caxa",
-  "img": "https://i.ibb.co/FzcT3cK/Pedro-Caxa.jpg",
-  "desc": "3D Lead",
-  "contacts": {
-    "twitter": "https://twitter.com/Pedrocaxa_",
-    "instagram": "https://www.instagram.com/pedrocaxa/",
-    "linkedin": "https://www.linkedin.com/in/pedro-henrique-m-08727b130/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb30466807a1f2c1cf402"
-  },
-  "team": "art",
-  "name": "David Henrique",
-  "img": "https://i.ibb.co/WgDq2T6/David-Henrique.jpg",
-  "desc": "3D Modeler",
-  "contacts": {
-    "instagram": "https://www.instagram.com/djdinoz_/",
-    "linkedin": "https://www.linkedin.com/in/david-henrique-andrade-gomes-92b214173/"
-  }
-},{
-  "_id": {
-    "$oid": "5f2cb30b66807a1f2c1cf403"
-  },
-  "team": "art",
-  "name": "Vitor Batista",
-  "img": "https://i.ibb.co/5X042g0/vitor-batista.png",
-  "desc": "3D Modeler"
-},{
-  "_id": {
-    "$oid": "5f2cb32466807a1f2c1cf404"
-  },
-  "team": "game",
-  "name": "Felipe Reis",
-  "img": "https://i.ibb.co/c1xX3vW/Felipe-Reis.jpg",
-  "desc": "Game Designer"
-},{
-  "_id": {
-    "$oid": "5f2cb32b66807a1f2c1cf405"
-  },
-  "team": "game",
-  "name": "João Victor",
-  "img": "https://i.ibb.co/rbytNms/Jo-o-Victor.jpg",
-  "desc": "Game Designer"
-}]
+]
