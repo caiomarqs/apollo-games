@@ -13,9 +13,12 @@ interface NavBarProps {
 }
 
 class _NavBar extends React.Component<NavBarProps> {
-  
-  renderLogOut(userId: string | undefined){
-    if(userId !== undefined && userId !== '') return <a href="/api/logout">Log Out</a>
+
+  renderLogOut(userId: string | undefined) {
+    if (userId !== undefined && userId !== '')
+      return (
+        <a className="btn-font" href="/api/logout">Log Out</a>
+      )
     return
   }
 

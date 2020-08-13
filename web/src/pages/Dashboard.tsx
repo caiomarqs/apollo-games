@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TeamTabs } from '../components/TeamTabsComponent/TeamTabs';
+import { TeamTabs } from '../components/TeamComponent';
 
 export class Dashboard extends React.Component {
   render() {
@@ -8,6 +8,6 @@ export class Dashboard extends React.Component {
       <div className="container">
         <TeamTabs isInDashboard={true} />
       </div>
-    );
+    )
   }
 }
