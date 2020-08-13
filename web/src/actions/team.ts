@@ -152,6 +152,7 @@ export const deleteTeamMember = (member: TeamState) => async (
       type: ActionTypes.fetchTeam,
       payload: res,
     });
+    
   } catch (error) {
     console.log(error);
   }

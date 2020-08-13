@@ -25,7 +25,7 @@ export class TeamTabs extends React.Component<TeamsTabProps> {
   render() {
     return (
       <div id="teamTabs">
-        <TeamHeader isInDashboard={this.props.isInDashboard} tabsKeys={tabsKeys} />
+        <TeamHeader tabsKeys={tabsKeys} />
 
         <div className="tab-content" id="myTabContent">
           { _.map(tabsKeys, ({ key }) => <TeamContent isInDashboard={this.props.isInDashboard} key={key} team={key} active="dev" />)}

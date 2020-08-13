@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import { TeamTabs } from '../components/TeamComponent';
+import { TeamTabs } from '../components/TeamComponent'
 
 export class Dashboard extends React.Component {
   render() {

@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { TeamState, deleteTeamMember } from '../../../actions'
 import { Badges } from './Badges'
 import { StoreState } from '../../../reducers'
+import { Gabage, Pencil } from '../../Icons'
 
 
 interface CardProps {
@@ -33,12 +34,17 @@ class _Card extends React.Component<CardProps>{
     }
 
 
-    isInDashBord = (status = false, userObject: TeamState) => {
+    isInDashBord = (status = false, profile: TeamState) => {
+        
         if (status === true) {
             return (
                 <div className="optionsButton">
-                    <Link to={`/backend/dashboard/team/update/member/${userObject._id}/${userObject.team}`} className="badge" >U</Link>
-                    <div onClick={() => this.onDeleteClicked(userObject)}>D</div>
+                    <Link to={`/backend/dashboard/team/update/member/${profile._id}/${profile.team}`} >
+                        <Pencil fill="#ABABAB" />
+                    </Link>
+                    <div onClick={() => this.onDeleteClicked(profile)}>
+                        <Gabage fill="#ABABAB" />
+                    </div>
                 </div>
             )
         }
@@ -50,15 +56,18 @@ class _Card extends React.Component<CardProps>{
         const { name, desc, contacts, img } = profile
 
         return (
-            <li key={desc + name} className="profile-card">
-                {this.compileProfileImage(img)}
-                <div className="profile-info">
-                    <h6>{name}</h6>
-                    {this.isInDashBord(isInDashboard, this.props.profile)}
-                    <p className="profile-desc">{desc.valueOf()}</p>
-                    {contacts !== undefined ? <Badges contacts={contacts} /> : <></>}
+            <li key={profile.name} className="card-container">
+                {this.isInDashBord(isInDashboard, profile)}
+                <div className="profile-card">
+                    {this.compileProfileImage(img)}
+                    <div className="profile-info">
+                        <h6>{name}</h6>
+                        <p className="profile-desc">{desc.valueOf()}</p>
+                        {contacts !== undefined ? <Badges contacts={contacts} /> : <></>}
+                    </div>
                 </div>
             </li>
+
         )
     }
 }

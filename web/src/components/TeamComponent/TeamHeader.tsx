@@ -5,7 +5,6 @@ import { history } from '../../history'
 import { tabKey } from './index'
 
 interface TeamHeaderProps {
-    isInDashboard: boolean,
     tabsKeys: tabKey[]
 }
 
@@ -18,10 +17,6 @@ export class TeamHeader extends React.Component<TeamHeaderProps> {
 
     onAddButtonClicked = () => {
         history.push('/backend/dashboard/team/add/member')
-    }
-
-    isInDashBoardRender = (status: boolean) => {
-        if (status === true) return <button onClick={this.onAddButtonClicked}>Adicionar membro</button>
     }
 
     renderTabs = (tabsKeys: tabKey[]) => _.map(tabsKeys, ({ key, title }) => {
@@ -41,7 +36,6 @@ export class TeamHeader extends React.Component<TeamHeaderProps> {
         return (
             <ul className="nav nav-tabs noselect" id="myTab" role="tablist">
                 <h2>Time</h2>
-                {this.isInDashBoardRender(this.props.isInDashboard)}
                 {this.renderTabs(this.props.tabsKeys)}
             </ul>
         )
