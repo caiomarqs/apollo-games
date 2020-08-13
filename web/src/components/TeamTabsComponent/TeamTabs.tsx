@@ -29,7 +29,7 @@ export class TeamTabs extends React.Component<TeamsTabProps> {
 
   render() {
     return (
-      <>
+      <div id="teamTabs">
         <ul className="nav nav-tabs noselect" id="myTab" role="tablist">
           <h2>Time</h2>
           {this.props.isInDashboard ? (
@@ -74,7 +74,7 @@ export class TeamTabs extends React.Component<TeamsTabProps> {
             );
           })}
         </div>
-      </>
+      </div>
     );
   }
 }

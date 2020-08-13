@@ -9,9 +9,16 @@ import { MenuItems } from './MenuItems';
 interface NavBarProps {
   overEmit?: boolean;
   theme: Theme;
+  userId: string | undefined
 }
 
 class _NavBar extends React.Component<NavBarProps> {
+  
+  renderLogOut(userId: string | undefined){
+    if(userId !== undefined && userId !== '') return <a href="/api/logout">Log Out</a>
+    return
+  }
+
   navColor = (theme: navThemeEnum) => {
     if (theme) return theme === navThemeEnum.DARK ? 'dark-nav' : 'white-nav';
   };
@@ -51,6 +58,7 @@ class _NavBar extends React.Component<NavBarProps> {
               />
             </a>
             {this.renderItems(navMenus)}
+            {this.renderLogOut(this.props.userId)}
           </div>
         </div>
       </>
@@ -59,7 +67,7 @@ class _NavBar extends React.Component<NavBarProps> {
 }
 
 const mapStateToProps = (state: StoreState) => {
-  return { theme: state.theme };
+  return { theme: state.theme, userId: state.auth._id };
 };
 
 export const NavBar = connect(mapStateToProps)(_NavBar);
