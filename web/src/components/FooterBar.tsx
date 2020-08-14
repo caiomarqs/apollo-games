@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 export const FooterBar = () => {
     return (
@@ -12,16 +13,24 @@ export const FooterBar = () => {
                                 <span>Apollo</span>
                             </li>
                             <li className="nav-item">
-                                <a className="btn-font footer-link" href="/#about">sobre</a>
+                                <a className="btn-font footer-link" href="/#about" >
+                                    <FormattedMessage id="footer.sobre" />
+                                </a>
                             </li>
                             <li className="nav-item">
-                                <a className="btn-font footer-link" href="/#games">games</a>
+                                <a className="btn-font footer-link" href="/#games" >
+                                    <FormattedMessage id="footer.games" />
+                                </a>
                             </li>
                             <li className="nav-item">
-                                <a className="btn-font footer-link" href="/#team">time</a>
+                                <a className="btn-font footer-link" href="/#team" >
+                                    <FormattedMessage id="footer.time" />
+                                </a>
                             </li>
                             <li className="nav-item">
-                                <Link to="/contact" className="btn-font footer-link" replace>contato</Link>
+                                <Link to="/contact" className="btn-font footer-link" replace>
+                                    <FormattedMessage id="footer.contato" />
+                                </Link>
                             </li>
                         </ul>
                         <ul className="nav flex-column col">

@@ -5,13 +5,15 @@ import { authReducer } from './authReducer';
 import { teamReducer } from './teamReducer';
 import { themeReducer } from './themeReducer';
 import { languageReducer } from './languagesReducer'
-import { User, TeamState, Theme, Languages } from '../actions';
+import { overMenuReducer } from './overMenuReducer'
+import { User, TeamState, Theme, Languages, OverMenu } from '../actions';
 
 export interface StoreState {
   auth: User;
   teams: { [key: string]: TeamState[] };
   theme: Theme;
   languages: Languages;
+  overMenu: OverMenu;
 }
 
 export const reducers = combineReducers({
@@ -19,5 +21,6 @@ export const reducers = combineReducers({
   form: formReducer,
   teams: teamReducer,
   theme: themeReducer,
-  languages: languageReducer
+  languages: languageReducer,
+  overMenu: overMenuReducer
 });
