@@ -14,6 +14,7 @@ import {
   slideRoutes,
   imageUploadRoutes,
   flashAdRoutes,
+  emailRoutes,
 } from './routes';
 import { serveReactAppIfInProduction } from './utils/express/serveReactAppIfInProduction';
 import { serveUploadedImages } from './utils/express/serveUploadedImages';
@@ -38,6 +39,7 @@ app.use(teamRoutes);
 app.use(slideRoutes);
 app.use(imageUploadRoutes);
 app.use(flashAdRoutes);
+app.use(emailRoutes);
 
 app.use(cookieParser());
 acceptLanguage.languages(['en-us', 'pt-br']);

@@ -3,7 +3,7 @@ import multer from 'multer';
 import { unlinkSync } from 'fs';
 import path from 'path';
 
-import multerConfig from '../config/multer';
+import multerConfig from '../services/multer';
 import { requireLogin } from '../middlewares/requireLogin';
 
 export const imageUploadRoutes = express.Router();
@@ -11,6 +11,7 @@ const upload = multer(multerConfig);
 
 imageUploadRoutes.post(
   '/api/service/add/image',
+  requireLogin,
   upload.single('img'),
   (req: Request, res: Response, next: NextFunction) => {
     const file = req.file;
@@ -23,6 +24,7 @@ imageUploadRoutes.post(
 
 imageUploadRoutes.delete(
   '/api/service/delete/image/:image_name',
+  requireLogin,
   async (req: Request, res: Response) => {
     const { image_name } = req.params;
     if (!image_name) {
