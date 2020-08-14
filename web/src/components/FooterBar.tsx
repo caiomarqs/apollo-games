@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const FooterBar = () => {
+export const FooterBar = () => {
     return (
         <>
             <div className="footer">
@@ -20,7 +21,7 @@ const FooterBar = () => {
                                 <a className="btn-font footer-link" href="/#team">time</a>
                             </li>
                             <li className="nav-item">
-                                <a className="btn-font footer-link" href="/contact">contato</a>
+                                <Link to="/contact" className="btn-font footer-link" replace>contato</Link>
                             </li>
                         </ul>
                         <ul className="nav flex-column col">
@@ -76,5 +77,3 @@ const FooterBar = () => {
     )
 
 }
-
-export default FooterBar

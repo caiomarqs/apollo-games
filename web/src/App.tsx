@@ -7,6 +7,7 @@ import { NavBar } from './components/NavBarComponent/NavBar';
 import { LoginPage } from './pages/LoginPage';
 import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
+import { ContactPage } from './pages/ContactPage'
 import { AddTeamForm } from './components/backend/teams/AddTeamForm';
 import { UpdateTeamForm } from './components/backend/teams/UpdateTeamForm';
 import { I18nProvider, LOCALES } from './i18n';
@@ -46,6 +47,11 @@ export class _App extends React.Component<AppProps, AppState> {
               component={UpdateTeamForm}
             />
             <Route path="/" exact component={Landing} />
+            <Route 
+              path="/contact"
+              exact
+              component={ContactPage}
+            />
           </Router>
         </I18nProvider>
       </>
