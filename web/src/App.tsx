@@ -1,20 +1,20 @@
 import React from 'react';
 import { Route, Router } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Cookie from 'js-cookie';
 
 import { history } from './history';
 import { NavBar } from './components/NavBarComponent/NavBar';
 import { LoginPage } from './pages/LoginPage';
 import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
-import { ContactPage } from './pages/ContactPage'
+import { ContactPage } from './pages/ContactPage';
 import { AddTeamForm } from './components/backend/teams/AddTeamForm';
 import { UpdateTeamForm } from './components/backend/teams/UpdateTeamForm';
 import { I18nProvider, LOCALES } from './i18n';
 import { StoreState } from './reducers';
-
 import { changeLanguage } from './actions';
-import Cookie from 'js-cookie';
+import { ScrollToTop } from './components/ScrollToTop';
 
 interface AppProps {
   language: LOCALES;
@@ -32,8 +32,9 @@ export class _App extends React.Component<AppProps, AppState> {
     return (
       <>
         <I18nProvider locale={this.props.language}>
-          <NavBar />
           <Router history={history}>
+            <NavBar />
+            <ScrollToTop />
             <Route path="/backend" exact component={LoginPage} />
             <Route path="/backend/dashboard" exact component={Dashboard} />
             <Route
@@ -47,11 +48,7 @@ export class _App extends React.Component<AppProps, AppState> {
               component={UpdateTeamForm}
             />
             <Route path="/" exact component={Landing} />
-            <Route 
-              path="/contact"
-              exact
-              component={ContactPage}
-            />
+            <Route path="/contact" exact component={ContactPage} />
           </Router>
         </I18nProvider>
       </>

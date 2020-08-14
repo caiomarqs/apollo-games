@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { Logo } from './Logo';
 import { navThemeEnum, Theme } from '../../actions';
@@ -9,17 +10,18 @@ import { MenuItems } from './MenuItems';
 interface NavBarProps {
   overEmit?: boolean;
   theme: Theme;
-  userId: string | undefined
+  userId: string | undefined;
 }
 
 class _NavBar extends React.Component<NavBarProps> {
-
   renderLogOut(userId: string | undefined) {
     if (userId !== undefined && userId !== '')
       return (
-        <a className="btn-font" href="/api/logout">Log Out</a>
-      )
-    return
+        <a className="btn-font" href="/api/logout">
+          Log Out
+        </a>
+      );
+    return;
   }
 
   navColor = (theme: navThemeEnum) => {
@@ -55,11 +57,11 @@ class _NavBar extends React.Component<NavBarProps> {
           )}`}
         >
           <div className="container">
-            <a className="custom-brand" href="/">
+            <Link className="custom-brand" to="/">
               <Logo
                 color={navTheme === navThemeEnum.DARK ? 'white' : 'black'}
               />
-            </a>
+            </Link>
             {this.renderItems(navMenus)}
             {this.renderLogOut(this.props.userId)}
           </div>

@@ -1,20 +1,18 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-interface ScrollToTopProps {
-    location: any
-}
+interface ScrollToTopProps extends RouteComponentProps {}
 
 class _ScrollToTop extends React.Component<ScrollToTopProps> {
-    componentDidUpdate(prevProps: any) {
-        if (this.props.location !== prevProps.location) {
-           
-        }
+  componentDidUpdate(prevProps: ScrollToTopProps) {
+    if (this.props.location !== prevProps.location) {
+      window.scrollTo(0, 0);
     }
+  }
 
-    render() {
-        return <React.Fragment />
-    }
+  render() {
+    return <React.Fragment />;
+  }
 }
 
-export const ScrollToTop = withRouter(_ScrollToTop)
+export const ScrollToTop = withRouter(_ScrollToTop);

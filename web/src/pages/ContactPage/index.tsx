@@ -1,17 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-import { FormContact } from './FormContact'
-import { FooterBar } from '../../components/FooterBar'
+import { FormContact } from './FormContact';
+import { FooterBar } from '../../components/FooterBar';
+import { ScrollToTop } from '../../components/ScrollToTop';
 
 export class ContactPage extends React.Component {
-
-    render() {
-        return (
-            <>  
-                <FormContact />
-                <FooterBar />
-            </>
-        )
-    }
-
+  render() {
+    return (
+      <>
+        <FormContact />
+        <FooterBar />
+      </>
+    );
+  }
 }
