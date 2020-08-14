@@ -10,7 +10,6 @@ interface FormContactProps {
 export class _FormContact extends React.Component<FormContactProps> {
   componentDidMount() {
     this.props.changeTheme(navThemeEnum.DARK, true);
-    // window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {

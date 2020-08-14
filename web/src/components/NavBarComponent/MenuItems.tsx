@@ -6,58 +6,58 @@ import {
   faSteamSymbol as SteamLogo,
   faInstagram as InstaLogo,
 } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link'
+import { connect } from 'react-redux'
 
 import { LocalesButtons } from './LocalesButtons';
+import { handlerOverMenu } from '../../actions'
+import { StoreState } from '../../reducers'
 
-type MenuItemsProps = {
-  isOver?: boolean;
-  id: string;
-  className: string;
-};
+interface MenuItemsProps {
+  isOver?: boolean,
+  id: string,
+  className: string,
+  handlerOverMenu: typeof handlerOverMenu,
+  openMenu: boolean
+}
 
-export class MenuItems extends React.Component<MenuItemsProps> {
-  isOverHandler(status = false) {
-    if (status === true) return 'li-over';
-    return '';
+class _MenuItems extends React.Component<MenuItemsProps> {
+
+  handlerMenu = () => {
+    if(this.props.isOver === true){
+      this.props.handlerOverMenu(!this.props.openMenu)
+      return
+    }
+    return
   }
 
   render() {
+
+    let liClass = 'nav-item btn-font'
+
+    if (this.props.isOver === true) {
+      liClass = 'nav-item btn-font li-over'
+    }
+
     return (
       <>
         <ul id={this.props.id} className={this.props.className}>
-          <li
-            className={`nav-item btn-font ${this.isOverHandler(
-              this.props.isOver
-            )}`}
-          >
-            <Link className="nav-link" to={{ hash: '/#about' }}>
+          <li className={liClass} onClick={() => this.handlerMenu()}>
+            <HashLink className="nav-link" to="/#about" >
               <FormattedMessage id="navItems.sobre" />
-            </Link>
+            </HashLink>
           </li>
-          <li
-            className={`nav-item btn-font ${this.isOverHandler(
-              this.props.isOver
-            )}`}
-          >
-            <Link className="nav-link" to={{ hash: '/#games' }}>
+          <li className={liClass} onClick={() => this.handlerMenu()}>
+            <HashLink className="nav-link" to="/#games" >
               <FormattedMessage id="navItems.games" />
-            </Link>
+            </HashLink>
           </li>
-          <li
-            className={`nav-item btn-font ${this.isOverHandler(
-              this.props.isOver
-            )}`}
-          >
-            <Link className="nav-link" to={{ hash: '/#team' }}>
+          <li className={liClass} onClick={() => this.handlerMenu()}>
+            <HashLink className="nav-link" to="/#team">
               <FormattedMessage id="navItems.time" />
-            </Link>
+            </HashLink>
           </li>
-          <li
-            className={`nav-item btn-font ${this.isOverHandler(
-              this.props.isOver
-            )}`}
-          >
+          <li className={liClass} onClick={() => this.handlerMenu()}>
             <div className="brands-container">
               <a
                 target="_blank"
@@ -82,7 +82,7 @@ export class MenuItems extends React.Component<MenuItemsProps> {
               </a>
             </div>
           </li>
-          <li className={`nav-item ${this.isOverHandler(this.props.isOver)}`}>
+          <li className={`nav-item`} onClick={() => this.handlerMenu()}>
             <LocalesButtons />
           </li>
         </ul>
@@ -90,3 +90,9 @@ export class MenuItems extends React.Component<MenuItemsProps> {
     );
   }
 }
+
+const mapStateToProps = (state: StoreState) => {
+  return { openMenu: state.overMenu.openMenu };
+};
+
+export const MenuItems = connect(mapStateToProps, { handlerOverMenu })(_MenuItems)

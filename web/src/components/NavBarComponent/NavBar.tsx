@@ -6,6 +6,7 @@ import { Logo } from './Logo';
 import { navThemeEnum, Theme } from '../../actions';
 import { StoreState } from '../../reducers';
 import { MenuItems } from './MenuItems';
+import { HambugerMenu } from './HambugerMenu';
 
 interface NavBarProps {
   overEmit?: boolean;
@@ -14,6 +15,7 @@ interface NavBarProps {
 }
 
 class _NavBar extends React.Component<NavBarProps> {
+  
   renderLogOut(userId: string | undefined) {
     if (userId !== undefined && userId !== '')
       return (
@@ -32,11 +34,7 @@ class _NavBar extends React.Component<NavBarProps> {
     if (render === true) {
       return (
         <>
-          <div id="hambuger-menu" className="hambuger-menu">
-            <span />
-            <span />
-            <span />
-          </div>
+          <HambugerMenu />
           <MenuItems id="items-container" className="items-container" />
         </>
       );
@@ -58,9 +56,7 @@ class _NavBar extends React.Component<NavBarProps> {
         >
           <div className="container">
             <Link className="custom-brand" to="/">
-              <Logo
-                color={navTheme === navThemeEnum.DARK ? 'white' : 'black'}
-              />
+              <Logo color={navTheme === navThemeEnum.DARK ? 'white' : 'black'} />
             </Link>
             {this.renderItems(navMenus)}
             {this.renderLogOut(this.props.userId)}

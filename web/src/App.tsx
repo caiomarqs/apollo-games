@@ -5,6 +5,7 @@ import Cookie from 'js-cookie';
 
 import { history } from './history';
 import { NavBar } from './components/NavBarComponent/NavBar';
+import { OverMenu } from './components/NavBarComponent/OverMenu'
 import { LoginPage } from './pages/LoginPage';
 import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
@@ -34,6 +35,7 @@ export class _App extends React.Component<AppProps, AppState> {
         <I18nProvider locale={this.props.language}>
           <Router history={history}>
             <NavBar />
+            <OverMenu />
             <ScrollToTop />
             <Route path="/backend" exact component={LoginPage} />
             <Route path="/backend/dashboard" exact component={Dashboard} />
@@ -42,7 +44,7 @@ export class _App extends React.Component<AppProps, AppState> {
               exact
               component={AddTeamForm}
             />
-            <Route
+            <Route 
               path="/backend/dashboard/team/update/member/:id/:team"
               exact
               component={UpdateTeamForm}

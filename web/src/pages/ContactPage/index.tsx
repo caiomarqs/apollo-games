@@ -8,6 +8,7 @@ export class ContactPage extends React.Component {
   render() {
     return (
       <>
+        <ScrollToTop />
         <FormContact />
         <FooterBar />
       </>
