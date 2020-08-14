@@ -12,7 +12,6 @@
 
         .card-container {
             width: 33%;
-      
 
             .optionsButton {
                 display: flex;
@@ -24,6 +23,17 @@
                     cursor: pointer;
                 }
 
+                svg {
+                    path {
+                        transition: ease-in-out 0.15s fill;
+                    }
+
+                    &:hover {
+                        path {
+                            fill: $preto-000;
+                        }
+                    }
+                }
             }
         }
 
@@ -89,35 +99,35 @@
             }
         }
 
-        .add-card{
+        .add-card {
             display: flex;
             flex-direction: row;
             align-items: center;
             // justify-content: space-around;
             height: calc(6rem + 1.5rem);
-            padding:  0 0 0 2rem;
+            padding: 0 0 0 2rem;
 
-            >p{
+            > p {
                 height: 0;
                 color: $cinza-200;
-                transition: ease-in-out .15s color;
+                transition: ease-in-out 0.15s color;
             }
 
-            svg{
+            svg {
                 margin-right: 1rem;
-                path { 
-                    transition: ease-in-out .15s fill;
+                path {
+                    transition: ease-in-out 0.15s fill;
                 }
             }
 
-            &:hover{
+            &:hover {
                 cursor: pointer;
 
-                p{
+                p {
                     color: $preto-000;
                 }
 
-                svg path{
+                svg path {
                     fill: $preto-000;
                 }
             }

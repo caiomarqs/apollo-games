@@ -4,20 +4,19 @@ import { connect } from 'react-redux'
 
 import { TeamState, deleteTeamMember } from '../../../actions'
 import { Badges } from './Badges'
-import { StoreState } from '../../../reducers'
 import { Gabage, Pencil } from '../../Icons'
 
 
 interface CardProps {
     profile: TeamState
     isInDashboard: boolean
-    deleteTeamMember(member: TeamState): void
+    deleteTeamMember(member: TeamState): void;
 }
 
 class _Card extends React.Component<CardProps>{
 
     onDeleteClicked = (member: TeamState) => {
-        deleteTeamMember(member)
+        this.props.deleteTeamMember(member)
     }
 
     compileProfileImage = (img: string | undefined) => {
@@ -72,8 +71,4 @@ class _Card extends React.Component<CardProps>{
     }
 }
 
-const mapStateToProps = (state: StoreState) => {
-    return { teams: state.teams }
-}
-
-export const Card = connect(mapStateToProps, { deleteTeamMember })(_Card)
+export const Card = connect(null, { deleteTeamMember })(_Card)

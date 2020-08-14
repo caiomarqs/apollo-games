@@ -133,14 +133,12 @@ export const updateTeamMember = (member: TeamState) => async (
   }
 };
 
-export const deleteTeamMember = (member: TeamState) => async (
-  dispatch: Dispatch,
-  getState: Function
-) => {
+export const deleteTeamMember = (member: TeamState) => async ( dispatch: Dispatch, getState: Function ) => {
   try {
     await axios.delete(`/api/service/delete/image/${member.img}`);
 
-    await axios.delete<TeamState[]>(`/api/team/delete/member/${member._id}`);
+    const response = await axios.delete<TeamState>(`/api/team/delete/member/${member._id}`);
+    console.log(response)
 
     const res = {
       [member.team]: _.filter(getState().teams[member.team], (oldMember) => {
