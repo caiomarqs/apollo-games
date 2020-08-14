@@ -6,7 +6,7 @@ import {
   faSteamSymbol as SteamLogo,
   faInstagram as InstaLogo,
 } from '@fortawesome/free-brands-svg-icons';
-import { HashLink as Link } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
 
 import { LocalesButtons } from './LocalesButtons';
 
@@ -31,7 +31,7 @@ export class MenuItems extends React.Component<MenuItemsProps> {
               this.props.isOver
             )}`}
           >
-            <Link className="nav-link" to="/#about">
+            <Link className="nav-link" to={{ hash: '/#about' }}>
               <FormattedMessage id="navItems.sobre" />
             </Link>
           </li>
@@ -40,7 +40,7 @@ export class MenuItems extends React.Component<MenuItemsProps> {
               this.props.isOver
             )}`}
           >
-            <Link className="nav-link" to="/#games">
+            <Link className="nav-link" to={{ hash: '/#games' }}>
               <FormattedMessage id="navItems.games" />
             </Link>
           </li>
@@ -49,7 +49,7 @@ export class MenuItems extends React.Component<MenuItemsProps> {
               this.props.isOver
             )}`}
           >
-            <Link className="nav-link" to="/#team">
+            <Link className="nav-link" to={{ hash: '/#team' }}>
               <FormattedMessage id="navItems.time" />
             </Link>
           </li>
