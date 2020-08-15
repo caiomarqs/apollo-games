@@ -28,7 +28,7 @@ export class ComercialDiv extends React.Component<ComercialDivProps, ComercialDi
         clearTimeout(timer);
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         timer = setTimeout(() => this.hideHandler(), this.props.tiemout) //Time that div dismount
         setTimeout(() => this.setState({ progressBarClass: "progressBarTransition" }), 1)
     }
@@ -44,14 +44,13 @@ export class ComercialDiv extends React.Component<ComercialDivProps, ComercialDi
                     <span className="close-x-45"></span>
                     <span className="close-x-135"></span>
                 </div>
-                <div className="comercialContent">
+                <a className="comercialContent" href="https://forcaintrepida.com.br/" target="_blank" rel="noopener noreferrer">
                     <img src="https://forcaintrepida.com.br/images/INTZ_Logo_ForcaIntrepida_Black-p-500.png" alt="" />
-                    <div>
-                        <h5>ALISTE-SE E FAÇA O INTZ MAIS FORTE!</h5>
-                        <p></p>
-                        <a className="btn-comercial">Saiba Mais</a>
+                    <div className="comercial-infos">
+                        <h6>ALISTE-SE E FAÇA O INTZ MAIS FORTE!</h6>
+                        <p className="caption-font">Ganhe pontos jogando seu jogo favorito e troque por benefícios exclusivos oferecidos pelo seu clube.</p>
                     </div>
-                </div>
+                </a>
                 <div className={`comercialTimeOut ${this.state.progressBarClass}`} style={{ transition: this.progressBarTranstition(this.props.tiemout) }}>
                 </div>
             </div>
