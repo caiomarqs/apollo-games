@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 
 import { keys } from '../config/config';
-import { NodeMailer } from '../services/emails/nodeMailer';
+import { NodeMailer } from '../services/emails/NodeMailer';
 
 export const emailRoutes = express.Router();
 const { MAIL_GUN_DOMAIN, MAIL_GUN_KEY } = keys;

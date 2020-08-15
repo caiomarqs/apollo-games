@@ -16,6 +16,11 @@ export interface LogUserInAction {
   payload: User;
 }
 
+export interface LogUserOutAction {
+  type: ActionTypes.logUserOut;
+  payload: User;
+}
+
 export const logUserIn = (userData: User) => async (dispatch: Dispatch) => {
   try {
     const response = await axios.post<User>('/api/fetch/user', userData);
@@ -35,4 +40,14 @@ export const logUserIn = (userData: User) => async (dispatch: Dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const logUserOut = () => {
+  return {
+    type: ActionTypes.logUserOut,
+    payload: {
+      password: '',
+      email: '',
+    },
+  };
 };
