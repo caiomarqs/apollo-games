@@ -10,6 +10,8 @@ export default {
         'footer.time': 'team',
         'footer.contato': 'contact',
         'principal.titulo': 'The most intrepid game studio in the world!',
-        'principal.p': 'There are two infinite things: the Universe and our desire to make games.'
+        'principal.p': 'There are two infinite things: the Universe and our desire to make games.',
+        'comercial.titulo': 'JOIN AND MAKE THE INTZ STRONGER!',
+        'comercial.desc': 'Earn points by playing your favorite game and redeem for exclusive benefits offered by your club.'
     }
 }

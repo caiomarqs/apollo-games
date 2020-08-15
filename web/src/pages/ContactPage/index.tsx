@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FormContact } from './FormContact';
+import { ContactSection } from './ContactSection';
 import { FooterBar } from '../../components/FooterBar';
 import { ScrollToTop } from '../../components/ScrollToTop';
 
@@ -9,7 +9,7 @@ export class ContactPage extends React.Component {
     return (
       <>
         <ScrollToTop />
-        <FormContact />
+        <ContactSection />
         <FooterBar />
       </>
     );

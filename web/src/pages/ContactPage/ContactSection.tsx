@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { changeTheme, navThemeEnum } from '../../actions';
+import { ContactContainer } from '../../components/ContatctComponet'
 
-interface FormContactProps {
+interface ContactSectionProps {
   changeTheme: typeof changeTheme;
 }
 
-export class _FormContact extends React.Component<FormContactProps> {
+export class _ContactSection extends React.Component<ContactSectionProps> {
   componentDidMount() {
     this.props.changeTheme(navThemeEnum.DARK, true);
   }
@@ -17,8 +18,8 @@ export class _FormContact extends React.Component<FormContactProps> {
   }
 
   render() {
-    return <div id="contac-page"></div>;
+    return <div id="contac-page"><div className="container"><ContactContainer/></div></div>;
   }
 }
 
-export const FormContact = connect(null, { changeTheme })(_FormContact);
+export const ContactSection = connect(null, { changeTheme })(_ContactSection);

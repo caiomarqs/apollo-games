@@ -1,4 +1,5 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 type ComercialDivProps = {
     tiemout: number;
@@ -47,8 +48,8 @@ export class ComercialDiv extends React.Component<ComercialDivProps, ComercialDi
                 <a className="comercialContent" href="https://forcaintrepida.com.br/" target="_blank" rel="noopener noreferrer">
                     <img src="https://forcaintrepida.com.br/images/INTZ_Logo_ForcaIntrepida_Black-p-500.png" alt="" />
                     <div className="comercial-infos">
-                        <h6>ALISTE-SE E FAÇA O INTZ MAIS FORTE!</h6>
-                        <p className="caption-font">Ganhe pontos jogando seu jogo favorito e troque por benefícios exclusivos oferecidos pelo seu clube.</p>
+                        <h6><FormattedMessage id="comercial.titulo"/></h6>
+                        <p className="caption-font"><FormattedMessage id="comercial.desc"/></p>
                     </div>
                 </a>
                 <div className={`comercialTimeOut ${this.state.progressBarClass}`} style={{ transition: this.progressBarTranstition(this.props.tiemout) }}>

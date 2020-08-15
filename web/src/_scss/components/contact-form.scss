@@ -1,0 +1,158 @@
+.contact-container {
+    max-width: 58.5rem;
+    width: 58.5rem;
+    height: 27.5rem;
+    background-color: $preto-900;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    @include box-shadow(0px, 0.1875rem, 0.875rem, rgba(0, 0, 0, 0.3));
+
+    .contatc-branding {
+        max-width: 30rem;
+        width: 30rem;
+        height: 27.5rem;
+        background-image: url("../../assets/contents/fundo-contato.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        > h4,
+        > p,
+        a {
+            color: $branco-000;
+        }
+
+        > h4 {
+            text-align: center;
+            margin: 3.5rem 0 0 0;
+        }
+        > p {
+            max-width: 16.5rem;
+            width: 16.5rem;
+            font-size: 0.875rem;
+            margin: 6px 0 0 0;
+        }
+
+   
+
+        .mail-adress {
+            color: $branco-000;
+            display: flex;
+            max-width: 16.5rem;
+            width: 16.5rem;
+            justify-content: center;
+            margin-top: 4.5rem;
+
+            svg {
+                width: 24px;
+                height: 24px;
+                margin: 0 16px 0 0;
+
+                path {
+                    width: 100%;
+                }
+            }
+        }
+
+        .planet-one,
+        .planet-two,
+        .rope,
+        .envelop {
+            position: absolute;
+        }
+
+        .planet-one {
+            top: 41%;
+            left: 5%;
+            @include animation(planet-one-animation 3s ease-in-out infinite);
+        }
+
+        .planet-two {
+            top: 55%;
+            right: 8%;
+            @include animation(planet-two-animation 3.2s ease-in-out infinite);
+        }
+
+
+        .envelop{
+            left: 37%;
+            bottom: 22%;
+            @include animation(envelop-animation 2.8s ease-in-out infinite);
+        }
+    }
+
+    .contact-form {
+        width: 28.5rem;
+        height: 27.5rem;
+        background-color: $preto-400;
+        padding: 0 2rem;
+
+
+
+        h4{
+            color: $branco-000;
+            text-align: center;
+            margin: 1.5rem 0 0 0;
+        }
+    }
+}
+
+@include keyframes(planet-one-animation) {
+    0% {
+        top: 41%;
+        left: 5%;
+    }
+    38% {
+        top: 39%;
+        left: 5%;
+    }
+    50% {
+        top: 40%;
+        left: 5%;
+    }
+    62% {
+        top: 39%;
+        left: 5%;
+    }
+    100% {
+        top: 41%;
+        left: 5%;
+    }
+}
+
+@include keyframes(planet-two-animation) {
+    0% {
+        top: 55%;
+        right: 8%;
+    }
+    50% {
+        top: 48%;
+        right: 8%;
+    }
+    100% {
+        top: 55%;
+        right: 8%;
+    }
+}
+
+
+
+@include keyframes(envelop-animation) {
+    0% {
+        left: 37%;
+        bottom: 23%;
+    }
+    50% {
+        left: 37%;
+        bottom: 20%;
+    }
+    100% {
+        left: 37%;
+        bottom: 23%;
+    }
+}
+

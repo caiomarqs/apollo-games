@@ -6,7 +6,7 @@ const AboutSection = () => {
             <div id="about">
                 <div className="container">
                     <div className="noselect about-title">
-                        <h2>O Lab</h2>
+                        <h2>Sobre o Lab</h2>
                         {/* <!-- <p className="sub-regular">Há duas coisas infinitas: o Universo e a nossa vontade de fazer jogos !</p> --> */}
                     </div>
                     <div className="device-container">
