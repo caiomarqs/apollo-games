@@ -17,7 +17,7 @@ export class ComercialDiv extends React.Component<ComercialDivProps, ComercialDi
         progressBarClass: ""
     }
 
-    progressBarTranstition(timeInMili: number){
+    progressBarTranstition(timeInMili: number) {
         const timeInSeg = timeInMili / 1000
         return `width ${timeInSeg}s linear`
     }
@@ -30,7 +30,7 @@ export class ComercialDiv extends React.Component<ComercialDivProps, ComercialDi
 
     componentDidMount() {
         timer = setTimeout(() => this.hideHandler(), this.props.tiemout) //Time that div dismount
-        setTimeout(() => this.setState({progressBarClass: "progressBarTransition"}), 1)
+        setTimeout(() => this.setState({ progressBarClass: "progressBarTransition" }), 1)
     }
 
     componentWillUnmount() {
@@ -39,12 +39,18 @@ export class ComercialDiv extends React.Component<ComercialDivProps, ComercialDi
 
     render() {
         return (
-            <div className={`comercialDiv ${this.state.hide}`}>
+            <div className={`comercialDiv ${this.state.hide} noselect`}>
                 <div className="close-comercial" onClick={() => this.hideHandler()}>
                     <span className="close-x-45"></span>
                     <span className="close-x-135"></span>
                 </div>
                 <div className="comercialContent">
+                    <img src="https://forcaintrepida.com.br/images/INTZ_Logo_ForcaIntrepida_Black-p-500.png" alt="" />
+                    <div>
+                        <h5>ALISTE-SE E FAÇA O INTZ MAIS FORTE!</h5>
+                        <p></p>
+                        <a className="btn-comercial">Saiba Mais</a>
+                    </div>
                 </div>
                 <div className={`comercialTimeOut ${this.state.progressBarClass}`} style={{ transition: this.progressBarTranstition(this.props.tiemout) }}>
                 </div>

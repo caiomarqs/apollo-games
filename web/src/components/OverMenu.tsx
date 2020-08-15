@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { MenuItems } from './MenuItems'
-import { handlerOverMenu } from '../../actions'
-import { StoreState } from '../../reducers'
+import { MenuItems } from './NavBarComponent/MenuItems'
+import { handlerOverMenu } from '../actions'
+import { StoreState } from '../reducers'
 
 interface OverMenuProps {
     handlerOverMenu: typeof handlerOverMenu,

@@ -5,7 +5,7 @@ import Cookie from 'js-cookie';
 
 import { history } from './history';
 import { NavBar } from './components/NavBarComponent/NavBar';
-import { OverMenu } from './components/NavBarComponent/OverMenu'
+import { OverMenu } from './components/OverMenu'
 import { LoginPage } from './pages/LoginPage';
 import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
