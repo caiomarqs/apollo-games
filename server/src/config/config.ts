@@ -6,6 +6,8 @@ interface Key {
   MONGO_URL: string;
   MONGO_DB_NAME: string;
   APP_DOMAIN: string;
+  MAIL_GUN_KEY: string;
+  MAIL_GUN_DOMAIN: string;
 }
 
 dotenv.config();
@@ -28,4 +30,6 @@ export const keys = {
   MONGO_URL: process.env.MONGO_URL,
   MONGO_DB_NAME: process.env.MONGO_DB_NAME,
   APP_DOMAIN: process.env.APP_DOMAIN,
+  MAIL_GUN_KEY: process.env.MAIL_GUN_KEY,
+  MAIL_GUN_DOMAIN: process.env.MAIL_GUN_DOMAIN,
 } as Key;
