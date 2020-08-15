@@ -1,15 +1,22 @@
-import { LogUserInAction } from './auth';
+import { LogUserInAction, LogUserOutAction } from './auth';
 import { FetchTeamAction } from './team';
 import { ChangeThemeAction } from './theme';
-import { ChangeLanguageAction } from './language'
-import { OverMenuAction } from './overMenu'
+import { ChangeLanguageAction } from './language';
+import { OverMenuAction } from './overMenu';
 
 export enum ActionTypes {
   logUserIn,
+  logUserOut,
   fetchTeam,
   changeTheme,
   changeLanguage,
-  handlerOverMenu
+  handlerOverMenu,
 }
 
-export type Action = LogUserInAction | FetchTeamAction | ChangeThemeAction | ChangeLanguageAction | OverMenuAction ;
+export type Action =
+  | LogUserInAction
+  | LogUserOutAction
+  | FetchTeamAction
+  | ChangeThemeAction
+  | ChangeLanguageAction
+  | OverMenuAction;

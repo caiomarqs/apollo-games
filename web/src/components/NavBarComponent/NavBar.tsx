@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Logo } from './Logo';
-import { navThemeEnum, Theme } from '../../actions';
+import { navThemeEnum, Theme, logUserOut } from '../../actions';
 import { StoreState } from '../../reducers';
 import { MenuItems } from './MenuItems';
 import { HambugerMenu } from './HambugerMenu';
@@ -12,14 +12,22 @@ interface NavBarProps {
   overEmit?: boolean;
   theme: Theme;
   userId: string | undefined;
+  logUserOut: typeof logUserOut;
 }
 
 class _NavBar extends React.Component<NavBarProps> {
-  
+  onLogOutClicked = () => {
+    this.props.logUserOut();
+  };
+
   renderLogOut(userId: string | undefined) {
     if (userId !== undefined && userId !== '')
       return (
-        <a className="btn-font" href="/api/logout">
+        <a
+          onClick={this.onLogOutClicked}
+          className="btn-font"
+          href="/api/logout"
+        >
           Log Out
         </a>
       );
@@ -56,7 +64,9 @@ class _NavBar extends React.Component<NavBarProps> {
         >
           <div className="container">
             <Link className="custom-brand" to="/">
-              <Logo color={navTheme === navThemeEnum.DARK ? 'white' : 'black'} />
+              <Logo
+                color={navTheme === navThemeEnum.DARK ? 'white' : 'black'}
+              />
             </Link>
             {this.renderItems(navMenus)}
             {this.renderLogOut(this.props.userId)}
@@ -71,4 +81,4 @@ const mapStateToProps = (state: StoreState) => {
   return { theme: state.theme, userId: state.auth._id };
 };
 
-export const NavBar = connect(mapStateToProps)(_NavBar);
+export const NavBar = connect(mapStateToProps, { logUserOut })(_NavBar);
