@@ -31,7 +31,7 @@ export class NodeMailer {
         domain,
       },
     };
-    
+
     const transporter = nodemailer.createTransport(nodemailerMailGun(auth));
     const mailOptions = {
       from,
@@ -40,7 +40,7 @@ export class NodeMailer {
       html: renderTemplate(text, name),
     };
 
-    return await transporter.sendMail(mailOptions, (err, data) => {
+    transporter.sendMail(mailOptions, (err, data) => {
       if (err) {
         console.log(err);
       } else {

@@ -1,37 +1,36 @@
-import axios from 'axios'
-import { Dispatch } from 'redux'
+import axios from 'axios';
+import { Dispatch } from 'redux';
 
-import { ActionTypes } from './types'
+import { ActionTypes } from './types';
 
-export interface Email{
-    name: string;
-    from: string;
-    subject: string;
-    text: string;
+export interface Email {
+  name: string;
+  from: string;
+  subject: string;
+  text: string;
 }
 
-export interface ResponseEmail{
-    mensage: string;
+export interface ResponseEmail {
+  message: string;
 }
 
 export interface SendEmailAction {
-    type: ActionTypes.sendEmail;
-    payload: ResponseEmail;
+  type: ActionTypes.sendEmail;
+  payload: ResponseEmail;
 }
 
 export const sendEmailTo = (email: Email) => async (dispatch: Dispatch) => {
-    try{
+  try {
+    const res = await axios.post<ResponseEmail>(
+      '/api/service/send/email',
+      email
+    );
 
-        const res = await axios.post<ResponseEmail>('/api/service/send/email', email)
-
-        dispatch<SendEmailAction>({
-            type: ActionTypes.sendEmail,
-            payload: res.data
-        })
-
-        console.log(res.data.mensage)
-    }
-    catch (err) {
-        console.log(err);
-    }
-}
+    dispatch<SendEmailAction>({
+      type: ActionTypes.sendEmail,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};

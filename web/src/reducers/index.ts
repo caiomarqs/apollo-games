@@ -4,9 +4,17 @@ import { reducer as formReducer } from 'redux-form';
 import { authReducer } from './authReducer';
 import { teamReducer } from './teamReducer';
 import { themeReducer } from './themeReducer';
-import { languageReducer } from './languagesReducer'
-import { overMenuReducer } from './overMenuReducer'
-import { User, TeamState, Theme, Languages, OverMenu } from '../actions';
+import { languageReducer } from './languagesReducer';
+import { overMenuReducer } from './overMenuReducer';
+import { sendEmailReducer } from './sendEmailReducer';
+import {
+  User,
+  TeamState,
+  Theme,
+  Languages,
+  OverMenu,
+  ResponseEmail,
+} from '../actions';
 
 export interface StoreState {
   auth: User;
@@ -14,6 +22,7 @@ export interface StoreState {
   theme: Theme;
   languages: Languages;
   overMenu: OverMenu;
+  emailMessage: ResponseEmail;
 }
 
 export const reducers = combineReducers({
@@ -22,5 +31,6 @@ export const reducers = combineReducers({
   teams: teamReducer,
   theme: themeReducer,
   languages: languageReducer,
-  overMenu: overMenuReducer
+  overMenu: overMenuReducer,
+  emailMessage: sendEmailReducer,
 });
