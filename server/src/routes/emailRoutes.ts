@@ -8,11 +8,12 @@ const { MAIL_GUN_DOMAIN, MAIL_GUN_KEY } = keys;
 emailRoutes.post(
   '/api/service/send/email',
   async (req: Request, res: Response) => {
-    const { from, subject, text } = req.body;
+    const { from, subject, text, name } = req.body;
     const email = new NodeMailer({
       from,
       subject,
       text,
+      name,
       api_key: MAIL_GUN_KEY,
       domain: MAIL_GUN_DOMAIN,
     });
