@@ -9,6 +9,7 @@ export class NodeMailer {
   from: string;
   to: string;
   subject: string;
+  name: string;
   text: string;
 
   constructor(public data: Partial<NodeMailer>) {
@@ -16,6 +17,7 @@ export class NodeMailer {
     this.domain = data.domain ? data.domain : '';
     this.from = data.from ? data.from : '';
     this.subject = data.subject ? data.subject : '';
+    this.name = data.name ? data.name : '';
     this.text = data.text ? data.text : '';
     this.to = 'reboucas.beraby@gmail.com';
   }
@@ -34,7 +36,7 @@ export class NodeMailer {
       from,
       to,
       subject,
-      html: renderTemplate(text),
+      html: renderTemplate(text, name),
     };
 
     return await transporter.sendMail(mailOptions, (err, data) => {
