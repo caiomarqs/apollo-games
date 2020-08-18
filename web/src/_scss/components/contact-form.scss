@@ -81,6 +81,7 @@
         .envelop{
             left: 37%;
             bottom: 22%;
+            transform: rotate(20deg);
             @include animation(envelop-animation 2.8s ease-in-out infinite);
         }
     }

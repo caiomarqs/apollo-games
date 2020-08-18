@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Router } from 'react-router-dom';
+import { Route, Router, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Cookie from 'js-cookie';
 
@@ -20,9 +20,10 @@ import { ScrollToTop } from './components/ScrollToTop';
 interface AppProps {
   language: LOCALES;
   changeLanguage: typeof changeLanguage;
+  email: string | undefined;
 }
 
-interface AppState {}
+interface AppState { }
 
 export class _App extends React.Component<AppProps, AppState> {
   componentDidMount() {
@@ -37,20 +38,15 @@ export class _App extends React.Component<AppProps, AppState> {
             <NavBar />
             <OverMenu />
             <ScrollToTop />
-            <Route path="/backend" exact component={LoginPage} />
-            <Route path="/backend/dashboard" exact component={Dashboard} />
-            <Route
-              path="/backend/dashboard/team/add/member"
-              exact
-              component={AddTeamForm}
-            />
-            <Route 
-              path="/backend/dashboard/team/update/member/:id/:team"
-              exact
-              component={UpdateTeamForm}
-            />
-            <Route path="/" exact component={Landing} />
-            <Route path="/contact" exact component={ContactPage} />
+            <Switch>
+              <Route path="/" exact component={Landing} />
+              <Route path="/backend" exact component={LoginPage} />
+              <Route path="/backend/dashboard" exact> {!this.props.email ? <Redirect to="/" /> : <Dashboard />} </Route>
+              <Route path="/backend/dashboard/team/add/member" exact component={AddTeamForm} />
+              <Route path="/backend/dashboard/team/update/member/:id/:team" exact component={UpdateTeamForm} />
+              <Route path="/contact" exact component={ContactPage} />
+              <Route path="*" status={404}><Redirect to="/"/></Route>
+            </Switch>
           </Router>
         </I18nProvider>
       </>
@@ -59,7 +55,7 @@ export class _App extends React.Component<AppProps, AppState> {
 }
 
 const mapStateToProps = (state: StoreState) => {
-  return { language: state.languages.language };
+  return { language: state.languages.language, email: state.auth.email };
 };
 
 export const App = connect(mapStateToProps, { changeLanguage })(_App);

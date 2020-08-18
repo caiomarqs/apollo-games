@@ -8,7 +8,7 @@ export class PrincipalSection extends React.Component {
             <div id="principal">
                 <div className="container noselect">
                     <img src={require('../../../assets/brand/apollo_logo_white.svg')} className="brand-principal" alt="Apollo Logo" />
-                    <h4><FormattedMessage id="principal.titulo" /></h4>
+                    <h4><FormattedMessage id="principal.titulo"/></h4>
                     <p><FormattedMessage id="principal.p"/></p>
                 </div>
             </div>

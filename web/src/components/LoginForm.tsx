@@ -1,17 +1,17 @@
-import React from 'react';
-import { SubmissionError } from 'redux-form';
-import { connect } from 'react-redux';
-import { InjectedFormProps, reduxForm, Field } from 'redux-form';
-import _ from 'lodash';
+import React from 'react'
+import { SubmissionError } from 'redux-form'
+import { connect } from 'react-redux'
+import { InjectedFormProps, reduxForm, Field } from 'redux-form'
+import _ from 'lodash'
 
-import { validateEmail } from '../utils/validateEmail';
-import { InputField } from './InputField';
-import { LoginFormValues } from '../pages/LoginPage';
-import { StoreState } from '../reducers';
+import { validateEmail } from '../utils/validateEmail'
+import { InputField } from './InputField'
+import { LoginFormValues } from '../pages/LoginPage'
+import { StoreState } from '../reducers'
 
 interface LoginFormProps {
-  onLoginSubmit(formValues: LoginFormValues): Promise<string | undefined>;
-  message: string;
+  onLoginSubmit(formValues: LoginFormValues): Promise<string | undefined>
+  message: string
 }
 
 const formFields = [
@@ -27,23 +27,19 @@ const formFields = [
     type: 'password',
     noValueError: 'Digite sua senha para fazer login',
   },
-];
+]
 
-type fieldsType = { name: string; label: string; type: string };
+type fieldsType = { 
+  name: string; 
+  label: string; 
+  type: string
+}
 
-class _LoginForm extends React.Component<
-  LoginFormProps & InjectedFormProps<LoginFormValues, LoginFormProps>
-> {
+class _LoginForm extends React.Component<LoginFormProps & InjectedFormProps<LoginFormValues, LoginFormProps>> {
   renderFields = () => {
     return _.map(formFields, ({ name, label, type }: fieldsType) => {
       return (
-        <Field
-          key={name}
-          component={InputField}
-          type={type}
-          label={label}
-          name={name}
-        />
+        <Field key={name} component={InputField} type={type} label={label} name={name} />
       );
     });
   };
@@ -105,9 +101,4 @@ const mapStateToProps = (state: StoreState) => {
   return { message };
 };
 
-export const LoginForm = connect(mapStateToProps)(
-  reduxForm<LoginFormValues, LoginFormProps>({
-    validate,
-    form: 'loginForm',
-  })(_LoginForm)
-);
+export const LoginForm = connect(mapStateToProps)(reduxForm<LoginFormValues, LoginFormProps>({validate, form: 'loginForm'})(_LoginForm));

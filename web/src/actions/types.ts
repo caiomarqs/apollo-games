@@ -11,6 +11,7 @@ export enum ActionTypes {
   changeTheme,
   changeLanguage,
   handlerOverMenu,
+  sendEmail
 }
 
 export type Action =
@@ -19,4 +20,5 @@ export type Action =
   | FetchTeamAction
   | ChangeThemeAction
   | ChangeLanguageAction
-  | OverMenuAction;
+  | OverMenuAction
+  | SendEmailAction;
