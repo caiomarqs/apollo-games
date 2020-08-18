@@ -23,7 +23,7 @@ export class NodeMailer {
   }
 
   sendEmail = async () => {
-    const { api_key, domain, from, to, subject, text } = this;
+    const { api_key, domain, from, to, subject, text, name } = this;
     const auth = {
       service: 'gmail',
       auth: {
@@ -31,6 +31,7 @@ export class NodeMailer {
         domain,
       },
     };
+    
     const transporter = nodemailer.createTransport(nodemailerMailGun(auth));
     const mailOptions = {
       from,
