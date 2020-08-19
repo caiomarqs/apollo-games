@@ -16,22 +16,20 @@ interface NavBarProps {
 }
 
 class _NavBar extends React.Component<NavBarProps> {
+
+  static isBackend = false
+
   onLogOutClicked = () => {
     this.props.logUserOut();
   };
 
   renderLogOut(userId: string | undefined) {
-    if (userId !== undefined && userId !== '')
-      return (
-        <a
-          onClick={this.onLogOutClicked}
-          className="btn-font"
-          href="/api/logout"
-        >
-          Log Out
-        </a>
-      );
-    return;
+    if (userId !== undefined && userId !== '') {
+
+      if (this.props.theme.navTheme === navThemeEnum.DARK) return <></>;
+
+      return <a onClick={this.onLogOutClicked} className="btn-font" href="/api/logout"> Log Out </a>
+    }
   }
 
   navColor = (theme: navThemeEnum) => {

@@ -19,7 +19,7 @@ export const FileInputField = ({
       <input
         {...input}
         value={value}
-        className="loginInputField"
+        className="inputField"
         type={type}
         placeholder={label}
       />

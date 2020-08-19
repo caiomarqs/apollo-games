@@ -27,8 +27,8 @@ class _UpdateTeamForm extends React.Component<UpdateTeamFormProps> {
   };
   render() {
     return (
-      <div>
-        <button onClick={this.onVoltarClicked}>Voltar</button>
+      <div className="container update-container">
+        <button className="back-btn" onClick={this.onVoltarClicked}>Voltar</button>
         <TeamForm
           buttonLabel="Atualizar"
           initialValues={this.props.member}

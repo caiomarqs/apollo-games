@@ -18,8 +18,8 @@ class _AddTeamForm extends React.Component<AddTeamFormProps> {
   };
   render() {
     return (
-      <div>
-        <button onClick={this.onVoltarClicked}>Voltar</button>
+      <div className="container add-container">
+        <button className="back-btn" onClick={this.onVoltarClicked}>Voltar</button>
         <TeamForm buttonLabel="Adicionar" onSubmit={this.onSubmit} />
       </div>
     );
