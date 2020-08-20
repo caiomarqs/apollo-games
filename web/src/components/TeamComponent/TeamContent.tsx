@@ -1,58 +1,70 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { CardsList } from './Cards/CardsList'
-import { StoreState } from '../../reducers'
-import { fetchTeam, TeamState, deleteTeamMember } from '../../actions'
+import { CardsList } from './Cards/CardsList';
+import { StoreState } from '../../reducers';
+import {
+  fetchTeam,
+  TeamState,
+  deleteTeamMember,
+  TabStateEnum,
+} from '../../actions';
 
 interface TeamProps {
-  team: string
-  fetchTeam(team: string): void
-  deleteTeamMember(member: TeamState): void
-  teams: { [key: string]: TeamState[] }
-  active: string
-  isInDashboard: boolean
+  team: string;
+  fetchTeam(team: string): void;
+  deleteTeamMember(member: TeamState): void;
+  teams: { [key: string]: TeamState[] };
+  active: TabStateEnum;
+  isInDashboard: boolean;
 }
 
 class _TeamContent extends React.Component<TeamProps> {
-
-  active = ''
-
-  activeTeam = () => {
-    this.active += 'active show'
-  }
+  activeTeam = (isActive: boolean) => {
+    if (isActive) {
+      this.setState({ active: 'active show' });
+    } else {
+    }
+  };
 
   componentDidMount() {
-    const { fetchTeam, team, teams } = this.props
+    const { fetchTeam, team, teams } = this.props;
     if (teams[team] === undefined) {
-      fetchTeam(team)
+      fetchTeam(team);
     } else {
-      this.forceUpdate()
+      this.forceUpdate();
     }
   }
 
   renderTeams = () => {
-    const { teams, team, isInDashboard } = this.props
+    const { teams, team, isInDashboard } = this.props;
 
-    if (team === this.props.active) {
-      this.activeTeam()
-    }
-    return <CardsList isInDashboard={isInDashboard} profiles={teams[team]} />
-  }
+    return <CardsList isInDashboard={isInDashboard} profiles={teams[team]} />;
+  };
 
   render() {
+    const { team, active } = this.props;
+    const isActive = team === active;
     return (
-      <div className={`tab-pane fade profiles-container ${this.active}`} id={`${this.props.team}`} role="tabpanel" aria-labelledby={`${this.props.team}-tab`} >
-        <ul id={`${this.props.team}-tab`}>
-          {this.renderTeams()}
-        </ul>
+      <div
+        className={`tab-pane fade profiles-container ${
+          isActive ? 'active show' : ''
+        }`}
+        id={`${this.props.team}`}
+        role="tabpanel"
+        aria-labelledby={`${this.props.team}-tab`}
+      >
+        <ul id={`${this.props.team}-tab`}>{this.renderTeams()}</ul>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state: StoreState) => {
-  return { teams: state.teams }
-}
+  return { teams: state.teams };
+};
 
-export const TeamContent = connect(mapStateToProps, { fetchTeam, deleteTeamMember })(_TeamContent)
+export const TeamContent = connect(mapStateToProps, {
+  fetchTeam,
+  deleteTeamMember,
+})(_TeamContent);

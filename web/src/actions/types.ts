@@ -4,6 +4,7 @@ import { ChangeThemeAction } from './theme';
 import { ChangeLanguageAction } from './language';
 import { OverMenuAction } from './overMenu';
 import { SendEmailAction } from './sendEmail';
+import { ChangeTabStateAction } from './tabState';
 
 export enum ActionTypes {
   logUserIn,
@@ -12,7 +13,16 @@ export enum ActionTypes {
   changeTheme,
   changeLanguage,
   handlerOverMenu,
-  sendEmail
+  sendEmail,
+  changeTabState,
 }
 
-export type Action = LogUserInAction | LogUserOutAction | FetchTeamAction | ChangeThemeAction  | ChangeLanguageAction  | OverMenuAction  | SendEmailAction
+export type Action =
+  | LogUserInAction
+  | LogUserOutAction
+  | FetchTeamAction
+  | ChangeThemeAction
+  | ChangeLanguageAction
+  | OverMenuAction
+  | SendEmailAction
+  | ChangeTabStateAction;

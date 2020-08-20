@@ -7,6 +7,7 @@ import { themeReducer } from './themeReducer';
 import { languageReducer } from './languagesReducer';
 import { overMenuReducer } from './overMenuReducer';
 import { sendEmailReducer } from './sendEmailReducer';
+import { tabStateReducer } from './tabStateReducer';
 import {
   User,
   TeamState,
@@ -14,6 +15,7 @@ import {
   Languages,
   OverMenu,
   ResponseEmail,
+  TabStateEnum,
 } from '../actions';
 
 export interface StoreState {
@@ -23,6 +25,7 @@ export interface StoreState {
   languages: Languages;
   overMenu: OverMenu;
   emailMessage: ResponseEmail;
+  tabState: TabStateEnum;
 }
 
 export const reducers = combineReducers({
@@ -33,4 +36,5 @@ export const reducers = combineReducers({
   languages: languageReducer,
   overMenu: overMenuReducer,
   emailMessage: sendEmailReducer,
+  tabState: tabStateReducer,
 });

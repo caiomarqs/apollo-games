@@ -5,7 +5,7 @@ import Cookie from 'js-cookie';
 
 import { history } from './history';
 import { NavBar } from './components/NavBarComponent/NavBar';
-import { OverMenu } from './components/OverMenu'
+import { OverMenu } from './components/OverMenu';
 import { LoginPage } from './pages/LoginPage';
 import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
@@ -23,7 +23,7 @@ interface AppProps {
   email: string | undefined;
 }
 
-interface AppState { }
+interface AppState {}
 
 export class _App extends React.Component<AppProps, AppState> {
   componentDidMount() {
@@ -41,11 +41,24 @@ export class _App extends React.Component<AppProps, AppState> {
             <Switch>
               <Route path="/" exact component={Landing} />
               <Route path="/backend" exact component={LoginPage} />
-              <Route path="/backend/dashboard" exact> {!this.props.email ? <Redirect to="/" /> : <Dashboard />} </Route>
-              <Route path="/backend/dashboard/team/add/member" exact component={AddTeamForm} />
-              <Route path="/backend/dashboard/team/update/member/:id/:team" exact component={UpdateTeamForm} />
+              <Route path="/backend/dashboard" exact>
+                {' '}
+                {!this.props.email ? <Redirect to="/" /> : <Dashboard />}{' '}
+              </Route>
+              <Route
+                path="/backend/dashboard/team/add/member"
+                exact
+                component={AddTeamForm}
+              />
+              <Route
+                path="/backend/dashboard/team/update/member/:id/:team"
+                exact
+                component={UpdateTeamForm}
+              />
               <Route path="/contact" exact component={ContactPage} />
-              <Route path="*" status={404}><Redirect to="/"/></Route>
+              <Route path="*" status={404}>
+                <Redirect to="/" />
+              </Route>
             </Switch>
           </Router>
         </I18nProvider>
