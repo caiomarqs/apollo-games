@@ -3,7 +3,7 @@ import { Request } from 'express';
 import { ObjectId } from 'mongodb';
 import { Strategy as LocalStrategy, IVerifyOptions } from 'passport-local';
 
-import { User, UserState } from '../models/User';
+import { User, UserState } from '../controllers/Auth';
 
 const user = User.fromMongoDB();
 

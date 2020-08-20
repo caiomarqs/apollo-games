@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 
 import { keys } from '../config/config';
 import { Database, MyCallback } from '../utils/interfaces';
-import { UserState } from '../models/User';
+import { UserState } from '../controllers/Auth';
 
 const url = keys.MONGO_URL;
 const dbName = keys.MONGO_DB_NAME;
