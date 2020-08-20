@@ -13,8 +13,5 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix web && npm run build --prefix web"
   },
   "author": "baxhen && caiomarqs",
-  "license": "ISC",
-  "dependencies": {
-    "@types/lodash": "^4.14.159"
-  }
+  "license": "ISC"
 }

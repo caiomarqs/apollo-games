@@ -28,20 +28,20 @@
         position: absolute;
         top: 50%;
         left: 0;
+        filter: opacity(0);
         transform: rotate(0deg);
-        opacity: 0%;
-        transition: transform 0.5s ease, opacity 0.5s ease;
+        transition: transform 0.5s ease, filter 0.5s ease;
     }
 }
 
 .rotate-45{
     transform: rotate(45deg) !important;
-    opacity: 100%;
+    filter: opacity(1) !important;
 }
 
 .rotate-135{
     transform: rotate(135deg) !important;
-    opacity: 100%;
+    filter: opacity(1) !important;
 }
 
 @media (max-width: $max-md) {
