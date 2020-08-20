@@ -347,7 +347,7 @@ table{
 		          <tr>
 		            <td class="bg_white email-section">
 		            	<div class="heading-section" style="text-align: center; padding: 0 30px;">
-		              	<h2>Meu nome é ${name}</h2>
+		              	<h2>Meu nome é ${name},</h2>
 		              	<p>${text}</p>
 		            	</div>
 		            	
