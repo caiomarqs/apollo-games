@@ -42,7 +42,7 @@ export const fetchTeam = (team: string) => async (dispatch: Dispatch) => {
       payload: res,
     });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
@@ -51,14 +51,19 @@ export const addTeamMember = (member: TeamState) => async (
   getState: Function
 ) => {
   try {
-    const imgFile = new FormData();
-    const data = (member.img as any) as FileList;
-    imgFile.append('img', data[0] as string | Blob);
+    if (member.img) {
+      const imgFile = new FormData();
+      const data = (member.img as any) as FileList;
+      imgFile.append('img', data[0] as string | Blob);
 
-    const img = await (
-      await axios.post<string>('/api/service/add/image', imgFile)
-    ).data;
-    member.img = img;
+      const img = await (
+        await axios.post<string>('/api/service/add/image', imgFile)
+      ).data;
+      member.img = img;
+    }
+    if (!member.contacts) {
+      member.contacts = {};
+    }
 
     const response = await axios.post<TeamState[]>(
       '/api/team/add/member',
@@ -138,7 +143,11 @@ export const deleteTeamMember = (member: TeamState) => async (
   getState: Function
 ) => {
   try {
-    if (member.img !== 'null' && member.img !== null) {
+    if (
+      member.img !== 'null' &&
+      member.img !== null &&
+      member.img !== undefined
+    ) {
       await axios.delete(`/api/service/delete/image/${member.img}`);
     }
 
