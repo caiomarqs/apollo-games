@@ -3,4 +3,4 @@ build
 .env.test
 .env.development
 __tests__
-# uploads
+uploads
