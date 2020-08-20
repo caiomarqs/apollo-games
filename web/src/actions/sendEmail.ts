@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 
 import { ActionTypes } from './types';
+import { history } from '../history';
 
 export interface Email {
   name: string;
@@ -30,6 +31,9 @@ export const sendEmailTo = (email: Email) => async (dispatch: Dispatch) => {
       type: ActionTypes.sendEmail,
       payload: res.data,
     });
+
+    alert(res.data.message);
+    history.push('/');
   } catch (err) {
     console.log(err);
   }

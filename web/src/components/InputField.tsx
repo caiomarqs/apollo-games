@@ -6,13 +6,21 @@ interface InputFieldProps extends WrappedFieldProps {
   label: string;
 }
 
-export const InputField = ({ input, type, label, meta: { error, touched } }: InputFieldProps) => {
+export const InputField = ({
+  input,
+  type,
+  label,
+  meta: { error, touched },
+}: InputFieldProps) => {
   return (
     <>
-      <input {...input} className='inputField' type={type} placeholder={label} />
-      <p className="inputError caption-font">
-        {touched && error}
-      </p>
+      <input
+        {...input}
+        className="inputField"
+        type={type}
+        placeholder={label}
+      />
+      <p className="inputError caption-font">{touched && error}</p>
     </>
-  )
-}
+  );
+};

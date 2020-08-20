@@ -1,6 +1,9 @@
 node_modules 
-build
+build/*
 .env.test
 .env.development
 __tests__
+<<<<<<< HEAD
 # uploads
+=======
+>>>>>>> 83bb1128f0acde765e4f9e0ef0d62e3f7e0606e2

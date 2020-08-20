@@ -5,17 +5,12 @@ import passport from 'passport';
 import flash from 'connect-flash';
 import cookieParser from 'cookie-parser';
 import acceptLanguage from 'accept-language';
+import { AppRouter } from './AppRouter';
+import './controllers';
 
 import './services/passport';
 import { keys } from './config/config';
-import {
-  authRoutes,
-  teamRoutes,
-  slideRoutes,
-  imageUploadRoutes,
-  flashAdRoutes,
-  emailRoutes,
-} from './routes';
+
 import { serveReactAppIfInProduction } from './utils/express/serveReactAppIfInProduction';
 import { serveUploadedImages } from './utils/express/serveUploadedImages';
 
@@ -34,12 +29,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.use(authRoutes);
-app.use(teamRoutes);
-app.use(slideRoutes);
-app.use(imageUploadRoutes);
-app.use(flashAdRoutes);
-app.use(emailRoutes);
+app.use(AppRouter.getInstance());
 
 app.use(cookieParser());
 acceptLanguage.languages(['en-us', 'pt-br']);
