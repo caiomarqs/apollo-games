@@ -12,7 +12,6 @@
     "start": "npm start --prefix server",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix web && npm run build --prefix web"
   },
-  "author": "Baxhen",
-  "license": "ISC",
-  "dependencies": {}
+  "author": "baxhen && caiomarqs",
+  "license": "ISC"
 }
