@@ -22,5 +22,5 @@
     //   "@config/*": ["./config/*"]
     // }
   },
-  "include": ["src", "__tests__"]
+  "include": ["src"]
 }

@@ -8,6 +8,7 @@ interface Key {
   APP_DOMAIN: string;
   MAIL_GUN_KEY: string;
   MAIL_GUN_DOMAIN: string;
+  RECEIVER_EMAIL: string;
 }
 
 dotenv.config();
@@ -32,4 +33,5 @@ export const keys = {
   APP_DOMAIN: process.env.APP_DOMAIN,
   MAIL_GUN_KEY: process.env.MAIL_GUN_KEY,
   MAIL_GUN_DOMAIN: process.env.MAIL_GUN_DOMAIN,
+  RECEIVER_EMAIL: process.env.RECEIVER_EMAIL,
 } as Key;
