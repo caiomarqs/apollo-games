@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import { ActionTypes } from './types';
 import { history } from '../history';
+import { serialize } from 'v8';
 
 export interface TeamState {
   team: string;
@@ -92,7 +93,7 @@ export const updateTeamMember = (member: TeamState) => async (
   getState: Function
 ) => {
   try {
-    if (typeof member.img !== 'string') {
+    if (typeof member.img !== 'string' && member.img) {
       const older = _.filter(getState().teams[member.team], (m) => {
         return m._id === member._id;
       });
@@ -115,21 +116,35 @@ export const updateTeamMember = (member: TeamState) => async (
       _.omit(member, '_id')
     );
 
-    const withoutUnUpdatedMember = _.filter(
-      getState().teams[member.team],
-      (m) => {
-        return m._id !== member._id;
+    const withoutUnUpdatedMember = _.map(getState().teams, (m) => {
+      let team = _.map(m, (n) => {
+        if (n._id !== member._id) {
+          return n;
+        }
+      });
+      team = team.filter((element) => {
+        return element !== undefined;
+      });
+      return team;
+    });
+
+    const updated = _.map(withoutUnUpdatedMember, (m) => {
+      if (m[0].team === member.team) {
+        m.push(member);
+        return m;
+      } else {
+        return m;
       }
-    );
-    const updated = [...withoutUnUpdatedMember, member];
-
-    const res = {
-      [member.team]: updated,
-    } as { [key: string]: TeamState[] };
-
+    });
+    console.log(withoutUnUpdatedMember);
+    console.log(updated);
+    const makeObjectsWithArray = _.map(updated, (m) => {
+      return { [m[0].team]: m };
+    });
+    const serializeUpdated = _.merge({}, ...makeObjectsWithArray);
     dispatch<FetchTeamAction>({
       type: ActionTypes.fetchTeam,
-      payload: res,
+      payload: serializeUpdated,
     });
 
     history.push('/backend/dashboard');
