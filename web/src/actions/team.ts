@@ -136,8 +136,7 @@ export const updateTeamMember = (member: TeamState) => async (
         return m;
       }
     });
-    console.log(withoutUnUpdatedMember);
-    console.log(updated);
+
     const makeObjectsWithArray = _.map(updated, (m) => {
       return { [m[0].team]: m };
     });
