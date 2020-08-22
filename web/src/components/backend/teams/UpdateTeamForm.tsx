@@ -4,11 +4,17 @@ import _ from 'lodash';
 
 import { TeamForm } from './TeamForm';
 import { history } from '../../../history';
-import { TeamState, updateTeamMember } from '../../../actions';
+import {
+  TeamState,
+  updateTeamMember,
+  changeTabState,
+  TabStateEnum,
+} from '../../../actions';
 import { StoreState } from '../../../reducers';
 
 interface UpdateTeamFormProps {
   updateTeamMember(member: TeamState): void;
+  changeTabState: typeof changeTabState;
   match: {
     params: {
       id: string;
@@ -23,12 +29,15 @@ class _UpdateTeamForm extends React.Component<UpdateTeamFormProps> {
     history.push('/backend/dashboard');
   };
   onSubmit = (formValues: TeamState) => {
+    this.props.changeTabState(formValues.team as TabStateEnum);
     this.props.updateTeamMember(formValues);
   };
   render() {
     return (
       <div className="container update-container">
-        <button className="back-btn" onClick={this.onVoltarClicked}>Voltar</button>
+        <button className="back-btn" onClick={this.onVoltarClicked}>
+          Voltar
+        </button>
         <TeamForm
           buttonLabel="Atualizar"
           initialValues={this.props.member}
@@ -49,6 +58,7 @@ const mapStateToProps = (state: StoreState, MyProps: UpdateTeamFormProps) => {
   return { member: member[0] };
 };
 
-export const UpdateTeamForm = connect(mapStateToProps, { updateTeamMember })(
-  _UpdateTeamForm
-);
+export const UpdateTeamForm = connect(mapStateToProps, {
+  updateTeamMember,
+  changeTabState,
+})(_UpdateTeamForm);
