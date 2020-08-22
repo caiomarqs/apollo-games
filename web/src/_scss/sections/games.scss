@@ -55,13 +55,17 @@
 
             h6,
             p {
-                @include text-shadow(0rem, 0.1875rem, 0.1875rem, rgba(0, 0, 0, 0.36));
+                @include text-shadow(0rem, 0.1875rem, 0.1875rem, rgba(0, 0, 0, 0.521));
                 color: $branco-200;
             }
 
 
             &:first-child{
                 background-image: url('../../assets/img/aurora_dawn.gif');
+            }
+
+            &:last-child{
+                background-image: url('../../assets/img/intz_manager.png');
             }
         }
 

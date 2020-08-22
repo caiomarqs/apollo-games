@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm, InjectedFormProps } from 'redux-form';
+import { Field, reduxForm, InjectedFormProps, reset } from 'redux-form';
 import _ from 'lodash';
 
 import { RenderField } from '../RenderField';
@@ -108,6 +108,11 @@ class _ContactForm extends React.Component<
 //     return errors
 // }
 
+const affterSubimit = (result: any, dispatch: any ) => {
+  dispatch(reset('contactForm'));
+}
+
 export const ContactForm = reduxForm<Email, ContactFormProps>({
-  form: 'contactForm',
+  form: 'contactForm', 
+  onSubmitSuccess: affterSubimit
 })(_ContactForm);

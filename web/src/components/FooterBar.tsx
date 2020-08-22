@@ -38,10 +38,10 @@ export const FooterBar = () => {
                                 <span>Games</span>
                             </li>
                             <li className="nav-item">
-                                <a className="btn-font footer-link" href="/">Aurora Dawn</a>
+                                <a className="btn-font footer-link" href="/#games">Aurora Dawn</a>
                             </li>
                             <li className="nav-item">
-                                <a className="btn-font footer-link" href="/">INTZ Manager</a>
+                                <a className="btn-font footer-link" href="/#games">INTZ Manager</a>
                             </li>
                         </ul>
                         <ul className="nav flex-column col">

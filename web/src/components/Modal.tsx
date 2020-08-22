@@ -1,25 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-
-import './modal.css';
 
 interface ModalProps {
   onDismiss(): void;
-  content: string;
+  content: JSX.Element;
   title: string;
-  actions: React.ReactNode;
 }
-export const Modal = ({ onDismiss, content, title, actions }: ModalProps) => {
+
+export const Modal = ({ onDismiss, content, title }: ModalProps) => {
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+
+  }, [])
+  
   const modal = document.getElementById('modal') as HTMLElement;
-  console.log('here');
+
+  
   return ReactDOM.createPortal(
-    <div onClick={onDismiss} className="Modal">
-      <div onClick={(e) => e.stopPropagation()} className="modal-body">
-        <div onClick={(e) => e.stopPropagation()} className="modal-title">
-          {title}
+    <div onClick={onDismiss} className="modal-container noselect">
+      <div className="modal-body">
+        <div className="modal-title">
+          <h4>{title}</h4>
         </div>
-        <div className="modal-content">{content}</div>
-        <div className="actions">{actions}</div>
+        <div className="modal-text">
+          <span className="sub-bold">{content}</span>
+        </div>
+        <div className="modal-actions">
+          <button onClick={onDismiss}>OK</button>
+        </div>
       </div>
     </div>,
     modal

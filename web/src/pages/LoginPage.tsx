@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { LoginForm } from '../components/LoginForm';
 import { logUserIn, User, changeTheme, navThemeEnum } from '../actions';
+import { StoreState } from '../reducers';
+import { history } from '../history'
 
 export interface LoginFormValues {
   email: string;
@@ -12,12 +14,17 @@ export interface LoginFormValues {
 interface LoginPageProps {
   logUserIn(formValues: User): Promise<string | undefined>;
   changeTheme: typeof changeTheme;
+  auth: User;
 }
 
 class _LoginPage extends React.Component<LoginPageProps> {
 
   componentDidMount() {
     this.props.changeTheme(navThemeEnum.WHITE, false);
+    
+    if(this.props.auth._id !== '' && this.props.auth._id !== undefined ){
+        history.push('/backend/dashboard')
+    }
   }
 
   onLoginSubmit = (formValues: LoginFormValues) => {
@@ -35,4 +42,8 @@ class _LoginPage extends React.Component<LoginPageProps> {
   }
 }
 
-export const LoginPage = connect(null, { logUserIn, changeTheme })(_LoginPage);
+const mapStateToProps = ( { auth }: StoreState) => {
+  return { auth }
+}
+
+export const LoginPage = connect(mapStateToProps, { logUserIn, changeTheme })(_LoginPage);

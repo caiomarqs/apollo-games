@@ -21,7 +21,7 @@ export class NodeMailer {
     this.name = data.name ? data.name : '';
     this.text = data.text ? data.text : '';
     this.to = keys.RECEIVER_EMAIL;
-    console.log(this.to);
+    // console.log(this.to);
   }
 
   sendEmail = async () => {
