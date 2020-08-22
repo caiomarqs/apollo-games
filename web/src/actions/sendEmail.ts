@@ -31,9 +31,6 @@ export const sendEmailTo = (email: Email) => async (dispatch: Dispatch) => {
       type: ActionTypes.sendEmail,
       payload: res.data,
     });
-
-    alert(res.data.message);
-    history.push('/');
   } catch (err) {
     console.log(err);
   }

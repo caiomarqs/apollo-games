@@ -1,0 +1,25 @@
+.Modal {
+  background-color: transparent;
+  text-align: center;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.modal-body {
+  background-color: aqua;
+  margin-top: 22%;
+  margin-left: 40%;
+  height: 5%;
+  width: 20%;
+}
+.modal-content {
+  padding-top: 0.5rem;
+}
+.modal-title {
+  text-align: center;
+}
