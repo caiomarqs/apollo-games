@@ -1,6 +1,11 @@
 node_modules 
 build/*
+<<<<<<< HEAD
 # .env.test
 # .env.development
+=======
+.env.test
+.env.development
+>>>>>>> 67139e40931738444962623d08c52ec98eed6d15
 .env.production
 __tests__

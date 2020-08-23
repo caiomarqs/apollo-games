@@ -59,5 +59,6 @@ class UserController {
   @get('/logout')
   logUserOut(req: Request, res: Response) {
     req.logOut();
+    res.send(204);
   }
 }
