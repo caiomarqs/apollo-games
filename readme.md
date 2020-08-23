@@ -1,5 +1,5 @@
 <h1 align="center">
-        <img alt="Ecoleta" title="Ecoleta" src=".github/apollo_logo_ext_white.svg" width="220px" />
+        <img alt="Apollo" title="Apollo" src=".github/apollo_logo_ext_white.svg" width="220px" />
 </h1>
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -14,10 +14,9 @@
     <img src="https://img.shields.io/badge/-Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="React JS" />
 </p>
 
+[<img src="https://i9.ytimg.com/vi_webp/ulQDXsuYhkE/mqdefault.webp?sqp=CMCIh_oF&rs=AOn4CLBNXuGOEqWPDzJcFQ9Z2CAtEbwjRw" width="50%">](https://youtu.be/ulQDXsuYhkE)
 
-
-
-## 🚀  Tecnologias
+## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
@@ -41,12 +40,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - React-intl (i18n)
 
-  
-
-## 💻  Projeto
+## 💻 Projeto
 
 Esse projeto foi desenvolvido para a Apollo Games Lab, estudio de desenvolvimento de games em São Paulo.
 
-## 🔖  Layout
+## 🔖 Layout
 
 Você pode visualizar o layout do projeto no formato através [desse link](https://www.figma.com/file/CAFfSMQfvYrFpAzaV2jneu/ApolloLabs?node-id=159%3A0).
