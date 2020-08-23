@@ -14,7 +14,9 @@
     <img src="https://img.shields.io/badge/-Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="React JS" />
 </p>
 
+<div align="center">
 [<img src="https://i9.ytimg.com/vi_webp/ulQDXsuYhkE/mqdefault.webp?sqp=CMCIh_oF&rs=AOn4CLBNXuGOEqWPDzJcFQ9Z2CAtEbwjRw" width="50%">](https://youtu.be/ulQDXsuYhkE)
+</div>
 
 ## 🚀 Tecnologias
 
