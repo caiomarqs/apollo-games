@@ -1,5 +1,6 @@
 node_modules 
 build/*
-.env.test
-.env.development
+# .env.test
+# .env.development
+.env.production
 __tests__
