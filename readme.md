@@ -13,11 +13,12 @@
      <img src="https://img.shields.io/badge/-Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="React JS" />
     <img src="https://img.shields.io/badge/-Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="React JS" />
 </p>
-
-<div align="center">
 <a href="https://apollo-games.herokuapp.com/">Apollo Games</a>
+<p align="center">
+
 [<img src="https://i9.ytimg.com/vi_webp/ulQDXsuYhkE/mqdefault.webp?sqp=CMCIh_oF&rs=AOn4CLBNXuGOEqWPDzJcFQ9Z2CAtEbwjRw" width="50%">](https://youtu.be/ulQDXsuYhkE)
-</div>
+
+</p>
 
 ## 🚀 Tecnologias
 
