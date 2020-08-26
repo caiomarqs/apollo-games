@@ -18,22 +18,27 @@ class _Card extends React.Component<CardProps> {
   };
 
   compileProfileImage = (img: string | undefined) => {
+    const defaultImage = new Image().src = '/uploads/fb91a1e8a763-principal_bg.jpeg'
+    const dprofileImage = new Image().src = `/uploads/${img}`
     if (img !== 'null' && img) {
       return (
-        <div
-          className="img-container"
-          style={{ backgroundImage: `url(/uploads/${img})` }}
-        />
+        <img  className="img-container" src={dprofileImage}></img>
+        // <div
+        //   className="img-container"
+        //   style={{ backgroundImage: `url(/uploads/${img})` }}
+        // />
       );
     }
 
     return (
-      <div
-        className="img-container"
-        style={{
-          backgroundImage: "url('/uploads/fb91a1e8a763-principal_bg.jpeg')",
-        }}
-      />
+      
+      <img  className="img-container" src={defaultImage}></img>
+      // <div
+      //   className="img-container"
+      //   style={{
+      //     backgroundImage: "url('/uploads/fb91a1e8a763-principal_bg.jpeg')",
+      //   }}
+      // />
     );
   };
 
