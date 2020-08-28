@@ -1,4 +1,5 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 const GamesSection = () => {
     return (
@@ -6,17 +7,16 @@ const GamesSection = () => {
             <div id="games">
                 <div className="container">
                     <div className="noselect games-title">
-                        <h2>Nossos Jogos</h2>
-                        {/* <!-- <p className="sub-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> --> */}
+                        <h2><FormattedMessage id="games.titulo"/></h2>
                     </div>
                     <div className="games-cards noselect">
                         <div className="card">
                             <h6>Aurora Dawn</h6>
-                            <p className="sub-regular">Em breve</p>
+                            <p className="sub-regular"><FormattedMessage id="games.breve"/></p>
                         </div>
                         <div className="card">
                             <h6>INTZ Manager</h6>
-                            <p className="sub-regular">Em breve</p>
+                            <p className="sub-regular"><FormattedMessage id="games.breve"/></p>
                         </div>
                     </div>
                 </div>

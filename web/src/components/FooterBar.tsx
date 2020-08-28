@@ -27,7 +27,7 @@ export const FooterBar = () => {
                                     <FormattedMessage id="footer.time" />
                                 </a>
                             </li>
-                            <li className="nav-item">
+                            <li className="<nav-item">
                                 <Link to="/contact" className="btn-font footer-link" replace>
                                     <FormattedMessage id="footer.contato" />
                                 </Link>
@@ -35,7 +35,7 @@ export const FooterBar = () => {
                         </ul>
                         <ul className="nav flex-column col">
                             <li className="footer-title">
-                                <span>Games</span>
+                                <span><FormattedMessage id='footer.games'/></span>
                             </li>
                             <li className="nav-item">
                                 <a className="btn-font footer-link" href="/#games">Aurora Dawn</a>
@@ -64,18 +64,22 @@ export const FooterBar = () => {
                                 <a className="btn-font footer-link" href="https://www.youtube.com/channel/UCyD-mgJbOpFaHLeSeRSMtQQ"
                                     target="_blank" rel="noopener noreferrer">youtube</a>
                             </li>
+                            <li className="nav-item">
+                                <a className="btn-font footer-link" href="https://www.youtube.com/channel/UCyD-mgJbOpFaHLeSeRSMtQQ"
+                                    target="_blank" rel="noopener noreferrer">twitch</a>
+                            </li>
                         </ul>
                     </div>
                     <div className="hair-line"></div>
                     <div className="footer-brand row">
-                        <span className="caption-font col-md rights">© 2020 Apollo Games Lab - Todos os direitos reservados</span>
+                        <span className="caption-font col-md rights"><FormattedMessage id="footer.direitos"/></span>
                         <div className="col-md footer-logo">
                             <a href="/">
                                 <img src={require('../assets/brand/apollo_logo_ext_white.svg')} alt="" />
                             </a>
                         </div>
                         <div className="dev col-md">
-                            <span className="dev-title">Desenvolvido por</span>
+                            <span className="dev-title"><FormattedMessage id="footer.develop"/></span>
                             <a className="caption-font" href="https://github.com/caiomarqs" target="_blank" rel="noopener noreferrer">@caiomarqs</a>
                             <a className="caption-font" href="https://github.com/baxhen" target="_blank" rel="noopener noreferrer">@baxhen</a>
                         </div>
