@@ -61,11 +61,11 @@ export const FooterBar = () => {
                                     target="_blank" rel="noopener noreferrer">instagram</a>
                             </li>
                             <li className="nav-item">
-                                <a className="btn-font footer-link" href="https://www.youtube.com/channel/UCyD-mgJbOpFaHLeSeRSMtQQ"
+                                <a className="btn-font footer-link" href="https://www.youtube.com/channel/UCLN9FIqyuuGweIFbz2NvdRQ"
                                     target="_blank" rel="noopener noreferrer">youtube</a>
                             </li>
                             <li className="nav-item">
-                                <a className="btn-font footer-link" href="https://www.youtube.com/channel/UCyD-mgJbOpFaHLeSeRSMtQQ"
+                                <a className="btn-font footer-link" href="https://www.twitch.tv/apollogameslab"
                                     target="_blank" rel="noopener noreferrer">twitch</a>
                             </li>
                         </ul>
