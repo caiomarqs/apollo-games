@@ -57,10 +57,10 @@ class _MenuItems extends React.Component<MenuItemsProps> {
               <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/apollogameslab/">
                 <FontAwesomeIcon icon={InstaLogo} />
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/apollogameslab/">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCLN9FIqyuuGweIFbz2NvdRQ">
                 <FontAwesomeIcon icon={YoutubeLogo} />
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/apollogameslab/">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.twitch.tv/apollogameslab">
                 <FontAwesomeIcon icon={TwitchLogo} />
               </a>
             </div>
