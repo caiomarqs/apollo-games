@@ -62,7 +62,7 @@ class _Card extends React.Component<CardProps> {
             <div className="profile-info">
               <h6>{name}</h6>
               <p className="profile-desc">
-                <FormattedMessage id={`team.${desc.replace(' ', '')}`} />
+                <FormattedMessage id={`${desc}`} />
               </p>
               {contacts !== undefined ? <Badges contacts={contacts} /> : <></>}
             </div>
