@@ -58,7 +58,6 @@ class _TeamForm extends React.Component<TeamFormProps & InjectedFormProps<TeamSt
 
 const validate = (values: any) => {
   const errors = {} as any
-  
   if (values.team === '0') errors.team = 'Campo obrigatório'
 
   _.each(formFields, ({ name, noValueError }) => {

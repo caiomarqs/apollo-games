@@ -66,7 +66,7 @@ class _Card extends React.Component<CardProps> {
             {this.compileProfileImage(img)}
             <div className="profile-info">
               <h6>{name}</h6>
-              <p className="profile-desc">{desc.valueOf()}</p>
+              <p className="profile-desc">{desc}</p>
               {contacts !== undefined ? <Badges contacts={contacts} /> : <></>}
             </div>
           </div>
