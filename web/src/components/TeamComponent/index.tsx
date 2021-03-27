@@ -6,24 +6,26 @@ import { TeamHeader } from './TeamHeader';
 import { TabStateEnum } from '../../actions';
 import { connect } from 'react-redux';
 import { StoreState } from '../../reducers';
+import { FormattedMessage } from 'react-intl';
 
 export interface tabKey {
   key: string;
-  title: string;
+  title: JSX.Element;
 }
 
 const tabsKeys: tabKey[] = [
-  { key: 'dev', title: 'dev' },
-  { key: 'sound', title: 'Audio' },
-  { key: 'prod', title: 'Produção' },
-  { key: 'art', title: 'Arte' },
-  { key: 'game', title: 'Game Design' },
+  { key: 'dev', title: <FormattedMessage id="team.dev"/> },
+  { key: 'sound', title: <FormattedMessage id="team.audio"/> },
+  { key: 'prod', title: <FormattedMessage id="team.production"/> },
+  { key: 'art', title: <FormattedMessage id="team.art"/> },
+  { key: 'game', title: <FormattedMessage id="team.gamedesign"/> },
 ];
 
 interface TeamsTabProps {
   isInDashboard: boolean;
   tabState: TabStateEnum;
 }
+
 
 export class _TeamTabs extends React.Component<TeamsTabProps> {
   render() {

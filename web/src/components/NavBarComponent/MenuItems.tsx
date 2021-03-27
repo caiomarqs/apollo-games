@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter as TwitterLogo,  faSteamSymbol as SteamLogo,  faInstagram as InstaLogo } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter as TwitterLogo,  faSteamSymbol as SteamLogo,  faInstagram as InstaLogo, faTwitch as TwitchLogo, faYoutube as YoutubeLogo} from '@fortawesome/free-brands-svg-icons'
 import { HashLink } from 'react-router-hash-link'
 import { connect } from 'react-redux'
 
@@ -56,6 +56,12 @@ class _MenuItems extends React.Component<MenuItemsProps> {
               </a>
               <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/apollogameslab/">
                 <FontAwesomeIcon icon={InstaLogo} />
+              </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCLN9FIqyuuGweIFbz2NvdRQ">
+                <FontAwesomeIcon icon={YoutubeLogo} />
+              </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.twitch.tv/apollogameslab">
+                <FontAwesomeIcon icon={TwitchLogo} />
               </a>
             </div>
           </li>

@@ -4,7 +4,6 @@ import _ from 'lodash';
 
 import { ActionTypes } from './types';
 import { history } from '../history';
-import { serialize } from 'v8';
 
 export interface TeamState {
   team: string;
