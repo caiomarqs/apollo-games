@@ -98,7 +98,11 @@ export const updateTeamMember = (member: TeamState) => async (
       });
       const older_img = older[0].img;
 
-      await axios.delete(`/api/service/delete/image/${older_img}`);
+      try {
+        await axios.delete(`/api/service/delete/image/${older_img}`);
+      } catch (error) {
+        console.log(error);
+      }
 
       const imgFile = new FormData();
       const data = (member.img as any) as FileList;
