@@ -84,6 +84,12 @@ export const formFields = [
         type: 'text',
         renderField: InputField,
       },
+      {
+        label: 'Behance',
+        name: 'behance',
+        type: 'text',
+        renderField: InputField,
+      },
     ],
   },
 ];
