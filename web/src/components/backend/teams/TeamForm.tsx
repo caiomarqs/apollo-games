@@ -114,6 +114,10 @@ const validate = (values: any) => {
 
   _.each(formFields, ({ name, noValueError }) => {
     if (!values[name]) errors[name] = noValueError;
+    if (name === 'img' && values[name] && values[name][0]) {
+      const filename = values[name][0].name;
+      console.log(filename);
+    }
   });
 
   return errors;
