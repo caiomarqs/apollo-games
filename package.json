@@ -10,7 +10,8 @@
   "scripts": {
     "heroku-prebuild": "npm i --prefix server",
     "start": "npm start --prefix server",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix web && npm run build --prefix web"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix web && npm run build --prefix web",
+    "vercel-build": "npm run heroku-prebuild && npm run heroku-postbuild"
   },
   "author": "baxhen && caiomarqs",
   "license": "ISC"
