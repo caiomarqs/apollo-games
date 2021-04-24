@@ -35,6 +35,7 @@ export const formFields = [
     label: 'Imagem para perfil',
     name: 'img',
     type: 'file',
+    accept: 'image/jpg, image/jpeg, image/png',
     renderField: FileInputField,
   },
   {
