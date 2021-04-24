@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { TeamState, deleteTeamMember } from '../../../actions';
 import { Badges } from './Badges';
 import { Gabage, Pencil } from '../../Icons';
+import { FormattedMessage } from 'react-intl';
 
 interface CardProps {
   profile: TeamState;
@@ -18,22 +19,16 @@ class _Card extends React.Component<CardProps> {
   };
 
   compileProfileImage = (img: string | undefined) => {
+    const defaultImage = (new Image().src =
+      '/uploads/fb91a1e8a763-principal_bg.jpeg');
+    const profileImage = (new Image().src = `/uploads/${img}`);
+
     if (img !== 'null' && img) {
-      return (
-        <div
-          className="img-container"
-          style={{ backgroundImage: `url(/uploads/${img})` }}
-        />
-      );
+      return <img className="img-container" src={profileImage} alt={img}></img>;
     }
 
     return (
-      <div
-        className="img-container"
-        style={{
-          backgroundImage: "url('/uploads/fb91a1e8a763-principal_bg.jpeg')",
-        }}
-      />
+      <img className="img-container" src={defaultImage} alt="padrao"></img>
     );
   };
 
@@ -66,7 +61,9 @@ class _Card extends React.Component<CardProps> {
             {this.compileProfileImage(img)}
             <div className="profile-info">
               <h6>{name}</h6>
-              <p className="profile-desc">{desc}</p>
+              <p className="profile-desc">
+                <FormattedMessage id={`${desc}`} />
+              </p>
               {contacts !== undefined ? <Badges contacts={contacts} /> : <></>}
             </div>
           </div>

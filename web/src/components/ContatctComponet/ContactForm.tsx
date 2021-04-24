@@ -1,10 +1,11 @@
 import React from 'react';
 import { Field, reduxForm, InjectedFormProps, reset } from 'redux-form';
 import _ from 'lodash';
+import { FormattedMessage } from 'react-intl';
 
 import { RenderField } from '../RenderField';
-// import { validateEmail } from '../../utils/validateEmail'
 import { Email } from '../../actions';
+
 
 const formFields = [
   {
@@ -12,37 +13,33 @@ const formFields = [
     name: 'name',
     type: 'text',
     field: 'input',
-    className: 'inputField',
-    // noValueError: 'Digite seu nome',
+    className: 'inputField'
   },
   {
     label: 'Email',
     name: 'from',
     type: 'email',
     field: 'input',
-    className: 'inputField',
-    // noValueError: 'Digite o email',
+    className: 'inputField'
   },
   {
     label: 'Assunto',
     name: 'subject',
     type: 'text',
     field: 'input',
-    className: 'inputField',
-    // noValueError: 'Digite o assunto',
+    className: 'inputField'
   },
   {
-    label: 'Mensagem',
+    label: '',
     name: 'text',
     field: 'textarea',
-    className: 'mensagem',
-    // noValueError: 'Digite o assunto',
+    className: 'mensagem'
   },
 ];
 
 type fieldsType = {
   name: string;
-  label: string;
+  label: JSX.Element;
   type: string;
   field: string;
   className: string;
@@ -59,7 +56,7 @@ class _ContactForm extends React.Component<
     const { pristine, submitting, handleSubmit, onSendEmail } = this.props;
     return (
       <div className="contact-form noselect">
-        <h5>Mande uma mensagem</h5>
+        <h5><FormattedMessage id="contatcForm.h5"/></h5>
         <form
           onSubmit={handleSubmit((formValues) => {
             onSendEmail(formValues);
@@ -83,14 +80,13 @@ class _ContactForm extends React.Component<
               );
             }
           )}
-          {/* <textarea className="mensagem"></textarea> */}
 
           <button
             className="noselect"
             disabled={pristine || submitting}
             type="submit"
           >
-            Enviar
+            <FormattedMessage id="contactForm.button"/>
           </button>
         </form>
       </div>

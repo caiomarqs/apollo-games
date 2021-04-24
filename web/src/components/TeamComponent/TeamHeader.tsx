@@ -6,6 +6,7 @@ import { history } from '../../history';
 import { tabKey } from './index';
 import { TabStateEnum, changeTabState } from '../../actions';
 import { StoreState } from '../../reducers';
+import { FormattedMessage } from 'react-intl';
 
 interface TeamHeaderProps {
   tabsKeys: tabKey[];
@@ -54,7 +55,7 @@ export class _TeamHeader extends React.Component<TeamHeaderProps> {
   render() {
     return (
       <ul className="nav nav-tabs noselect" id="myTab" role="tablist">
-        <h2>Time</h2>
+        <h2><FormattedMessage id="team.titulo"/></h2>
         {this.renderTabs(this.props.tabsKeys)}
       </ul>
     );

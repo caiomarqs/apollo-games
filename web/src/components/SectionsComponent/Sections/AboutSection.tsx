@@ -1,4 +1,5 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 const AboutSection = () => {
     return (
@@ -6,7 +7,7 @@ const AboutSection = () => {
             <div id="about">
                 <div className="container">
                     <div className="noselect about-title">
-                        <h2>Sobre o Lab</h2>
+                        <h2><FormattedMessage id="about.titulo" /></h2>
                         {/* <!-- <p className="sub-regular">Há duas coisas infinitas: o Universo e a nossa vontade de fazer jogos !</p> --> */}
                     </div>
                     <div className="device-container">
@@ -18,15 +19,7 @@ const AboutSection = () => {
                             <div className="asci noselect">
                                 <img src={require('../../../assets/contents/anim_apollo.gif')} alt="Appolo Gif Anmation" />
                             </div>
-                            <p>
-                                Olá ! Localizados em São Paulo, somos um time apaixonado e preparado para criar universos
-                                fantásticos dentro de nossos jogos, nossa equipe de alta performance tem foco na qualidade
-                                visual, questões técnicas e a diversão de nossos jogadores. Atualmente estamos criando projetos
-                                para computadores e celulares, trabalhamos de modo independente e estamos em busca de parceiros
-                                ou colaboração em nossa jornada.
-                                Só temos uma pergunta em nossa mente: Qual será o futuro dos games?
-                                A resposta: Nós!
-                    </p>
+                            <p><FormattedMessage id="about.p" /></p>
                         </div>
                         <div className="device-right">
                             <span className="four-btns"></span>
