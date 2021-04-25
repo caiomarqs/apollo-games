@@ -19,9 +19,10 @@ class _Card extends React.Component<CardProps> {
   };
 
   compileProfileImage = (img: string | undefined) => {
+    //firebasestorage.googleapis.com/v0/b/apollogameslab-f43c8.appspot.com/o/00584719dd0c-principal_bg.jpeg?alt=media
     const defaultImage = (new Image().src =
-      '/uploads/fb91a1e8a763-principal_bg.jpeg');
-    const profileImage = (new Image().src = `/uploads/${img}`);
+      'https://firebasestorage.googleapis.com/v0/b/apollogameslab-f43c8.appspot.com/o/00584719dd0c-principal_bg.jpeg?alt=media');
+    const profileImage = (new Image().src = `https://firebasestorage.googleapis.com/v0/b/apollogameslab-f43c8.appspot.com/o/${img}?alt=media`);
 
     if (img !== 'null' && img) {
       return <img className="img-container" src={profileImage} alt={img}></img>;
