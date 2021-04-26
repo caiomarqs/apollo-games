@@ -36,11 +36,11 @@ class _MenuItems extends React.Component<MenuItemsProps> {
               <FormattedMessage id="navItems.sobre" />
             </HashLink>
           </li>
-          <li className="nav-item btn-font" onClick={() => this.handlerMenu()}>
+          {/* <li className="nav-item btn-font" onClick={() => this.handlerMenu()}>
             <HashLink className="nav-link" to="/#games" >
               <FormattedMessage id="navItems.games" />
             </HashLink>
-          </li>
+          </li> */}
           <li className="nav-item btn-font" onClick={() => this.handlerMenu()}>
             <HashLink className="nav-link" to="/#team">
               <FormattedMessage id="navItems.time" />

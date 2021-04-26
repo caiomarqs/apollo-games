@@ -33,7 +33,7 @@ export const FooterBar = () => {
                 </Link>
               </li>
             </ul>
-            <ul className="nav flex-column col">
+            {/* <ul className="nav flex-column col">
               <li className="footer-title">
                 <span>
                   <FormattedMessage id="footer.games" />
@@ -49,7 +49,7 @@ export const FooterBar = () => {
                   INTZ Manager
                 </a>
               </li>
-            </ul>
+            </ul> */}
             <ul className="nav flex-column col">
               <li className="footer-title">
                 <span>Social</span>
