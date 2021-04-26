@@ -11,8 +11,7 @@ const GamesSection = () => {
                     </div>
                     <div className="games-cards noselect">
                         <div className="card">
-                            <h6>Aurora Dawn</h6>
-                            <p className="sub-regular"><FormattedMessage id="games.breve"/></p>
+                            <h6>Apollo Outter Space</h6>
                         </div>
                         <div className="card">
                             <h6>INTZ Manager</h6>

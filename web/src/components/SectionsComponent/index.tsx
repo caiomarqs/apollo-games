@@ -13,12 +13,14 @@ const Sections = () => {
                 bg="bg-black-200"
             />
             <AboutSection />
-            <WaveSeparator
+            {/* <WaveSeparator
                 inverted={true}
                 bg="bg-black-200"
+            /> */}
+            {/* <GamesSection /> */}
+            <WaveSeparator
+                fill= "#0a0a0a"
             />
-            <GamesSection />
-            <WaveSeparator/>
             <Team />
         </>
     )
